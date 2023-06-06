@@ -49,9 +49,9 @@ User.create!(
 )
 
 User.create!(
-  email: "ben@gmail.com",
+  email: "alex@gmail.com",
   password: 'secret',
-  first_name: "Ben",
+  first_name: "Alex",
   last_name: "Scott",
   gender: 1,
   date_of_birth: Date.parse("1985-12-07")
@@ -66,7 +66,7 @@ User.create!(
   date_of_birth: Date.parse("1975-11-13")
 )
 
-50.times do
+30.times do
   first_name = Faker::Name.female_first_name
   last_name = Faker::Name.last_name
 
@@ -80,7 +80,7 @@ User.create!(
   )
 end
 
-50.times do
+30.times do
   first_name = Faker::Name.male_first_name
   last_name = Faker::Name.last_name
 
@@ -94,7 +94,7 @@ end
   )
 end
 
-50.times do
+30.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
 
@@ -109,3 +109,15 @@ end
 end
 
 #CONCERTS:
+puts 'Fetching Concerts from TicketMaster....'
+url = ""
+response = URI.open(url).read
+data = JSON.parse(response)
+
+Concert.create!(
+  name: ,
+  address: ,
+  summary: ,
+  image: ,
+  date:
+)
