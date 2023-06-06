@@ -1,0 +1,73 @@
+.container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.card-list {
+  background-color: #fff;
+  color: black;
+}
+
+.card-list-head {
+  background-color: #ffe700;
+  color: black;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.card-list-head h2 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.card-list-infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.date-address {
+  display: flex;
+  align-items: flex-end;
+  margin-right: 10px;
+}
+
+.date {
+  font-size: 16px;
+}
+
+.month {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.day {
+  font-size: 24px;
+}
+
+.address {
+  font-size: 14px;
+}
+
+.city {
+  font-weight: 700px;
+  font-size: 18px;
+  color: #000000;
+  text-align: end;
+  padding: 10px;
+}
+
+.button {
+  background-color: #ff8800;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ff6600;
+}

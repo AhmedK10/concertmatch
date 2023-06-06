@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_091906) do
     t.string "name"
     t.string "address"
     t.text "summary"
-    t.string "image" #it can delete later
+    t.string "image"
     t.datetime "date", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
