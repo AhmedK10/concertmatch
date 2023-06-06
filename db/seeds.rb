@@ -7,8 +7,6 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
-require 'json'
-require 'open-uri'
 
 puts "deleting all old data....."
 User.destroy_all
@@ -19,7 +17,7 @@ Performance.destroy_all
 Forum.destroy_all
 Comment.destroy_all
 
-#USERS:
+# #USERS:
 puts 'Creating Users....'
 User.create!(
   email: "ben@gmail.com",
@@ -66,58 +64,100 @@ User.create!(
   date_of_birth: Date.parse("1975-11-13")
 )
 
-30.times do
-  first_name = Faker::Name.female_first_name
-  last_name = Faker::Name.last_name
+# 30.times do
+#   first_name = Faker::Name.female_first_name
+#   last_name = Faker::Name.last_name
 
-  User.create!(
-    email: "#{first_name.downcase}@gmail.com",
-    password: 'secret',
-    first_name: first_name,
-    last_name: last_name,
-    gender: 1,
-    date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
-  )
-end
+#   User.create!(
+#     email: "#{first_name.downcase}@gmail.com",
+#     password: 'secret',
+#     first_name: first_name,
+#     last_name: last_name,
+#     gender: 1,
+#     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
+#   )
+# end
 
-30.times do
-  first_name = Faker::Name.male_first_name
-  last_name = Faker::Name.last_name
+# 30.times do
+#   first_name = Faker::Name.male_first_name
+#   last_name = Faker::Name.last_name
 
-  User.create!(
-    email: "#{first_name.downcase}@gmail.com",
-    password: 'secret',
-    first_name: first_name,
-    last_name: last_name,
-    gender: 0,
-    date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
-  )
-end
+#   User.create!(
+#     email: "#{first_name.downcase}@gmail.com",
+#     password: 'secret',
+#     first_name: first_name,
+#     last_name: last_name,
+#     gender: 0,
+#     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
+#   )
+# end
 
-30.times do
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
+# 30.times do
+#   first_name = Faker::Name.first_name
+#   last_name = Faker::Name.last_name
 
-  User.create!(
-    email: "#{first_name.downcase}@gmail.com",
-    password: 'secret',
-    first_name: first_name,
-    last_name: last_name,
-    gender: 2,
-    date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
-  )
-end
+#   User.create!(
+#     email: "#{first_name.downcase}@gmail.com",
+#     password: 'secret',
+#     first_name: first_name,
+#     last_name: last_name,
+#     gender: 2,
+#     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
+#   )
+# end
 
 #CONCERTS:
 puts 'Fetching Concerts from TicketMaster....'
-url = ""
-response = URI.open(url).read
-data = JSON.parse(response)
+# url = ""
+# response = URI.open(url).read
+# data = JSON.parse(response)
 
-Concert.create!(
-  name: ,
-  address: ,
-  summary: ,
-  image: ,
-  date:
+# Concert.create!(
+#   name: ,
+#   address: ,
+#   summary: ,
+#   image: ,
+#   date:
+# )
+
+events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey=#{ENV["TICKETMASTERKEY"]}")
+#events_raw_ams = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?city=Amsterdam&size=1&apikey=#{ENV["TICKETMASTERKEY"]}")
+events = events_raw["_embedded"]["events"]
+
+events.each do |event|
+    Concert.create!(
+        name: event["name"],
+        address: event["_embedded"]["venues"][0]["address"]["line1"],
+        summary: "#{event["name"]}: a concert by #{event["_embedded"]["attractions"][0]["name"]}",
+        date: event["dates"]["start"]["dateTime"]
+    )
+end
+
+#Artist:
+Artist.create!(
+  name:
+)
+
+#Performances:
+Performance.create!(
+  artist_id: 1, concert_id: 1
+)
+
+Performance.create!(
+  artist_id: 2, concert_id: 1
+)
+
+#Forums:
+Forum.create!(
+  type: 0,
+  content: ,
+  user: ,
+  concert:
+)
+
+#Comments:
+Comment.create!(
+  content: "",
+  user: ,
+  forum: Forum.first
 )
