@@ -4,4 +4,8 @@ class Performance < ApplicationRecord
   
   validates :artist, presence: true
   validates :concert, presence: true
+  
+  has_many :comments, through: :concert
+  has_many :users, through: :concert, source: :favorites
+
 end
