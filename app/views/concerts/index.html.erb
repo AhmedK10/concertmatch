@@ -1,22 +1,29 @@
-<div class="banner-index bg-secondary">
+<div class="banner-index" style="background-image: url(<%= asset_url('index-banner-pic.jpg') %>)">
   <div class="banner-text justify-content-start align-items-center">
     <h6>Some info</h6>
-    <h2>Short heading here</h2>
+    <h1>Short heading here</h1>
     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci vero odit soluta. Est molestiae itaque at. Quaerat quidem at tempora perspiciatis in. Itaque tempore dignissimos quam voluptates inventore mollitia at.</p>
-    <%= link_to "A Button", "#", class: "btn btn-primary text-decoration-none"%>
-    <%= link_to "A Button", "#", class: "btn btn-primary text-decoration-none"%>
+    <%= link_to "List Buddies", "#", class: "button-purple text-decoration-none"%>
   </div>
 </div>
 
 <div class="container">
-  <div class="grid">
+  <div class="row justify-content-center">
     <% @concerts.each do |concert| %>
-      <div class="card-list bg-secondary">
-        <h3><%= concert.name %></h3>
-        <h3><%= concert.date %></h3>
-        <h3><%= concert.artist %></h3>
-        <h3><%= concert.genre %></h3>
-        <h3><%= concert.summary %></h3>
+      <div class="col-12 col-md-6 my-4">
+      <div class="card-list">
+      <h2><%= concert.name %></h2>
+      <div class="card-list-infos">
+        <div>
+          <div class="date">
+            <h2 class="month">May</h2>
+            <h2 class="day">19</h2>
+          </div>
+          <p class="address">Ziggo Dome, De Passage 100 - 1101</p>
+        </div>
+        <div class="card-list-button button-purple">Details</div>
+        <h3 class="card-list-city">Amsterdam</h3>
+        </div>
       </div>
     <% end %>
   </div>
