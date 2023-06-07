@@ -1,9 +1,9 @@
 <div class="banner-index" style="background-image: url(<%= asset_url('index-banner-pic.jpg') %>)">
   <div class="banner-text justify-content-start align-items-center">
-    <h6>Some info</h6>
-    <h1>Short heading here</h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci vero odit soluta. Est molestiae itaque at. Quaerat quidem at tempora perspiciatis in. Itaque tempore dignissimos quam voluptates inventore mollitia at.</p>
-    <%= link_to "List Buddies", "#", class: "button-purple text-decoration-none"%>
+    <h6>Experience the Thrill</h6>
+    <h1>An Unforgettable Concert Experience with New Friends</h1>
+    <p>Indulge in the thrill of live music and immerse yourself in the electric atmosphere of concerts. Feel the rhythm pulsating through your veins as talented artists take the stage, creating magical moments that will stay with you forever</p>
+    <%#= link_to "List Buddies", "#", class: "button-purple text-decoration-none"%>
   </div>
 </div>
 
@@ -16,10 +16,15 @@
       <div class="card-list-infos">
         <div>
           <div class="date">
-            <h2 class="month">May</h2>
-            <h2 class="day">19</h2>
+            <h2 class="month"><%= concert.date.strftime("%B") %></h2>
+            <h2 class="day"><%= concert.date.day %></h2>
+            <h2 class="day"><%= concert.date.strftime("%H:%M") %></h2>
           </div>
-          <p class="address">Ziggo Dome, De Passage 100 - 1101</p>
+          <div>
+            <p class="address">Artist: <%=concert.artist%></p>
+            <p class="address">Genre: <%=concert.genre%></p>
+            <p class="address">Address: <%=concert.address%></p>
+          </div>
         </div>
         <div class="card-list-button button-purple">Details</div>
         <h3 class="card-list-city">Amsterdam</h3>
