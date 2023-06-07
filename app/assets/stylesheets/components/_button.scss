@@ -1,0 +1,14 @@
+.button-purple {
+  background-color: $purple;
+  color: #fff;
+  padding: 10px 30px;
+  cursor: pointer;
+  font-size: 18px;
+
+}
+
+.button-purple:hover {
+  background-color: #ffe700;
+  color: black;
+  font-weight: bold;
+}
