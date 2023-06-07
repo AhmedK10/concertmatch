@@ -1,11 +1,20 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
       <%= link_to "/", class: "navbar-brand" do %>
-    <div class="logo-container">
+    <div class="logo-container flex-column d-flex align-items-center justify-content-center ">
       <%= image_tag "https://static.vecteezy.com/system/resources/previews/000/196/190/original/abstract-grunge-music-live-concert-poster-design-vector.jpg", style: 'width: 80px;' %>
       <p>ConcertMatch</p>
     </div>
+    <% end %>
+
+  <div class="row justify-content-center">
+    <div class="col-sm-12 my-6">
+      <%= form_with url: concerts_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search Concert, Genre or Artist", style: "width: 300px; margin-right: 10px;" %>
+        <%= submit_tag "Search", name: "", class: "button-navbar-purple" %>
       <% end %>
+    </div>
+  </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -13,26 +22,30 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+      <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
+          <%= link_to "Home", "/", class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Threads", "#", class: "nav-link" %>
         </li>
         <li class="nav-chat">
-          <%= link_to "Coversation", "#", class: "nav-link" %>
+          <%= link_to "Coversations", "#", class: "nav-link" %>
         </li>
-      </ul>
-
-    <div class="row d-flex  justify-content-center">
-      <div class="col-sm-12 my-6">
-        <%= form_with url: concerts_path, method: :get, class: "d-flex" do %>
-          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search destination", style: "margin-right: 10px;" %>
-          <%= submit_tag "Search", name: "", class: "btn btn-primary button" %>
-          <%= image_tag "https://thumbs.dreamstime.com/b/beautiful-girl-face-big-blue-eyes-27497766.jpg", class: "avatar-bordered", style: 'width: 40px;' %>
+        <li class="nav-item dropdown">
+          <%= image_tag "user-pic.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%= link_to "About us", "#", class: "dropdown-item action-link" %>
+            <%= link_to "Contact us", "#", class: "dropdown-item action-link" %>
+            <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item action-link", data: {turbo_method: :delete} %>
+          </div>
+        </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link button-navbar-purple" %>
+          </li>
         <% end %>
-      </div>
-    </div>
+      </ul>
     </div>
   </div>
 </div>

@@ -4,11 +4,21 @@
   padding: 10px 30px;
   cursor: pointer;
   font-size: 18px;
+  font-weight: bold;
 
 }
 
 .button-purple:hover {
   background-color: #ffe700;
   color: black;
+  font-weight: bold;
+}
+
+.button-navbar-purple {
+  background-color: $purple;
+  color: #fff;
+  padding: 3px 23px;
+  cursor: pointer;
+  font-size: 18px;
   font-weight: bold;
 }

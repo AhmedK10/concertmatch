@@ -3,7 +3,22 @@
 }
 
 .details-img {
-  height: 500px;
-  width: 500px;
   border-radius: 5px;
+  background-size: cover;
+  width: 500px;
+}
+
+.vertical-line {
+  border-left: 1px solid rgb(175, 162, 162); /* Adjust the width and color as needed */
+  height: 100px; /* Adjust the height as needed */
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.city-info {
+  h3 {
+    font-weight: bold;
+  }
 }
