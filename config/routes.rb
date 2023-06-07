@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/kitchen_sink", to: "pages#kitchen_sink"
 
   resources :concerts, only: [:index, :show] do
-    resources :forums, only: [:index, :create]
+    resources :forums, only: [:index, :create, :show]
     resources :favorites, only: [:create]
   end
 
