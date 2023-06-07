@@ -4,9 +4,8 @@ class ForumsController < ApplicationController
     @forums = @concert.forums
   end
 
-  # def show
-  #   # @forum = Forum.find(params[:id])
-  #   # @comments = @forum.comments
-  #   # @comment = Comment.new
-  # end
+  def show
+    @forum = Forum.find(params[:id])
+    @comment = Comment.new
+  end
 end

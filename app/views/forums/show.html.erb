@@ -1,0 +1,6 @@
+<%= form_for([@forum, @comment], url: forum_comments_path(@forum)) do |form| %>
+  <div class="form-group">
+    <%= form.text_area :content, placeholder: "Enter your comment here", rows: 4, class: "form-control" %>
+  </div>
+  <%= form.submit "Add Comment", class: "btn btn-primary" %>
+<% end %>
