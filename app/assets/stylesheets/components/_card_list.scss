@@ -1,0 +1,60 @@
+.card-list {
+  overflow: hidden;
+  background: #ffe700;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 800px;
+}
+
+.card-list > h2 {
+  color: black;
+}
+
+.card-list h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 15px;
+}
+
+.card-list .card-list-infos {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  background-color: white;
+}
+
+.card-list-infos > div {
+  display: flex;
+  align-items: center;
+  // height: 50px;
+}
+
+.card-list-infos .date {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90px;
+  padding: 20px 40px;
+  padding-left: 0px;
+  padding-bottom: 20px;
+}
+
+.card-list-infos .date .month,
+.card-list-infos .date .day {
+  margin: 0;
+}
+
+.card-list-infos .address {
+  margin: 0;
+}
+
+.card-list-infos .card-list-city {
+  position: absolute;
+  right: 100px;
+  top: 10px;
+  width: 50px;
+  font-size: 24px;
+}
