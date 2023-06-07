@@ -2,7 +2,7 @@ class Forum < ApplicationRecord
   belongs_to :user
   belongs_to :concert
 
-  enum type: { Accommodation: 0, Travel: 1, Buddies: 2 }
+  enum type: { accommodation: 0, travel: 1, buddies: 2 }
 
   validates :user, presence: true
   validates :concert, presence: true
