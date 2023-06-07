@@ -3,6 +3,9 @@ class ConcertsController < ApplicationController
 
   def index
     @concerts = Concert.all
+    if params[:query].present?
+      @concerts = @concerts.where("genre ILIKE ?", "%#{params[:query]}%")
+    end
   end
 
   def show
