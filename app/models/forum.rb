@@ -6,4 +6,7 @@ class Forum < ApplicationRecord
 
   validates :user, presence: true
   validates :concert, presence: true
+
+  has_many :comments
+
 end
