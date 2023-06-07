@@ -1,9 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-      <%= link_to "root_path", class: "navbar-brand" do %>
+      <%= link_to "/", class: "navbar-brand" do %>
     <div class="logo-container">
       <%= image_tag "https://static.vecteezy.com/system/resources/previews/000/196/190/original/abstract-grunge-music-live-concert-poster-design-vector.jpg", style: 'width: 80px;' %>
-      <p>Concertmatch</p>
+      <p>ConcertMatch</p>
     </div>
       <% end %>
 
@@ -26,8 +26,8 @@
 
     <div class="row d-flex  justify-content-center">
       <div class="col-sm-12 my-6">
-        <%= form_with url: "#", method: :get, class: "d-flex" do %>
-          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search", style: "margin-right: 10px;" %>
+        <%= form_with url: concerts_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search destination", style: "margin-right: 10px;" %>
           <%= submit_tag "Search", name: "", class: "btn btn-primary button" %>
           <%= image_tag "https://thumbs.dreamstime.com/b/beautiful-girl-face-big-blue-eyes-27497766.jpg", class: "avatar-bordered", style: 'width: 40px;' %>
         <% end %>
