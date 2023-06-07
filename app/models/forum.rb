@@ -8,5 +8,4 @@ class Forum < ApplicationRecord
   validates :concert, presence: true
 
   has_many :comments
-
 end
