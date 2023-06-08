@@ -66,29 +66,30 @@ User.create!(
   first_name = Faker::Name.unique.female_first_name
   last_name = Faker::Name.last_name
 
-  User.create!(
-    email: "#{first_name.downcase}@gmail.com",
-    password: 'secret',
-    first_name: first_name,
-    last_name: last_name,
-    gender: 1,
-    date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
-  )
-end
+#   User.create!(
+#     email: "#{first_name.downcase}@gmail.com",
+#     password: 'secret',
+#     first_name: first_name,
+#     last_name: last_name,
+#     gender: 1,
+#     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
+#   )
+# end
 
 15.times do
   first_name = Faker::Name.unique.male_first_name
   last_name = Faker::Name.last_name
 
-  User.create!(
-    email: "#{first_name.downcase}@gmail.com",
-    password: 'secret',
-    first_name: first_name,
-    last_name: last_name,
-    gender: 0,
-    date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
-  )
-end
+#   User.create!(
+#     email: "#{first_name.downcase}@gmail.com",
+#     password: 'secret',
+#     first_name: first_name,
+#     last_name: last_name,
+#     gender: 0,
+#     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
+#   )
+# end
+
 
 15.times do
   unique_id = SecureRandom.hex(4) # Generate a unique identifier
