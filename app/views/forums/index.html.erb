@@ -24,13 +24,37 @@
   </div>
 
   <div class="board-select">
-    <%= form_with url: concert_forums_path(@concert), method: :get, class: "d-flex" do |f| %>
-      <%= select_tag :board_type,
-        options_for_select(Forum.boards.keys.map { |key| [key.humanize, key] }),
-        class: "form-control smaller-input",
-        style: "margin-right: 10px;"
-          %>
-      <%= submit_tag "Filter", name: "", class: "button-navbar-purple" %>
-    <% end %>
+    <div>
+      <%= form_with url: concert_forums_path(@concert), method: :get, class: "d-flex" do |f| %>
+        <%= select_tag :board_type,
+          options_for_select(Forum.boards.keys.map { |key| [key.humanize, key] }),
+          class: "form-control smaller-input",
+          style: "margin-right: 10px;"
+            %>
+        <%= submit_tag "Filter", name: "", class: "button-navbar-purple" %>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form_with url: concert_forums_path(@concert), method: :get, class: "d-flex" do |f| %>
+        <%= select_tag :board_type,
+          options_for_select(User.genders.keys.map { |key| [key.humanize, key] }),
+          class: "form-control smaller-input",
+          style: "margin-right: 10px;"
+            %>
+        <%= submit_tag "Filter", name: "", class: "button-navbar-purple" %>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form_with url: concert_forums_path(@concert), method: :get, class: "d-flex" do |f| %>
+        <%= select_tag :board_type,
+          options_for_select(Forum.boards.keys.map { |key| [key.humanize, key] }),
+          class: "form-control smaller-input",
+          style: "margin-right: 10px;"
+            %>
+        <%= submit_tag "Filter", name: "", class: "button-navbar-purple" %>
+      <% end %>
+    </div>
   </div>
 </div>
