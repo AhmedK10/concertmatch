@@ -62,47 +62,47 @@ User.create!(
   date_of_birth: Date.parse("1975-11-13")
 )
 
-30.times do
-  first_name = Faker::Name.female_first_name
-  last_name = Faker::Name.last_name
+# 30.times do
+#   first_name = Faker::Name.female_first_name
+#   last_name = Faker::Name.last_name
 
-  User.create!(
-    email: "#{first_name.downcase}@gmail.com",
-    password: 'secret',
-    first_name: first_name,
-    last_name: last_name,
-    gender: 1,
-    date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
-  )
-end
+#   User.create!(
+#     email: "#{first_name.downcase}@gmail.com",
+#     password: 'secret',
+#     first_name: first_name,
+#     last_name: last_name,
+#     gender: 1,
+#     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
+#   )
+# end
 
-30.times do
-  first_name = Faker::Name.male_first_name
-  last_name = Faker::Name.last_name
+# 30.times do
+#   first_name = Faker::Name.male_first_name
+#   last_name = Faker::Name.last_name
 
-  User.create!(
-    email: "#{first_name.downcase}@gmail.com",
-    password: 'secret',
-    first_name: first_name,
-    last_name: last_name,
-    gender: 0,
-    date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
-  )
-end
+#   User.create!(
+#     email: "#{first_name.downcase}@gmail.com",
+#     password: 'secret',
+#     first_name: first_name,
+#     last_name: last_name,
+#     gender: 0,
+#     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
+#   )
+# end
 
-30.times do
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
+# 30.times do
+#   first_name = Faker::Name.first_name
+#   last_name = Faker::Name.last_name
 
-  User.create!(
-    email: "#{first_name.downcase}@gmail.com",
-    password: 'secret',
-    first_name: first_name,
-    last_name: last_name,
-    gender: 2,
-    date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
-  )
-end
+#   User.create!(
+#     email: "#{first_name.downcase}@gmail.com",
+#     password: 'secret',
+#     first_name: first_name,
+#     last_name: last_name,
+#     gender: 2,
+#     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
+#   )
+# end
 
 #CONCERTS:
 puts 'Fetching Concerts from TicketMaster....'

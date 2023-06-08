@@ -1,2 +1,77 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="banner">    
+  <div class="banner-text" style="font-family: 'Averta', 'Helvetica', 'Arial', sans-serif;">
+      <h1>Join us on an exhilarating journey</h1>       
+      <p>Find your next concert buddy</P>
+  </div>     
+</div>
+<div class="container">
+  <div class="title text-center py-4" >
+ 
+    <h4>Upcoming Events in Amsterdam</h4>
+  </div>
+  
+
+  <div class="d-flex grid featured">
+    <% @concerts.each do |concert| %>
+      <div class="card">
+        <%= link_to concert_path(concert) do %>
+          <div class="card-img" style="background-image: url()"></div>
+        <% end %>
+        <div class="card-infos">
+          <div>
+            <h3><%= concert.name %></h3>
+            <%= concert.address %>
+          </div>
+          <h3><%= concert.artist %></h3>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  
+  <div class="d-flex justify-content-around">
+    <div class="journey">
+      <h6>How it works?</h6>
+      <h4>User Journey</h4>
+      <button type="button" class="button-purple">Learn More</button>
+    </div>
+
+    <div class="details">
+      <div class="segment"> 
+      <div class="icon">
+        <i class="fa-solid fa-compact-disc fa-flip fa-2x"></i>
+      </div>
+        <h5>Search for your concert</h5>
+        <h6>Catch the rhythm of your favorite artists</h6>
+      </div>
+
+      <div class="segment">
+      <div class="icon">
+        <i class="fa-solid fa-compact-disc fa-flip fa-2x"></i>
+      </div>
+        <h5>Select the most suitable date and location</h5>
+        <h6>Explore a variety of dates and locations and choose the perfect combination</h6>
+      </div>
+
+       <div class="segment">
+        <div class="icon">
+        <i class="fa-solid fa-compact-disc fa-flip fa-2x"></i>
+      </div>
+        <h5>Join our threads</h5>
+        <h6>Join the vibrant community and dive into lively discussions</h6>
+      </div>
+
+      <div class="segment">
+       <div class="icon">
+        <i class="fa-solid fa-compact-disc fa-flip fa-2x"></i>
+      </div>
+        <h5>Start connecting</h5>
+        <h6>You begin to forge new friendships and shared experiences</h6>
+      </div>
+    </div>
+  </div>
+
+
+
+

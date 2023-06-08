@@ -1,1 +1,63 @@
 // Specific CSS for your home-page
+.banner {
+    width: 100%;
+    height: auto;
+    background-image: url("banner.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    margin-bottom: 20px;
+}
+
+.banner-text {
+    padding: 160px 0;
+    padding-left: 20px;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;   
+}
+
+.events {
+    color: black;
+    text-shadow: 2px 2px 4px hsl(0, 0%, 100%); 
+    
+}
+
+.journey-text {
+    color: black;
+    text-shadow: 2px 2px 4px hsl(0, 0%, 100%); 
+}
+
+.featured {
+    margin-bottom: 7rem;
+}
+
+.journey a {
+    text-decoration: none;
+    font-size: smaller;
+}
+
+.details {
+    padding-left: 3rem;
+    //border-left: solid;
+    margin-left: 10rem;
+}
+
+.details h6 {
+    font-size: smaller;
+}
+
+.details h5 {
+    font-size: smaller;
+    font-weight: bold; 
+}
+
+.segment {
+    padding-bottom: 2rem;
+    position: relative;
+}
+
+.icon {
+    position:absolute;
+    left:-65px;
+    top:0px;
+}
