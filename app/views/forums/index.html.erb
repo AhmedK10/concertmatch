@@ -4,7 +4,7 @@
       <%= link_to concert_forum_path(forum.concert, forum), class: "full-card-link" do %>
         <div class="card">
           <div class="user-info">
-            <% if forum.user.gender == 0 %>
+            <% if forum.user.gender == "male" %>
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
             <% else %>
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
@@ -20,5 +20,8 @@
         </div>
       <% end %>
     <% end %>
+  </div>
+
+  <div class="board-select">
   </div>
 </div>
