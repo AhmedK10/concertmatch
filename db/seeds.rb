@@ -91,6 +91,7 @@ end
   )
 end
 
+
 15.times do
   unique_id = SecureRandom.hex(4) # Generate a unique identifier
   first_name = Faker::Name.unique.first_name
@@ -108,21 +109,25 @@ end
 
 #CONCERTS:
 puts 'Fetching Concerts from TicketMaster....'
-events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=100&apikey=#{ENV["TICKETMASTERKEY"]}")
+events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=200&apikey=#{ENV["TICKETMASTERKEY"]}")
 #events_raw_ams = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?city=Amsterdam&size=1&apikey=#{ENV["TICKETMASTERKEY"]}")
 #puts events_raw
 events = events_raw["_embedded"]["events"]
-
+#p events.count
 events.each do |event|
+  sports = event["classifications"][0]["segment"]["name"] == "Sports"
+  theatre = event["classifications"][0]["genre"]["name"] == "Theatre"
+  art = event["classifications"][0]["genre"]["name"] == "Performance Art"
+  next if sports || theatre || art
   Concert.create!(
-    name: event["name"],
-    address: event["_embedded"]["venues"][0]["address"]["line1"],
-    summary: "#{event["name"]}: a concert by #{event["_embedded"]["attractions"][0]["name"]}",
-    date: event["dates"]["start"]["dateTime"],
-    artist: event["_embedded"]["attractions"][0]["name"],
-    genre: event["classifications"][0]["genre"]["name"]
-    )
-end
+      name: event["name"],
+      address: event["_embedded"]["venues"][0]["address"]["line1"],
+      summary: "#{event["name"]}: a concert by #{event["_embedded"]["attractions"][0]["name"]}",
+      date: event["dates"]["start"]["dateTime"],
+      artist: event["_embedded"]["attractions"][0]["name"],
+      genre: event["classifications"][0]["genre"]["name"]
+      )
+      end
 
 puts "Creating Fromus and comments"
 
@@ -137,7 +142,7 @@ concerts.each do |concert|
     # forum_type = Forum.types.keys.sample
 
     Forum.create!(
-      # type: forum_type,
+      board: [0, 1, 2].sample,
       content: Faker::Lorem.paragraph(sentence_count: 3),
       user: user,
       concert: concert
@@ -151,5 +156,5 @@ concerts.each do |concert|
     #     user: user
     #   )
     # end
+    end
   end
-end
