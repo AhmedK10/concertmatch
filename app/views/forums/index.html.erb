@@ -1,43 +1,49 @@
-<div class="container">
-  <%= simple_form_for [@concert, @forum] do |f| %>
-    <%= f.input :content, placeholder: "Enter content", class: "form-control smaller-input", style: "margin-right: 10px;" %>
+<div class="body-lavanda">
+  <div class="white-box">
+    <div class="container">
+      <div class="form">
+        <%= simple_form_for [@concert, @forum] do |f| %>
+          <%= f.input :content, placeholder: "Enter content", class: "smaller-input", style: "margin-right: 10px;" %>
 
-    <% Forum.boards.keys.each do |key| %>
-      <div class="form-check form-check-inline">
-        <%= check_box_tag 'forum[board][]', key, false, id: "board_#{key}" %>
-        <%= label_tag "board_#{key}", key.humanize, class: "form-check-label" %>
-      </div>
-    <% end %>
-
-    <%= f.submit "Post", class: "button-navbar-purple" %>
-  <% end %>
-</div>
-
- <div class="container d-flex"> 
-  <div class="card-forum">
-    <% @forums.each do |forum| %>
-      <%= link_to concert_forum_path(forum.concert, forum), class: "full-card-link" do %>
-        <div class="card">
-          <div class="user-info">
-           <% if forum.user.gender == "male" %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
-            <% else %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
+          <div class="board-checkboxes">
+            <% Forum.boards.keys.each do |key| %>
+              <div class="form-check">
+                <%= check_box_tag 'forum[board][]', key, false, id: "board_#{key}", class: "form-check-input" %>
+                <%= label_tag "board_#{key}", key.humanize, class: "form-check-label" %>
+              </div>
             <% end %>
-            <div class="user-first_name">
-              <h2><%= forum.user.first_name %></h2>
-              <p class="timestamp"><%= forum.created_at.strftime("%B %d, %Y %H:%M") %></p>
+          </div>
+
+          <%= f.submit "Post", class: "button-navbar-purple" %>
+        <% end %>
+      </div>
+    </div>
+
+   <div class="container d-flex"> 
+    <div class="card-forum">
+      <% @forums.each do |forum| %>
+        <%= link_to concert_forum_path(forum.concert, forum), class: "full-card-link" do %>
+          <div class="card">
+            <div class="user-info">
+             <% if forum.user.gender == "male" %>
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
+              <% else %>
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
+              <% end %>
+              <div class="user-first_name">
+                <h2><%= forum.user.first_name %></h2>
+                <p class="timestamp"><%= forum.created_at.strftime("%B %d, %Y %H:%M") %></p>
+              </div>
+            </div>
+            <div class="forum-info d-flex justify-content-between">
+              <p class="content"><%= forum.content %></p>
+              <p class="content"><%= forum.board %></p>
             </div>
           </div>
-          <div class="forum-info d-flex justify-content-between">
-            <p class="content"><%= forum.content %></p>
-            <p class="content"><%= forum.board %></p>
-          </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
 
   <div class="board-select">
     <div>
