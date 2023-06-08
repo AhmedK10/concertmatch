@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container d-flex">
   <div class="card-forum">
     <% @forums.each do |forum| %>
       <%= link_to concert_forum_path(forum.concert, forum), class: "full-card-link" do %>
@@ -14,8 +14,9 @@
               <p class="timestamp"><%= forum.created_at.strftime("%B %d, %Y %H:%M") %></p>
             </div>
           </div>
-          <div class="forum-info">
+          <div class="forum-info d-flex justify-content-between">
             <p class="content"><%= forum.content %></p>
+            <p class="content"><%= forum.board %></p>
           </div>
         </div>
       <% end %>
@@ -23,5 +24,13 @@
   </div>
 
   <div class="board-select">
+    <%= form_with url: concert_forums_path(@concert), method: :get, class: "d-flex" do |f| %>
+      <%= select_tag :board_type,
+        options_for_select(Forum.boards.keys.map { |key| [key.humanize, key] }),
+        class: "form-control smaller-input",
+        style: "margin-right: 10px;"
+          %>
+      <%= submit_tag "Filter", name: "", class: "button-navbar-purple" %>
+    <% end %>
   </div>
 </div>
