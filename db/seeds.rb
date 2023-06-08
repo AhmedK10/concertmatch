@@ -62,9 +62,9 @@ User.create!(
   date_of_birth: Date.parse("1975-11-13")
 )
 
-# 30.times do
-#   first_name = Faker::Name.female_first_name
-#   last_name = Faker::Name.last_name
+15.times do
+  first_name = Faker::Name.unique.female_first_name
+  last_name = Faker::Name.last_name
 
 #   User.create!(
 #     email: "#{first_name.downcase}@gmail.com",
@@ -76,9 +76,9 @@ User.create!(
 #   )
 # end
 
-# 30.times do
-#   first_name = Faker::Name.male_first_name
-#   last_name = Faker::Name.last_name
+15.times do
+  first_name = Faker::Name.unique.male_first_name
+  last_name = Faker::Name.last_name
 
 #   User.create!(
 #     email: "#{first_name.downcase}@gmail.com",
@@ -90,33 +90,70 @@ User.create!(
 #   )
 # end
 
-# 30.times do
-#   first_name = Faker::Name.first_name
-#   last_name = Faker::Name.last_name
 
-#   User.create!(
-#     email: "#{first_name.downcase}@gmail.com",
-#     password: 'secret',
-#     first_name: first_name,
-#     last_name: last_name,
-#     gender: 2,
-#     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
-#   )
-# end
+15.times do
+  unique_id = SecureRandom.hex(4) # Generate a unique identifier
+  first_name = Faker::Name.unique.first_name
+  last_name = Faker::Name.last_name
+
+  User.create!(
+    email: "#{first_name.downcase}#{unique_id}@gmail.com",
+    password: 'secret',
+    first_name: first_name,
+    last_name: last_name,
+    gender: 2,
+    date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
+  )
+end
 
 #CONCERTS:
 puts 'Fetching Concerts from TicketMaster....'
-events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=100&apikey=#{ENV["TICKETMASTERKEY"]}")
+events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=200&apikey=#{ENV["TICKETMASTERKEY"]}")
 #events_raw_ams = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?city=Amsterdam&size=1&apikey=#{ENV["TICKETMASTERKEY"]}")
+#puts events_raw
 events = events_raw["_embedded"]["events"]
-
+p events.count
 events.each do |event|
-    Concert.create!(
-        name: event["name"],
-        address: event["_embedded"]["venues"][0]["address"]["line1"],
-        summary: "#{event["name"]}: a concert by #{event["_embedded"]["attractions"][0]["name"]}",
-        date: event["dates"]["start"]["dateTime"],
-        artist: event["_embedded"]["attractions"][0]["name"],
-        genre: event["classifications"][0]["genre"]["name"]
+  sports = event["classifications"][0]["segment"]["name"] == "Sports"
+  theatre = event["classifications"][0]["genre"]["name"] == "Theatre"
+  art = event["classifications"][0]["genre"]["name"] == "Performance Art"
+  next if sports || theatre || art
+  Concert.create!(
+      name: event["name"],
+      address: event["_embedded"]["venues"][0]["address"]["line1"],
+      summary: "#{event["name"]}: a concert by #{event["_embedded"]["attractions"][0]["name"]}",
+      date: event["dates"]["start"]["dateTime"],
+      artist: event["_embedded"]["attractions"][0]["name"],
+      genre: event["classifications"][0]["genre"]["name"]
+      )
+end
+
+puts "Creating Fromus and comments"
+
+concerts = Concert.all
+users = User.all
+
+concerts.each do |concert|
+  num_forums = rand(3..5)
+
+  num_forums.times do
+    user = users.sample
+    # forum_type = Forum.types.keys.sample
+
+    Forum.create!(
+      # type: forum_type,
+      content: Faker::Lorem.paragraph(sentence_count: 3),
+      user: user,
+      concert: concert
     )
+
+    # num_comments = rand(2..5)
+    # num_comments.time do
+    #   Comment.create!(
+    #     content: Faker::Lorem.sentence,
+    #     forum: forum,
+    #     user: user
+    #   )
+    # end
+  end
 end

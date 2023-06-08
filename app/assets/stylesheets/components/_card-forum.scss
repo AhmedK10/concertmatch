@@ -1,0 +1,61 @@
+.card-forum {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 800px;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.forum-info {
+  margin-top: 10px;
+}
+
+.timestamp {
+  color: #888;
+  font-size: 14px;
+}
+
+.content {
+  margin-top: 10px;
+}
+
+.user-first_name {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+  h2 {
+    margin-bottom: 2px;
+    height: 30px;
+  }
+
+  p {
+    margin-bottom: 0px;
+    margin-top: 5px;
+  }
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.full-card-link {
+  text-decoration: none;
+}

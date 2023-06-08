@@ -1,19 +1,35 @@
-<div class="banner-index bg-secondary">
+<div class="banner-index" style="background-image: url(<%= asset_url('index-banner-pic.jpg') %>)">
   <div class="banner-text justify-content-start align-items-center">
-    <h6>Some info</h6>
-    <h2>Short heading here</h2>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci vero odit soluta. Est molestiae itaque at. Quaerat quidem at tempora perspiciatis in. Itaque tempore dignissimos quam voluptates inventore mollitia at.</p>
+    <h6>Experience the Thrill</h6>
+    <h1>An Unforgettable Concert Experience with New Friends</h1>
+    <p>Indulge in the thrill of live music and immerse yourself in the electric atmosphere of concerts. Feel the rhythm pulsating through your veins as talented artists take the stage, creating magical moments that will stay with you forever</p>
+    <%#= link_to "List Buddies", "#", class: "button-purple text-decoration-none"%>
   </div>
 </div>
 
 <div class="container">
-  <div class="grid">
+  <div class="row justify-content-center">
     <% @concerts.each do |concert| %>
-      <div class="card_list bg-secondary">
-        <h3><%= concert.name %></h3>
-        <h3><%= concert.date %></h3>
-        <h3><%= concert.artist %></h3>
-        <h3><%= concert.address %></h3>
+      <div class="col-12 col-md-6 my-4">
+      <div class="card-list">
+      <h2><%= concert.name %></h2>
+      <div class="card-list-infos">
+          <div class="date">
+            <h2 class="month"><%= concert.date.strftime("%B") %></h2>
+            <h2 class="day"><%= concert.date.day %></h2>
+          </div>
+          <div style="display: flex; justify-content: center;">
+            <div style="text-align: center;">
+              <h2 class="address py-1"><%= concert.artist %></h2>
+              <h2 class="address py-1"><%= concert.genre.capitalize %> Music</h2>
+              <h4 class="address"><%= concert.address %></h4>
+            </div>
+          </div>
+        <div class="d-flex align-items-center">
+          <h3 class="card-list-city">Amsterdam</h3>
+          <%= link_to "Details", concert_path(concert), class:"card-list-button button-purple text-decoration-none"%>
+        </div>
+        </div>
       </div>
     <% end %>
   </div>
