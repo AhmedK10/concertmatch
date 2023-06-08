@@ -9,5 +9,8 @@ class ForumsController < ApplicationController
     @comment = Comment.new
   end
 
-  
+  def new
+    @concert = Concert.find(params[:concert_id])
+    @forum = Forum.new
+  end
 end
