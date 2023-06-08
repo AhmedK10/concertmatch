@@ -1,11 +1,12 @@
 .button-purple {
   background-color: $purple;
   color: #fff;
-  padding: 5px 10px;
+  padding: 5px 15px;
   cursor: pointer;
   font-size: 18px;
   display: inline-block;
   font-weight: bold;
+  border-radius: 2px;
 
 }
 
@@ -23,4 +24,3 @@
   font-size: 18px;
   font-weight: bold;
 }
-
