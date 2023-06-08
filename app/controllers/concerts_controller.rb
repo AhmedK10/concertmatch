@@ -16,5 +16,6 @@ class ConcertsController < ApplicationController
 
   def show
     @concert = Concert.find(params[:id])
+    @favorites = @concert.favorites
   end
 end
