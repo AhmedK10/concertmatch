@@ -3,4 +3,9 @@ class ForumsController < ApplicationController
     @concert = Concert.find(params[:concert_id])
     @forums = @concert.forums
   end
+
+  def show
+    @forum = Forum.find(params[:id])
+    @comment = Comment.new
+  end
 end
