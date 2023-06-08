@@ -16,11 +16,9 @@
           <h3 class="card-list-city">Amsterdam</h3>
         </div>
       </div>
-      <div class="d-flex justify-content-center me-7 my-3">
 
-        <button type="button" class="card-list-button button-purple text-decoration-none" data-bs-toggle="modal" data-bs-target="#buddyModal">
-          Buddies
-        </button>
+      <div class="d-flex justify-content-center me-7 my-3">
+        <%= link_to "Buddies", "#", class: "card-list-button button-purple me-3 text-decoration-none", "data-bs-toggle": "modal", "data-bs-target": "#buddyModal" %>
         <%= link_to "Interested", concert_forums_path(@concert), class:"card-list-button button-purple text-decoration-none"%>
       </div>
 
