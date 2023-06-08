@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :forums, only: :destroy do
-    resources :comments, only: :create
+    resources :comments, only: [:new ,:create]
   end
 
   resources :favorites, only: :destroy
