@@ -31,15 +31,8 @@
     margin-bottom: 7rem;
 }
 
-.journey a {
-    text-decoration: none;
-    font-size: smaller;
-}
-
-.details {
-    padding-left: 3rem;
-    //border-left: solid;
-    margin-left: 10rem;
+.d-flex {
+    text-align: justify;
 }
 
 .details h6 {
@@ -51,13 +44,25 @@
     font-weight: bold; 
 }
 
-.segment {
-    padding-bottom: 2rem;
-    position: relative;
+.about-info p {
+    text-align: justify;
+    padding-left: 3rem;
+    padding-top: auto;
+    padding-top: 1rem;
 }
 
-.icon {
-    position:absolute;
-    left:-65px;
-    top:0px;
+.about-img {
+    margin-top: 2rem;
+}
+
+.about {
+    padding-bottom: 6rem;
+}
+
+.big-margin-bottom {
+    margin-bottom: 4rem;
+}
+
+.font-size {
+    font-size: 24px;
 }
