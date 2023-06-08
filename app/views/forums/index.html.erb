@@ -1,5 +1,16 @@
 <div class="container">
-  
+  <%= simple_form_for [@concert, @forum] do |f| %>
+    <%= f.input :content, placeholder: "Enter content", class: "form-control smaller-input", style: "margin-right: 10px;" %>
+
+    <% Forum.boards.keys.each do |key| %>
+      <div class="form-check form-check-inline">
+        <%= check_box_tag 'forum[board][]', key, false, id: "board_#{key}" %>
+        <%= label_tag "board_#{key}", key.humanize, class: "form-check-label" %>
+      </div>
+    <% end %>
+
+    <%= f.submit "Post", class: "button-navbar-purple" %>
+  <% end %>
 </div>
 
 <div class="container">
@@ -8,7 +19,7 @@
       <%= link_to concert_forum_path(forum.concert, forum), class: "full-card-link" do %>
         <div class="card">
           <div class="user-info">
-            <% if forum.user.gender == "male" %>
+           <% if forum.user.gender == "male" %>
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
             <% else %>
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
@@ -24,8 +35,5 @@
         </div>
       <% end %>
     <% end %>
-  </div>
-
-  <div class="board-select">
   </div>
 </div>
