@@ -66,29 +66,29 @@ User.create!(
   first_name = Faker::Name.unique.female_first_name
   last_name = Faker::Name.last_name
 
-#   User.create!(
-#     email: "#{first_name.downcase}@gmail.com",
-#     password: 'secret',
-#     first_name: first_name,
-#     last_name: last_name,
-#     gender: 1,
-#     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
-#   )
-# end
+  User.create!(
+    email: "#{first_name.downcase}@gmail.com",
+    password: 'secret',
+    first_name: first_name,
+    last_name: last_name,
+    gender: 1,
+    date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
+  )
+end
 
 15.times do
   first_name = Faker::Name.unique.male_first_name
   last_name = Faker::Name.last_name
 
-#   User.create!(
-#     email: "#{first_name.downcase}@gmail.com",
-#     password: 'secret',
-#     first_name: first_name,
-#     last_name: last_name,
-#     gender: 0,
-#     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
-#   )
-# end
+  User.create!(
+    email: "#{first_name.downcase}@gmail.com",
+    password: 'secret',
+    first_name: first_name,
+    last_name: last_name,
+    gender: 0,
+    date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75)
+  )
+end
 
 
 15.times do
@@ -112,7 +112,7 @@ events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json
 #events_raw_ams = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?city=Amsterdam&size=1&apikey=#{ENV["TICKETMASTERKEY"]}")
 #puts events_raw
 events = events_raw["_embedded"]["events"]
-p events.count
+#p events.count
 events.each do |event|
   sports = event["classifications"][0]["segment"]["name"] == "Sports"
   theatre = event["classifications"][0]["genre"]["name"] == "Theatre"
@@ -126,7 +126,7 @@ events.each do |event|
       artist: event["_embedded"]["attractions"][0]["name"],
       genre: event["classifications"][0]["genre"]["name"]
       )
-end
+      end
 
 puts "Creating Fromus and comments"
 
@@ -141,7 +141,7 @@ concerts.each do |concert|
     # forum_type = Forum.types.keys.sample
 
     Forum.create!(
-      # type: forum_type,
+      board: [0, 1, 2].sample,
       content: Faker::Lorem.paragraph(sentence_count: 3),
       user: user,
       concert: concert
@@ -155,5 +155,5 @@ concerts.each do |concert|
     #     user: user
     #   )
     # end
+    end
   end
-end
