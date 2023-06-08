@@ -8,4 +8,6 @@ class ForumsController < ApplicationController
     @forum = Forum.find(params[:id])
     @comment = Comment.new
   end
+
+  
 end
