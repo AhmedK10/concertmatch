@@ -1,0 +1,11 @@
+<div>
+  <% if !@favorite.empty? %>
+  <% @favorite.each do |f| %>
+    <%= image_tag "user-pic.png" %>
+    <%= f.user.first_name %>
+  <% end %>
+  <% else %>
+    <%= 'Buddies not found' %>
+  <% end %>
+</div>
+
