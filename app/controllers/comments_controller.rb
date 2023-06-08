@@ -1,16 +1,14 @@
 class CommentsController < ApplicationController
-  def new
-    @comment = Comment.new
-  end
-
   def create
     @forum = Forum.find(params[:forum_id])
-    @comment = @forum.comments.build(comment_params)
+    @comment = Comment.new(comment_params)
+    @comment.forum = @forum
+    @comment.user = current_user
 
     if @comment.save
-      redirect_to concert_forum_path(@forum)
+      redirect_to forum_comments_path(@forum)
     else
-      render :new, status: :unprocessable_entity
+      render "forums/show", :unprocessable_entity
     end
   end
 
