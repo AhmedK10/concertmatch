@@ -10,7 +10,7 @@
     <div class="col-sm-12 my-6">
       <%= form_with url: concerts_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search Concert, Genre or Artist", style: "width: 300px; margin-right: 10px;" %>
-        <%= submit_tag "Search", name: "", class: "button-navbar-purple" %>
+        <%= submit_tag "Search", name: "", class: "nav-link button-navbar-purple" %>
       <% end %>
     </div>
   </div>

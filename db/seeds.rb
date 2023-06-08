@@ -121,7 +121,7 @@ events.each do |event|
   next if sports || theatre || art
   Concert.create!(
       name: event["name"],
-      address: event["_embedded"]["venues"][0]["address"]["line1"],
+      address: "#{event["_embedded"]["venues"][0]["name"]}, #{event["_embedded"]["venues"][0]["address"]["line1"]}",
       summary: "#{event["name"]}: a concert by #{event["_embedded"]["attractions"][0]["name"]}",
       date: event["dates"]["start"]["dateTime"],
       artist: event["_embedded"]["attractions"][0]["name"],
