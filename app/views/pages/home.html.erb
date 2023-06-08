@@ -1,19 +1,18 @@
-<div class="banner">    
+<div class="banner">
   <div class="banner-text" style="font-family: 'Averta', 'Helvetica', 'Arial', sans-serif;">
-      <h1>Join us on an exhilarating journey</h1>       
-      <p>Find your next concert buddy</P>
-  </div>     
-</div>
-<div class="container">
-  <div class="title text-center py-4" >
- 
-    <h4>Upcoming Events in Amsterdam</h4>
+    <h1>Join us on an exhilarating journey</h1>
+    <p>Find your next concert buddy</P>
   </div>
-  
-
-  <div class="d-flex grid featured">
+</div>
+<div class="container mb-5">
+  <div class="row title text-center py-4" >
+    <div class="col-12">
+      <h4>Upcoming Events in Amsterdam</h4>
+    </div>
+  </div>
+  <div class="row justify-content-between big-margin-bottom">
     <% @concerts.each do |concert| %>
-      <div class="card">
+      <div class="col-3 card">
         <%= link_to concert_path(concert) do %>
           <div class="card-img" style="background-image: url()"></div>
         <% end %>
@@ -27,46 +26,122 @@
       </div>
     <% end %>
   </div>
-
-  
-  <div class="d-flex justify-content-around">
-    <div class="journey">
+  <div class="row big-margin-bottom">
+    <div class="col-5 px-5">
       <h6>How it works?</h6>
       <h4>User Journey</h4>
       <button type="button" class="button-purple">Learn More</button>
     </div>
-
-    <div class="details">
-      <div class="segment"> 
-      <div class="icon">
-        <i class="fa-solid fa-compact-disc fa-flip fa-2x"></i>
+    <div class="col-7 d-flex flex-column gap-4 details">
+      <div class="d-flex">
+        <div class="icon me-4">
+          <i class="fa-solid fa-compact-disc fa-flip fa-2x"></i>
+        </div>
+        <div>
+          <h5>Search for your concert</h5>
+          <h6>Catch the rhythm of your favorite artists and find your perfect concert experience with our intuitive features.</h6>
+        </div>
       </div>
-        <h5>Search for your concert</h5>
-        <h6>Catch the rhythm of your favorite artists</h6>
+      <div class="d-flex ">
+        <div class="icon me-4">
+          <i class="fa-solid fa-compact-disc fa-flip fa-2x"></i>
+        </div>
+        <div>
+          <h5>Select the most suitable date and location</h5>
+          <h6>Explore a variety of dates and locations, and choose the perfect combination that suits your concert cravings with ease.</h6>
+        </div>
       </div>
-
-      <div class="segment">
-      <div class="icon">
-        <i class="fa-solid fa-compact-disc fa-flip fa-2x"></i>
+      <div class="d-flex">
+        <div class="icon me-4">
+          <i class="fa-solid fa-compact-disc fa-flip fa-2x"></i>
+        </div>
+        <div>
+          <h5>Join our threads</h5>
+          <h6>Join the vibrant community and dive into lively discussions as you connect with fellow concert enthusiasts in our engaging threads.</h6>
+        </div>
       </div>
-        <h5>Select the most suitable date and location</h5>
-        <h6>Explore a variety of dates and locations and choose the perfect combination</h6>
-      </div>
-
-       <div class="segment">
-        <div class="icon">
-        <i class="fa-solid fa-compact-disc fa-flip fa-2x"></i>
-      </div>
-        <h5>Join our threads</h5>
-        <h6>Join the vibrant community and dive into lively discussions</h6>
-      </div>
-
-      <div class="segment">
-       <div class="icon">
-        <i class="fa-solid fa-compact-disc fa-flip fa-2x"></i>
-      </div>
-        <h5>Start connecting</h5>
-        <h6>You begin to forge new friendships and shared experiences</h6>
+      <div class="d-flex">
+        <div class="icon me-4">
+          <i class="fa-solid fa-compact-disc fa-flip fa-2x"></i>
+        </div>
+        <div>
+          <h5>Start connecting</h5>
+          <h6>Embark on an exciting journey of connection as you begin to forge new friendships and shared experiences within our thriving concert community.</h6>
+        </div>
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-5">
+      <%= image_tag('index-banner-pic.jpg', class: 'img-fluid')%>
+    </div>
+    <div class="col-7 text-justify">
+      <h2 class="mb-4 font-size">About</h2>
+      <p>Welcome to our concert hub, where music comes alive and dreams take flight. With a passion for live performances, we curate unforgettable experiences that resonate with your soul. Immerse yourself in the rich tapestry of sounds and emotions as acclaimed artists from diverse genres take center stage. Our mission is to ignite your senses and create memories that will last a lifetime. Join us on this exhilarating musical journey, where the energy of the crowd blends seamlessly with the electrifying performances on stage. Discover the power of music and let it be the soundtrack to your unforgettable concert adventure.</p>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<footer class="text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #3b5998;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+      <!-- Twitter -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #55acee;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+      <!-- Google -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #dd4b39;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+      <!-- Instagram -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #ac2bac;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+      <!-- Linkedin -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #0082ca;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+      <!-- Github -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #333333;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: #8A2BE2;">
+    <a class="text-white" href="https://concertmatch.online/" style="text-decoration: none; font-style: italic;"> ©2023 concertmatch.online</a>
+  </div>
+  <!-- Copyright -->
+</footer>
