@@ -77,11 +77,12 @@ User.create!(
 end
 
 15.times do
+  unique_id = SecureRandom.hex(4) # Generate a unique identifier
   first_name = Faker::Name.unique.male_first_name
   last_name = Faker::Name.last_name
 
   User.create!(
-    email: "#{first_name.downcase}@gmail.com",
+    email: "#{first_name.downcase}#{unique_id}@gmail.com",
     password: 'secret',
     first_name: first_name,
     last_name: last_name,
@@ -109,7 +110,7 @@ end
 puts 'Fetching Concerts from TicketMaster....'
 events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=100&apikey=#{ENV["TICKETMASTERKEY"]}")
 #events_raw_ams = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?city=Amsterdam&size=1&apikey=#{ENV["TICKETMASTERKEY"]}")
-puts events_raw
+#puts events_raw
 events = events_raw["_embedded"]["events"]
 
 events.each do |event|
