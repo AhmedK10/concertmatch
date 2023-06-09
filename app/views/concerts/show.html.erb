@@ -19,6 +19,7 @@
       <div class="d-flex flex-column align-items-center mt-4">
         <h2 class="address py-1"><strong><%= @concert.artist %></strong></h2>
         <h2 class="address py-1"><strong><%= @concert.genre.capitalize %></strong></h2>
+        <p><%= @concert.summary %></p>
       </div>
 
       <div class="d-flex justify-content-center mt-4 mb-3">
@@ -27,7 +28,10 @@
       </div>
     </div>
     <div class="details-img">
-      <%= image_tag('index-banner-pic.jpg', class: 'img-fluid') %>
+      <%= link_to '#' do %>
+        <div class="details-img" style="background-image: url(<%= cl_image_path @concert.photo.key %>)"></div>
+      <% end %>
+      <%#= image_tag('index-banner-pic.jpg', class: 'img-fluid') %>
     </div>
   </div>
 
