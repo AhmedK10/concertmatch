@@ -46,20 +46,24 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="buddyModalLabel">Modal title</h5>
+          <h5 class="modal-title text-center" id="buddyModalLabel">Join the concert</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="grid">
+        <div class="row">
           <% if !@favorites.empty? %>
           <% @favorites.each do |f| %>
-            <% image_tag "user-pic.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <%= f.user.first_name %>
-            <ul class="list-inline social-icons" >
-              <li class="list-inline-item"><i class="fab fa-facebook" style="font-size: 20px;"></i></li>
-              <li class="list-inline-item"><i class="fab fa-twitter" style="font-size: 20px;"></i></li>
-              <li class="list-inline-item"><i class="fab fa-instagram" style="font-size: 20px;"></i></li>
-            </ul>
+          <div class="col-sm-4 mb-5">
+            <div class="d-flex flex-column align-items-center">
+              <%= image_tag "user-pic.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= f.user.first_name %>
+              <ul class="list-inline social-icons" >
+                <li class="list-inline-item"><i class="fab fa-facebook" style="font-size: 20px;"></i></li>
+                <li class="list-inline-item"><i class="fab fa-twitter" style="font-size: 20px;"></i></li>
+                <li class="list-inline-item"><i class="fab fa-instagram" style="font-size: 20px;"></i></li>
+              </ul>
+            </div>
+          </div>
           <% end %>
           <% else %>
             <%= 'Buddies not found' %>
@@ -67,7 +71,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"></button>
+        <%= link_to "Go to the forum", concert_forums_path(@concert), class:"card-list-button button-purple text-decoration-none" %>
       </div>
     </div>
   </div>
