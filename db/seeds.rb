@@ -139,7 +139,6 @@ events.each do |event|
       name: event["name"],
       summary: rand_summaries.sample,
       address: "#{event["_embedded"]["venues"][0]["name"]}, #{event["_embedded"]["venues"][0]["address"]["line1"]}",
-      summary: rand_summaries.sample,
       date: event["dates"]["start"]["dateTime"],
       artist: event["_embedded"]["attractions"][0]["name"],
       genre: event["classifications"][0]["genre"]["name"]
