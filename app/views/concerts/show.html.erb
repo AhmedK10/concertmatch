@@ -18,7 +18,8 @@
       </div>
       <div class="d-flex flex-column align-items-center mt-4">
         <h2 class="address py-1"><strong><%= @concert.artist %></strong></h2>
-        <h2 class="address py-1"><strong><%= @concert.genre.capitalize %></strong></h2>
+        <h2 class="address mb-4 py-1"><strong><%= @concert.genre.capitalize %></strong></h2>
+        <p class="text-justify"><%= @concert.summary %></p>
       </div>
 
       <div class="d-flex justify-content-center mt-4 mb-3">
@@ -26,16 +27,21 @@
         <%= link_to "Interested", concert_forums_path(@concert), class:"card-list-button button-purple text-decoration-none"%>
       </div>
     </div>
-    <div class="details-img">
-      <%= image_tag('index-banner-pic.jpg', class: 'img-fluid') %>
+    <div class="details-img ms-5">
+        <%# <div class="" style="background-image: url(<%= cl_image_path @concert.photo.key %>
+      <%#= image_tag(cl_image_path @concert.photo.key) %>
+      <% if @concert.photo.attached? %>
+        <%= cl_image_tag @concert.photo.key, height:700%>
+      <% end %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-5">
-      <%= image_tag('index-banner-pic.jpg', class: 'img-fluid')%>
+  <div class="d-flex align-items-center">
+    <div class="me-5">
+      <%#= image_tag('index-banner-pic.jpg', class: 'img-fluid')%>
+      <%= image_tag "https://source.unsplash.com/random/900x900/?concert%20crowd", alt: "Concert Crowd Image", style: "max-height: 300px; max-width: 1500px;" %>
     </div>
-    <div class="col-7 text-justify">
+    <div class="text-justify">
       <h2 class="mb-4 font-size"><strong>About</strong></h2>
       <p>Welcome to our concert hub, where music comes alive and dreams take flight. With a passion for live performances, we curate unforgettable experiences that resonate with your soul. Immerse yourself in the rich tapestry of sounds and emotions as acclaimed artists from diverse genres take center stage. Our mission is to ignite your senses and create memories that will last a lifetime. Join us on this exhilarating musical journey, where the energy of the crowd blends seamlessly with the electrifying performances on stage. Discover the power of music and let it be the soundtrack to your unforgettable concert adventure.</p>
     </div>
