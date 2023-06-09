@@ -63,11 +63,12 @@ User.create!(
 )
 
 15.times do
+  unique_id = SecureRandom.hex(4) # Generate a unique identifier
   first_name = Faker::Name.unique.female_first_name
   last_name = Faker::Name.last_name
 
   User.create!(
-    email: "#{first_name.downcase}@gmail.com",
+    email: "#{first_name.downcase}#{unique_id}@gmail.com",
     password: 'secret',
     first_name: first_name,
     last_name: last_name,
@@ -121,7 +122,7 @@ events.each do |event|
   next if sports || theatre || art
   Concert.create!(
       name: event["name"],
-      address: event["_embedded"]["venues"][0]["address"]["line1"],
+      address: "#{event["_embedded"]["venues"][0]["name"]}, #{event["_embedded"]["venues"][0]["address"]["line1"]}",
       summary: "#{event["name"]}: a concert by #{event["_embedded"]["attractions"][0]["name"]}",
       date: event["dates"]["start"]["dateTime"],
       artist: event["_embedded"]["attractions"][0]["name"],

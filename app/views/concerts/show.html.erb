@@ -2,8 +2,8 @@
       <div>
         <h1><%= @concert.name %></h1>
       </div>
-  <div class="d-flex my-5">
-    <div class="details-info me-2">
+  <div class="d-flex align-items-center justify-content-between my-5">
+    <div class="details-info">
 
       <div class="d-flex align-items-center justify-content-between">
         <div class="date pe-4">
@@ -16,26 +16,28 @@
           <h3 class="card-list-city">Amsterdam</h3>
         </div>
       </div>
-      <div class="d-flex justify-content-center me-7 my-3">
-
-        <button type="button" class="card-list-button button-purple text-decoration-none" data-bs-toggle="modal" data-bs-target="#buddyModal">
-          Buddies
-        </button>
-        <%= link_to "Interested", concert_forums_path(@concert), class:"card-list-button button-purple text-decoration-none"%>
+      <div class="d-flex flex-column align-items-center mt-4">
+        <h2 class="address py-1"><strong><%= @concert.artist %></strong></h2>
+        <h2 class="address py-1"><strong><%= @concert.genre.capitalize %></strong></h2>
       </div>
 
+      <div class="d-flex justify-content-center mt-4 mb-3">
+        <%= link_to "Buddies", "#", class: "card-list-button button-purple me-3 text-decoration-none", "data-bs-toggle": "modal", "data-bs-target": "#buddyModal" %>
+        <%= link_to "Interested", concert_forums_path(@concert), class:"card-list-button button-purple text-decoration-none"%>
+      </div>
     </div>
-    <div class="details-img ms-5">
-       <%= image_tag('index-banner-pic.jpg', class: 'img-fluid') %>
+    <div class="details-img">
+      <%= image_tag('index-banner-pic.jpg', class: 'img-fluid') %>
     </div>
   </div>
-  <div class="d-flex">
-    <div class="about-img me-4">
-       <%= image_tag('index-banner-pic.jpg', class: 'img-fluid')%>
+
+  <div class="row">
+    <div class="col-5">
+      <%= image_tag('index-banner-pic.jpg', class: 'img-fluid')%>
     </div>
-    <div class="about-info">
-      <h2 class="mb-4">About</h2>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci vero odit soluta. Est molestiae itaque at. Quaerat quidem at tempora perspiciatis in. Itaque tempore dignissimos quam voluptates inventore mollitia at.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci vero odit soluta. Est molestiae itaque at. Quaerat quidem at tempora perspiciatis in. Itaque tempore dignissimos quam voluptates inventore mollitia at.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci vero odit soluta. Est molestiae itaque at. Quaerat quidem at tempora perspiciatis in. Itaque tempore dignissimos quam voluptates inventore mollitia at.</p>
+    <div class="col-7 text-justify">
+      <h2 class="mb-4 font-size"><strong>About</strong></h2>
+      <p>Welcome to our concert hub, where music comes alive and dreams take flight. With a passion for live performances, we curate unforgettable experiences that resonate with your soul. Immerse yourself in the rich tapestry of sounds and emotions as acclaimed artists from diverse genres take center stage. Our mission is to ignite your senses and create memories that will last a lifetime. Join us on this exhilarating musical journey, where the energy of the crowd blends seamlessly with the electrifying performances on stage. Discover the power of music and let it be the soundtrack to your unforgettable concert adventure.</p>
     </div>
   </div>
 </div>

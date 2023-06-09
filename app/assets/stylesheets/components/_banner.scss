@@ -2,15 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 120px 64px;
+  //padding: 120px 64px;
   margin-bottom: 15px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 700px;
 
   .banner-text {
     width: 42%;
     color: white;
+    padding-left: 50px;
 
     h1 {
       font-size: 55px;
