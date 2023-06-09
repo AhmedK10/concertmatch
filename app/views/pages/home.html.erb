@@ -8,7 +8,7 @@
         <div class="tenor-gif-embed" data-postid="14469730" data-share-method="host" data-aspect-ratio="1.77778" data-width="100%"><a href="https://tenor.com/view/concert-performing-live-crowd-jam-packed-gif-14469730">Concert Performing GIF</a>from <a href="https://tenor.com/search/concert-gifs">Concert GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
   </div>
-  
+
 </div>
 <div class="container mb-5">
   <div class="row title text-center py-4" >
@@ -16,19 +16,21 @@
       <h4>Upcoming Events in Amsterdam</h4>
     </div>
   </div>
-  <div class="row justify-content-between big-margin-bottom">
+  <div class="d-flex justify-content-between big-margin-bottom">
     <% @concerts.each do |concert| %>
-      <div class="col-3 card">
+      <div class="card">
         <%= link_to concert_path(concert) do %>
           <div class="card-img" style="background-image: url(<%= cl_image_path concert.photo.key %>)">
           </div>
         <% end %>
-        <div class="card-infos">
-          <div>
-            <h3><%= concert.name %></h3>
+        <div class="d-flex justify-content-between card-infos">
+          <div style="margin-right: 20px;">
+            <h3 class="mb-2"><%= concert.name %></h3>
             <%= concert.address %>
           </div>
-          <h3><%= concert.artist %></h3>
+          <div>
+            <h3 class="ms-5"><%= concert.artist %></h3>
+          </div>
         </div>
       </div>
     <% end %>
@@ -37,7 +39,7 @@
     <div class="col-5 px-5">
       <h6>How it works?</h6>
       <h4>User Journey</h4>
-      <button type="button" class="button-purple">Learn More</button>
+      <a href="your_link_here" class="button-purple text-decoration-none">Learn More</a>
     </div>
     <div class="col-7 d-flex flex-column gap-4 details">
       <div class="d-flex">
