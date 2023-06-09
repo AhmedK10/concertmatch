@@ -24,6 +24,9 @@ gem 'faker'
 #httparty
 gem "httparty"
 
+#cloudinary
+gem "cloudinary"
+
 #dotenv
 gem "dotenv-rails", groups: [:development, :test]
 
@@ -89,4 +92,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
