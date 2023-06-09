@@ -63,11 +63,12 @@ User.create!(
 )
 
 15.times do
+  unique_id = SecureRandom.hex(4) # Generate a unique identifier
   first_name = Faker::Name.unique.female_first_name
   last_name = Faker::Name.last_name
 
   User.create!(
-    email: "#{first_name.downcase}@gmail.com",
+    email: "#{first_name.downcase}#{unique_id}@gmail.com",
     password: 'secret',
     first_name: first_name,
     last_name: last_name,
