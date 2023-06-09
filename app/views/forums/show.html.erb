@@ -1,5 +1,5 @@
 <body class="black-page">
-  <div class="container">
+  <div class="container mt-5">
     <div class="comments">
       <% @forum.comments.each do |comment| %>
         <% if comment.user == current_user %>
@@ -23,9 +23,9 @@
     </div>
 
     <%= simple_form_for [@forum, @comment], html: { class: "d-flex" } do |f| %>
-      <div class="d-flex comment-form-container">
+      <div class="d-flex comment-form-container mt-4" >
         <%= f.input :content, label: false, placeholder: "Comment #{current_user.first_name}", class: "form-control" %>
-        <%= f.submit "Send", class: "button ms-3" %>
+        <%= f.submit "Send", class: "card-list-button button-purple text-decoration-none", style: 'height: 40px;' %>
       </div>
     <% end %>
   </div>
