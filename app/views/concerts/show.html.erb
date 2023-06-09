@@ -44,14 +44,14 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="buddyModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="buddyModalLabel">Join the concert</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <% if !@favorites.empty? %>
+        <% @favorites.each do |f| %>
         <div class="grid">
-          <% if !@favorites.empty? %>
-          <% @favorites.each do |f| %>
-            <% image_tag "user-pic.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "user-pic.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <%= f.user.first_name %>
             <ul class="list-inline social-icons" >
               <li class="list-inline-item"><i class="fab fa-facebook" style="font-size: 20px;"></i></li>
@@ -59,10 +59,10 @@
               <li class="list-inline-item"><i class="fab fa-instagram" style="font-size: 20px;"></i></li>
             </ul>
           <% end %>
+        </div>
           <% else %>
             <%= 'Buddies not found' %>
           <% end %>
-        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"></button>
