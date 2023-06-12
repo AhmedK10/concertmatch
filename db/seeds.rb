@@ -175,7 +175,6 @@ file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/78.jpg")
 leo.photo.attach(io: file, filename: "#{alex.first_name}.jpg", content_type: "image/jpeg")
 leo.save
 
-
 sasha = User.new(
   email: "sasha@gmail.com",
   password: "secret",
@@ -239,6 +238,8 @@ lane = User.new(
   gender: 0,
   date_of_birth: Date.parse("1996-01-02"),
  
+Concert.where(date: nil).destroy_all
+  
 puts "Creating Fromus and comments"
 
 rand_posts = ["You seem like a great person to share an apartment or room with for the concert!",
