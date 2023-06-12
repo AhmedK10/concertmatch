@@ -18,7 +18,10 @@
     <% @concerts.each do |concert| %>
       <div class="card">
         <%= link_to concert_path(concert) do %>
-          <div class="card-img" style="background-image: url(<%= cl_image_path concert.photo.key %>)"></div>
+
+          <div class="card-img" style="background-image: url(<%= cl_image_path concert.photo.key %>)">
+          </div>
+
         <% end %>
         <div class="card-infos">
           <h3><%= concert.name %></h3>
