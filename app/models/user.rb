@@ -14,5 +14,11 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one_attached :photo
 
+  
+    def age 
+      current_age = Date.today.year -  date_of_birth.year
+      current_age -= 1 if Date.today <  date_of_birth + current_age.years 
+      current_age 
+    end
 end
 

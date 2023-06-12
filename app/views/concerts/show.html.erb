@@ -60,9 +60,10 @@
                   <% if f.user.photo.attached? %>
                     <%= cl_image_tag f.user.photo.key, class: "avatar" %>
                   <% else %>
-                    <%= image_tag "user-pic.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <%= image_tag "jas-pic.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <% end %>
-                  <%= f.user.first_name %>
+                  <%= f.user.first_name %>,
+                  <%= f.user.age %>
                   <h6 style="font-size: 14px; font-style: italic; text-align: center;"><%= f.user.bio %></h6>
                   <ul class="list-inline social-icons">
                     <li class="list-inline-item"><a href="https://www.facebook.com"><i class="fab fa-facebook" style="font-size: 20px; color: #4267B2;"></i></a></li>
