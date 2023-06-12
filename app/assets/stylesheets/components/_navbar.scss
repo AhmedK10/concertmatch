@@ -11,11 +11,6 @@
   transition: all 0.3s;
 }
 
-.navbar-lewagon.shrink {
-  height: 60px; /* Adjust the desired height for the shrunken navbar */
-  padding-top: 10px; /* Adjust the desired padding for the shrunken navbar */
-}
-
 .container-fluid {
   height: 80px;
   padding-right: 0px;
@@ -80,9 +75,10 @@
   align-items: center;
 }
 
-.login-button:hover {
+.login-button:hover,
+.login-button:hover .nav-link {
   background-position: left;
-  color: black;
+  color: black !important; /* Add !important to override any conflicting styles */
 }
 
 #navbarDropdown {
@@ -99,7 +95,7 @@
 }
 
 .nav-link:hover,
-li:hover {
-  color: $yellow;
+li:not(.login-item):hover {
+  color: yellow;
   font-weight: bold;
 }
