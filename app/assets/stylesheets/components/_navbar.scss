@@ -1,15 +1,100 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: black;
-  padding-top: 1px;    /* Adjust the top padding value as needed */
-  padding-bottom: 1px; /* Adjust the bottom padding value as needed */
+  padding-top: 5px;    /* Adjust the top padding value as needed */
+  padding-bottom: 5px; /* Adjust the bottom padding value as needed */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.3s;
+}
+
+.container-fluid {
+  height: 80px;
+  padding-right: 0px;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
+.logo-container {
+  margin-top: 10px;
+  transition: transform 0.3s;
+}
+
+.logo-container:hover {
+  transform: scale(1.2);
+}
+
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+  margin-top: 10px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 300px;
+  margin-right: 10px;
+  border-radius: 0; /* Remove border radius */
+}
+
+.search-button {
+  height: 38px; /* Adjust the height as needed */
+  padding: 5 23px;
+}
+
+.button-navbar-purple {
+  margin-top: 0px;
+}
+
+
+.login-button {
+  background: linear-gradient(to right, $yellow 50%, $purple 50%);
+  background-size: 200% 100%;
+  background-position: right;
+  transition: background-position 0.3s;
+  background-color:$purple;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 0;
+  padding:70%;
+  padding-left: 10px;
+  padding-right: 10px;
   height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.login-button:hover {
+  background-position: left;
+  color: black;
+}
+
+#navbarDropdown {
+  margin-right: 20px;
+  transition: transform 0.3s;
+}
+
+#navbarDropdown:hover {
+  transform: scale(1.5);
+}
+
+.nav-link, li {
+  color: white;
+}
+
+.nav-link:hover,
+li:not(.login-item):hover {
+  color: yellow;
+  font-weight: bold;
 }

@@ -1,45 +1,40 @@
-
-<div class=" d-flex justify-content-around banner">
+<div class=" d-flex justify-content-around big-margin-bottom banner">
   <div class="banner-text" style="font-family: 'Averta', 'Helvetica', 'Arial', sans-serif;">
     <h1>Join us on an exhilarating journey</h1>
-    <p>Find your next concert buddy</P>
+    <p>Find your next concert buddy</p>
   </div>
-   <div class="d-flex align-items-center gif">
-        <div class="tenor-gif-embed" data-postid="14469730" data-share-method="host" data-aspect-ratio="1.77778" data-width="100%"><a href="https://tenor.com/view/concert-performing-live-crowd-jam-packed-gif-14469730">Concert Performing GIF</a>from <a href="https://tenor.com/search/concert-gifs">Concert GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
-
-  </div>
-
+  <%# <div class="d-flex align-items-center gif">
+    <div class="tenor-gif-embed" data-postid="14469730" data-share-method="host" data-aspect-ratio="1.77778" data-width="100%"><a href="https://tenor.com/view/concert-performing-live-crowd-jam-packed-gif-14469730">Concert Performing GIF</a>from <a href="https://tenor.com/search/concert-gifs">Concert GIFs</a></div>
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+  </div> %>
 </div>
-<div class="container mb-5">
-  <div class="row title text-center py-4" >
-    <div class="col-12">
-      <h4>Upcoming Events in Amsterdam</h4>
+<div class="container">
+  <div class="row title center">
+    <div class="col-12 text-center">
+      <h2>Upcoming Events in Amsterdam</h2>
     </div>
   </div>
-  <div class="d-flex justify-content-between big-margin-bottom">
+  <div class="grid big-margin-bottom">
     <% @concerts.each do |concert| %>
       <div class="card">
         <%= link_to concert_path(concert) do %>
-            <div class="card-img" style="background-image: url(<%= cl_image_path concert.photo.key %>)">
-            </div>
+          <div class="card-img" style="background-image: url(<%= cl_image_path concert.photo.key %>)"></div>
         <% end %>
-        <div class="d-flex justify-content-between card-infos">
-          <div style="margin-right: 20px;">
-            <h3 class="mb-2"><%= concert.name %></h3>
-            <%= concert.address %>
-          </div>
-          <div>
-            <h3 class="ms-5"><%= concert.artist %></h3>
-          </div>
+        <div class="card-infos">
+          <h3><%= concert.name %></h3>
+          <!-- <div class="card-details">
+          <p class="card-address"><%= concert.address %></p>
+          <p class="card-artist"><%= concert.artist %></p>
+        </div> -->
         </div>
       </div>
     <% end %>
   </div>
   <div class="row big-margin-bottom">
     <div class="col-5 px-5">
-      <h6>How it works?</h6>
-      <h4>User Journey</h4>
-      <a href="your_link_here" class="button-purple text-decoration-none">Learn More</a>
+      <p>How it works?</p>
+      <h2 class="mb-4">Your Concert Adventure Awaits</h2>
+      <a href="#" class="button-purple text-decoration-none">Learn More</a>
     </div>
     <div class="col-7 d-flex flex-column gap-4 details">
       <div class="d-flex">
@@ -56,8 +51,8 @@
           <i class="fa-solid fa-compact-disc fa-flip fa-2x"></i>
         </div>
         <div>
-          <h5>Select the most suitable date and location</h5>
-          <h6>Explore a variety of dates and locations, and choose the perfect combination that suits your concert cravings with ease.</h6>
+          <h5>Discover and explore</h5>
+          <h6>Expand your concert horizons by exploring a wide range of concerts and events beyond your existing tickets. Find new artists, genres, and venues to enhance your concert experiences.</h6>
         </div>
       </div>
       <div class="d-flex">
@@ -65,8 +60,8 @@
           <i class="fa-solid fa-compact-disc fa-flip fa-2x"></i>
         </div>
         <div>
-          <h5>Join our threads</h5>
-          <h6>Join the vibrant community and dive into lively discussions as you connect with fellow concert enthusiasts in our engaging threads.</h6>
+          <h5>Engage in Lively Discussions</h5>
+          <h6>Join our vibrant community of concert enthusiasts and engage in lively discussions. Share your excitement, stories, and recommendations with fellow music lovers who share your passion for live performances.</h6>
         </div>
       </div>
       <div class="d-flex">
@@ -74,19 +69,19 @@
           <i class="fa-solid fa-compact-disc fa-flip fa-2x"></i>
         </div>
         <div>
-          <h5>Start connecting</h5>
-          <h6>Embark on an exciting journey of connection as you begin to forge new friendships and shared experiences within our thriving concert community.</h6>
+          <h5>Connect and Create Lasting Memories</h5>
+          <h6>Forge connections and create lasting memories as you connect with like-minded individuals. Share your concert experiences, meet new friends, and relish the joy of shared musical moments.</h6>
         </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-5 p-5 mb-3">
-      <%= image_tag('concert_1.jpg', class: 'img-fluid')%>
+  <div class="row align-items-center">
+    <div class="col-7 p-5 mb-3">
+      <%= image_tag('about.jpg', class: 'img-fluid')%>
     </div>
-    <div class="col-7 align-items-center text-justify">
+    <div class="col-5 text-left text-justify">
       <h2 class="mb-4 mt-5 font-size">About</h2>
-      <p style="font-size: 14px;">Welcome to our concert hub, where music comes alive and dreams take flight. With a passion for live performances, we curate unforgettable experiences that resonate with your soul. Immerse yourself in the rich tapestry of sounds and emotions as acclaimed artists from diverse genres take center stage. Our mission is to ignite your senses and create memories that will last a lifetime. Join us on this exhilarating musical journey, where the energy of the crowd blends seamlessly with the electrifying performances on stage. Discover the power of music and let it be the soundtrack to your unforgettable concert adventure.</p>
+      <p style="font-size: 16px; line-height: 1.8;">Welcome to our concert hub, where music comes alive and dreams take flight. With a passion for live performances, we curate unforgettable experiences that resonate with your soul. Immerse yourself in the rich tapestry of sounds and emotions as acclaimed artists from diverse genres take center stage. Our mission is to ignite your senses and create memories that will last a lifetime. Join us on this exhilarating musical journey, where the energy of the crowd blends seamlessly with the electrifying performances on stage. Discover the power of music and let it be the soundtrack to your unforgettable concert adventure.</p>
     </div>
   </div>
 </div>

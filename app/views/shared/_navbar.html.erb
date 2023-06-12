@@ -1,45 +1,45 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-      <%= link_to "/", class: "navbar-brand" do %>
-        <div class="logo-container flex-column d-flex align-items-center justify-content-center ">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <div class="logo-container flex-column d-flex align-items-center justify-content-center ">
         <%= image_tag "concertmatchlogo.png", style: 'width: 120px; height: 120px; border-radius: 50%;' %>
         <%# <p>ConcertMatch</p> %>
-        </div>
+      </div>
     <% end %>
-  <div class="row justify-content-center">
-    <div class="col-sm-12 my-6">
-      <%= form_with url: concerts_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search Concert, Genre or Artist", style: "width: 300px; margin-right: 10px;" %>
-        <%= submit_tag "Search", name: "", class: "nav-link button-navbar-purple" %>
-      <% end %>
+    <div class="row justify-content-center">
+      <div class="col-sm-12 my-6">
+        <%= form_with url: concerts_path, method: :get, class: "search-form" do %>
+          <%= text_field_tag :query, params[:query], class: "form-control search-input", placeholder: "Search Concert, Genre or Artist" %>
+          <%= submit_tag "Search", name: "", class: "nav-link button-navbar-purple search-button mt-0" %>
+        <% end %>
+      </div>
     </div>
-  </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "/", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Threads", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-chat">
-          <%= link_to "Coversations", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "user-pic.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "About us", "#", class: "dropdown-item action-link" %>
-            <%= link_to "Contact us", "#", class: "dropdown-item action-link" %>
-            <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item action-link", data: {turbo_method: :delete} %>
-          </div>
-        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Home", "/", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Threads", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-chat">
+            <%= link_to "Conversations", "#", class: "nav-link", style: "padding-right: 50px" %>
+          </li>
+          <li class="nav-item dropdown">
+            <%= image_tag "jas-pic.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "About us", "#", class: "dropdown-item action-link" %>
+              <%= link_to "Contact us", "#", class: "dropdown-item action-link" %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item action-link", data: {turbo_method: :delete} %>
+            </div>
+          </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link button-navbar-purple" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link login-button" %>
           </li>
         <% end %>
       </ul>
