@@ -1,16 +1,30 @@
 class FavoritesController < ApplicationController
 
-  def new
-    @favorite = Favorite.new
-    @user = Use.find(params[:user_id])
-  end
+  # def new
+  #   @favorite = Favorite.new
+  #   @user = Use.find(params[:user_id])
+  # end
 
   def create
-    @favorite = Favorite.find(params[:favorite])
-    @user = User.find(params[:user])
-    @favorite.user = @user
-    if favorite.save
-      redirect_to concert_path(@concert)
+    @concert = Concert.find(params[:concert_id])
+    @favorite = current_user.favorites.new(concert: @concert)
+    # @favorite = Favorite.find(params[:favorite])
+    # @user = User.find(params[:user])
+    # @favorite.concert = @concert
+    # @favorite.user = current_user
+    if @favorite.save
+      redirect_to concert_path(@concert), notice: "Added to favorite"
+    else
+      render 'new'
+    end
+  end
+
+  def destory
+    @favorite = current_user.favorites.find_by(concert_id: params[:concert_id])
+    @concert = @favorite.concert
+
+    if @favorite.destroy
+      redirect_to concert_path(@concert), notice: "removed from favorite"
     else
       render 'new'
     end
