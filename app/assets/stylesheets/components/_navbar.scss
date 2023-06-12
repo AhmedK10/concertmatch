@@ -3,6 +3,17 @@
   background: black;
   padding-top: 5px;    /* Adjust the top padding value as needed */
   padding-bottom: 5px; /* Adjust the bottom padding value as needed */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.3s;
+}
+
+.navbar-lewagon.shrink {
+  height: 60px; /* Adjust the desired height for the shrunken navbar */
+  padding-top: 10px; /* Adjust the desired padding for the shrunken navbar */
 }
 
 .container-fluid {
@@ -16,6 +27,11 @@
 
 .logo-container {
   margin-top: 10px;
+  transition: transform 0.3s;
+}
+
+.logo-container:hover {
+  transform: scale(1.2);
 }
 
 .navbar-lewagon .navbar-brand img {
@@ -67,4 +83,23 @@
 .login-button:hover {
   background-position: left;
   color: black;
+}
+
+#navbarDropdown {
+  margin-right: 20px;
+  transition: transform 0.3s;
+}
+
+#navbarDropdown:hover {
+  transform: scale(1.5);
+}
+
+.nav-link, li {
+  color: white;
+}
+
+.nav-link:hover,
+li:hover {
+  color: $yellow;
+  font-weight: bold;
 }
