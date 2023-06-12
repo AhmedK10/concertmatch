@@ -1,10 +1,9 @@
 <div class="container mt-5">
-      <div>
-        <h1><%= @concert.name %></h1>
-      </div>
+  <div>
+    <h1><%= @concert.name %></h1>
+  </div>
   <div class="d-flex align-items-center justify-content-between my-5">
     <div class="details-info">
-
       <div class="d-flex align-items-center justify-content-between">
         <div class="date pe-4">
           <h2 class="month"><%= @concert.date.strftime("%B") %></h2>
@@ -21,21 +20,19 @@
         <h2 class="address mb-4 py-1"><strong><%= @concert.genre.capitalize %></strong></h2>
         <p class="text-justify"><%= @concert.summary %></p>
       </div>
-
       <div class="d-flex justify-content-center mt-4 mb-3">
         <%= link_to "Buddies", "#", class: "card-list-button button-purple me-3 text-decoration-none", "data-bs-toggle": "modal", "data-bs-target": "#buddyModal" %>
         <%= link_to "Interested", concert_forums_path(@concert), class:"card-list-button button-purple text-decoration-none"%>
       </div>
     </div>
     <div class="details-img ms-5">
-        <%# <div class="" style="background-image: url(<%= cl_image_path @concert.photo.key %>
+      <%# <div class="" style="background-image: url(<%= cl_image_path @concert.photo.key %>
       <%#= image_tag(cl_image_path @concert.photo.key) %>
       <% if @concert.photo.attached? %>
         <%= cl_image_tag @concert.photo.key, height:700%>
       <% end %>
     </div>
   </div>
-
   <div class="d-flex align-items-center">
     <div class="me-5">
       <%#= image_tag('index-banner-pic.jpg', class: 'img-fluid')%>
@@ -47,30 +44,35 @@
     </div>
   </div>
 </div>
-
 <div class="modal fade" id="buddyModal" tabindex="-1" aria-labelledby="buddyModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-          <h5 class="modal-title text-center" id="buddyModalLabel">Join the concert</h5>
+        <h5 class="modal-title text-center" id="buddyModalLabel">Join the concert</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="row">
           <% if !@favorites.empty? %>
-          <% @favorites.each do |f| %>
-          <div class="col-sm-4 mb-5">
-            <div class="d-flex flex-column align-items-center">
-              <%= image_tag "user-pic.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <%= f.user.first_name %>
-              <ul class="list-inline social-icons" >
-                <li class="list-inline-item"><i class="fab fa-facebook" style="font-size: 20px;"></i></li>
-                <li class="list-inline-item"><i class="fab fa-twitter" style="font-size: 20px;"></i></li>
-                <li class="list-inline-item"><i class="fab fa-instagram" style="font-size: 20px;"></i></li>
-              </ul>
-            </div>
-          </div>
-          <% end %>
+            <% @favorites.each do |f| %>
+              <div class="col-sm-4 mb-5">
+                <div class="d-flex flex-column align-items-center">
+                  <% if f.user.photo.attached? %>
+                    <%= cl_image_tag f.user.photo.key, class: "avatar" %>
+                  <% else %>
+                    <%= image_tag "user-pic.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                  <% end %>
+                  <%= f.user.first_name %>
+                  <h6 style="font-size: 14px; font-style: italic; text-align: center;"><%= f.user.bio %></h6>
+                  <ul class="list-inline social-icons">
+                    <li class="list-inline-item"><a href="https://www.facebook.com"><i class="fab fa-facebook" style="font-size: 20px; color: #4267B2;"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.twitter.com"><i class="fab fa-twitter" style="font-size: 20px; color: #1DA1F2;"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.instagram.com"><i class="fab fa-instagram" style="font-size: 20px; color: #C13584;"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.spotify.com"><i class="fab fa-spotify" style="font-size: 20px; color: #1DB954;"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            <% end %>
           <% else %>
             <%= 'Buddies not found' %>
           <% end %>
