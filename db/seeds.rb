@@ -242,9 +242,9 @@ lane = User.new(
   bio: bio_options.sample
 )
 
-file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/25.jpg")
-milton.photo.attach(io: file, filename: "#{milton.first_name}.jpg", content_type: "image/jpeg")
-milton.save
+file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/25.jpg")
+lane.photo.attach(io: file, filename: "#{milton.first_name}.jpg", content_type: "image/jpeg")
+lane.save
 
 Concert.where(date: nil).destroy_all
 
