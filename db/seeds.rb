@@ -11,11 +11,13 @@ require 'json'
 require 'httparty'
 
 puts "deleting all old data....."
+Chatroom.destroy_all
+Message.destroy_all
 User.destroy_all
-# Concert.destroy_all
+Concert.destroy_all
 Favorite.destroy_all
-# Forum.destroy_all
-# Comment.destroy_all
+Forum.destroy_all
+Comment.destroy_all
 
 # #USERS:
 bio_options = [
@@ -46,7 +48,7 @@ bio_options = [
   "Music therapist, using the power of music to heal and uplift spirits.",
   "Choir member, harmonizing with others to create a celestial vocal blend.",
   "Music producer, shaping and molding sounds to create a sonic masterpiece."
-] 
+]
 
 puts "Creating Users...."
 
@@ -57,7 +59,7 @@ ben = User.new(
   last_name: "Lee",
   gender: 0,
   date_of_birth: Date.parse("1999-01-08"),
-  bio: bio_options.sample 
+  bio: bio_options.sample
 )
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/49.jpg")
 ben.photo.attach(io: file, filename: "#{ben.first_name}.jpg", content_type: "image/jpeg")
@@ -71,7 +73,7 @@ sofia = User.new(
   last_name: "Neille",
   gender: 1,
   date_of_birth: Date.parse("1983-02-09"),
-  bio: bio_options.sample 
+  bio: bio_options.sample
 )
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/44.jpg")
 sofia.photo.attach(io: file, filename: "#{sofia.first_name}.jpg", content_type: "image/jpeg")
@@ -85,7 +87,7 @@ karena = User.new(
   last_name: "Radican",
   gender: 1,
   date_of_birth: Date.parse("1998-03-09"),
-  bio: bio_options.sample 
+  bio: bio_options.sample
 )
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/55.jpg")
 karena.photo.attach(io: file, filename: "#{karena.first_name}.jpg", content_type: "image/jpeg")
@@ -99,7 +101,7 @@ pura = User.new(
   last_name: "Greven",
   gender: 1,
   date_of_birth: Date.parse("2001-04-02"),
-  bio: bio_options.sample 
+  bio: bio_options.sample
 )
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/20.jpg")
 karena.photo.attach(io: file, filename: "#{karena.first_name}.jpg", content_type: "image/jpeg")
@@ -113,7 +115,7 @@ emma = User.new(
   last_name: "Smith",
   gender: 1,
   date_of_birth: Date.parse("1997-04-04"),
-  bio: bio_options.sample 
+  bio: bio_options.sample
 )
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/25.jpg")
 emma.photo.attach(io: file, filename: "#{emma.first_name}.jpg", content_type: "image/jpeg")
@@ -127,7 +129,7 @@ dirk = User.new(
   last_name: "Buns",
   gender: 0,
   date_of_birth: Date.parse("1992-07-03"),
-  bio: bio_options.sample  
+  bio: bio_options.sample
 )
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/77.jpg")
 dirk.photo.attach(io: file, filename: "#{dirk.first_name}.jpg", content_type: "image/jpeg")
@@ -141,7 +143,7 @@ max = User.new(
   last_name: "Hill",
   gender: 0,
   date_of_birth: Date.parse("2001-03-03"),
-  bio: bio_options.sample  
+  bio: bio_options.sample
 )
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/77.jpg")
 max.photo.attach(io: file, filename: "#{max.first_name}.jpg", content_type: "image/jpeg")
@@ -155,7 +157,7 @@ alex = User.new(
   last_name: "Scott",
   gender: 1,
   date_of_birth: Date.parse("1985-12-07"),
-  bio: bio_options.sample 
+  bio: bio_options.sample
 )
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/45.jpg")
 alex.photo.attach(io: file, filename: "#{alex.first_name}.jpg", content_type: "image/jpeg")
@@ -169,7 +171,7 @@ leo = User.new(
   last_name: "Reed",
   gender: 2,
   date_of_birth: Date.parse("1975-11-13"),
-  bio: bio_options.sample 
+  bio: bio_options.sample
 )
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/78.jpg")
 leo.photo.attach(io: file, filename: "#{alex.first_name}.jpg", content_type: "image/jpeg")
@@ -182,7 +184,7 @@ sasha = User.new(
   last_name: "Olshan",
   gender: 1,
   date_of_birth: Date.parse("1087-08-05"),
-  bio: bio_options.sample 
+  bio: bio_options.sample
 )
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/2.jpg")
 sasha.photo.attach(io: file, filename: "#{sasha.first_name}.jpg", content_type: "image/jpeg")
@@ -196,7 +198,7 @@ delbert = User.new(
   last_name: "Kewley",
   gender: 1,
   date_of_birth: Date.parse("1985-12-07"),
-  bio: bio_options.sample 
+  bio: bio_options.sample
 )
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/56.jpg")
 delbert.photo.attach(io: file, filename: "#{delbert.first_name}.jpg", content_type: "image/jpeg")
@@ -210,7 +212,7 @@ lewana = User.new(
   last_name: "Armey",
   gender: 1,
   date_of_birth: Date.parse("1996-01-02"),
-  bio: bio_options.sample 
+  bio: bio_options.sample
 )
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/61.jpg")
 lewana.photo.attach(io: file, filename: "#{lewana.first_name}.jpg", content_type: "image/jpeg")
@@ -223,7 +225,7 @@ milton = User.new(
   last_name: "Borch",
   gender: 1,
   date_of_birth: Date.parse("1996-01-02"),
-  bio: bio_options.sample 
+  bio: bio_options.sample
 )
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/25.jpg")
 milton.photo.attach(io: file, filename: "#{milton.first_name}.jpg", content_type: "image/jpeg")
@@ -237,9 +239,62 @@ lane = User.new(
   last_name: "Walmer",
   gender: 0,
   date_of_birth: Date.parse("1996-01-02"),
- 
+  bio: bio_options.sample )
+
+
+#CONCERTS:
+rand_summaries = ["Join us for an extraordinary evening of live music, as some of the most talented artists from around the world come together on one stage. From soulful ballads to high-energy rock anthems, this concert promises to take you on a musical journey like no other.",
+                  "Prepare to be mesmerized by the sheer talent and artistry on display at this highly anticipated concert event. With a diverse lineup of musicians spanning various genres, this is your chance to experience the magic of live performances that will leave you in awe.",
+                  "Immerse yourself in a symphony of sounds as a world-renowned orchestra, accompanied by an exceptional lineup of guest soloists, takes you on an unforgettable musical adventure. From classical masterpieces to contemporary compositions, this concert is a celebration of the rich heritage of orchestral music.",
+                  "Get ready to dance the night away as a fusion of infectious beats and pulsating rhythms fills the air. From Latin grooves to Afrobeat influences, this concert brings together a vibrant mix of genres, ensuring an electrifying atmosphere that will keep you on your feet from start to finish.",
+                  "Step into a world of pure vocal brilliance as some of the most remarkable singers of our time showcase their talent on a single stage. With their powerful voices and incredible range, these artists will transport you to a realm of emotion and musicality that will leave you breathless.",
+                  "Experience the perfect blend of smooth jazz and soulful melodies at this captivating concert. From captivating saxophone solos to enchanting piano performances, this event promises to be an intimate and soul-stirring experience that will leave you craving for more.",
+                  "Prepare to be captivated by an evening of dynamic performances, where artists from various genres collide to create a fusion of sound that pushes the boundaries of music. With unexpected collaborations and electrifying improvisations, this concert guarantees a night of unforgettable musical moments.",
+                  "Indulge your senses in an immersive audiovisual spectacle that combines stunning visuals with live music. From breathtaking projections to synchronized light displays, this concert is a feast for the eyes and ears, offering a multi-dimensional experience that transcends traditional live performances.",
+                  "Join us for a celebration of world music, featuring an eclectic lineup of artists who bring the vibrant sounds of different cultures to the stage. From African rhythms to Asian melodies, this concert is a testament to the power of music in bridging gaps and uniting people from diverse backgrounds.",
+                  "Embark on a musical journey that spans decades and genres, as this concert takes you on a nostalgic trip through the evolution of popular music. From iconic classics to modern hits, the carefully curated lineup of performers ensures an unforgettable night of sing-along moments and cherished memories.",
+                  "Experience the grandeur of a symphonic spectacle, as a full orchestra and choir come together to perform awe-inspiring symphonies and choral masterpieces. With its majestic arrangements and soaring melodies, this concert promises to transport you to a realm of sonic beauty and emotional depth.",
+                  "Prepare to be enchanted by the ethereal sounds of acoustic instruments, as this concert showcases the beauty and intimacy of unplugged performances. From delicate fingerpicking on acoustic guitars to the rich tones of a grand piano, this event offers a serene and heartfelt musical experience.",
+                  "Join us for an evening of breathtaking virtuosity, as a lineup of prodigious instrumentalists showcase their unmatched skill and dexterity on their respective instruments. From intricate guitar solos to mind-blowing drum performances, this concert will leave you in awe of human musical potential.",
+                  "Indulge in an evening of musical storytelling, as this concert presents a collection of songs that explore universal"]
+
+puts "Fetching Concerts from TicketMaster...."
+events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=10&classificationName=music&apikey=#{ENV["TICKETMASTERKEY"]}")
+ams_raw =  HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=10&classificationName=music&city=Amsterdam&apikey=#{ENV["TICKETMASTERKEY"]}")
+data = JSON.parse(events_raw.body)
+ams_data = JSON.parse(ams_raw.body)
+events = data["_embedded"]["events"]
+events_ams = ams_data["_embedded"]["events"]
+
+events_ams.each do |event|
+  concert_ams = Concert.new(
+    name: event["name"],
+    summary: event['info'] || rand_summaries.sample,
+    address: "#{event["_embedded"]["venues"][0]["name"]}, #{event["_embedded"]["venues"][0]["address"]["line1"]}",
+    date: event["dates"]["start"]["dateTime"],
+    artist: event["_embedded"]["attractions"][0]["name"],
+    genre: event["classifications"][0]["genre"]["name"],
+  )
+    file = URI.open("https://source.unsplash.com/random/900x900/?concert%20crowd")
+    concert_ams.photo.attach(io: file, filename: "#{concert_ams.name}.jpg", content_type: "image/jpeg")
+    concert_ams.save!
+end
+
+events.each do |event|
+  concert = Concert.new(
+    name: event["name"],
+    summary: event['info'] || rand_summaries.sample,
+    address: "#{event["_embedded"]["venues"][0]["name"]}, #{event["_embedded"]["venues"][0]["address"]["line1"]}",
+    date: event["dates"]["start"]["dateTime"],
+    artist: event["_embedded"]["attractions"][0]["name"],
+    genre: event["classifications"][0]["genre"]["name"],
+  )
+    file = URI.open("https://source.unsplash.com/random/900x900/?concert%20crowd")
+    concert.photo.attach(io: file, filename: "#{concert.name}.jpg", content_type: "image/jpeg")
+    concert.save!
+end
 Concert.where(date: nil).destroy_all
-  
+
 puts "Creating Fromus and comments"
 
 rand_posts = ["You seem like a great person to share an apartment or room with for the concert!",
@@ -262,40 +317,28 @@ rand_posts = ["You seem like a great person to share an apartment or room with f
   "The joy and excitement you bring to the search for a roommate make me confident you'll find an amazing match.",
   "You're on the right track to find a like-minded concert buddy. Keep up the positive energy!",
   "The concert will be even more special with the shared experience of finding a great roommate. Good luck!"]
-  
+
   concerts = Concert.all
   users = User.all
-  
+
   concerts.each do |concert|
     num_forums = 20
-    
     num_forums.times do
       user = users.sample
-      # forum_type = Forum.types.keys.sample
-      
-      Forum.create(
+      Forum.create!(
         board: [0, 1, 2].sample,
         content: rand_posts.sample,
         user: user,
         concert: concert,
       )
+      end
     end
-    
-    puts "Creating Favorites...."
-    20.times do
-      user = User.all.sample
-      concert = Concert.all.sample
-      Favorite.create!(user: user, concert: concert)
+
+  puts "Creating Favorites...."
+    concerts.each do |concert|
+      20.times do
+        user = User.all.sample
+        concert = Concert.all.sample
+        Favorite.create!(user: user, concert: concert)
+      end
     end
-    
-    # num_comments = rand(2..5)
-    # num_comments.time do
-    #   Comment.create!(
-    #     content: Faker::Lorem.sentence,
-    #     forum: forum,
-    #     user: user
-    #   )
-    # end
-  end
-  
-  
