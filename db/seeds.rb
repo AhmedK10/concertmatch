@@ -182,6 +182,8 @@ events.each do |event|
   concert.save!
 end
 
+Concert.where(date: nil).destroy_all
+
 puts "Creating Fromus and comments"
 
 rand_posts = ["You seem like a great person to share an apartment or room with for the concert!",

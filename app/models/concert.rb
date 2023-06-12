@@ -4,7 +4,7 @@ class Concert < ApplicationRecord
   # validates :address, presence: true
 
   has_one_attached :photo
-  has_many :forums
-  has_many :favorites
+  has_many :forums, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites
 end
