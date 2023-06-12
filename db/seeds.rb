@@ -18,6 +18,17 @@ Forum.destroy_all
 Comment.destroy_all
 
 # #USERS:
+bio_options = [
+  "Passionate musician spreading good vibes through my music.",
+  "Concert-goer and music enthusiast always searching for the next great show.",
+  "Rocking the stage and connecting with the crowd through my music.",
+  "Dedicated fan of live music and unforgettable concert experiences.",
+  "Music lover on a mission to discover new sounds and rhythms.",
+  "Melody-driven soul seeking the magic of live performances.",
+  "Concert junkie always chasing the adrenaline of a live show.",
+  "Guitarist with a passion for creating and performing original music."
+] 
+
 puts "Creating Users...."
 User.create!(
   email: "ben@gmail.com",
@@ -26,6 +37,8 @@ User.create!(
   last_name: "Lee",
   gender: 0,
   date_of_birth: Date.parse("1999-01-08"),
+  bio: bio_options.sample 
+
 )
 
 User.create!(
@@ -35,6 +48,8 @@ User.create!(
   last_name: "Smith",
   gender: 1,
   date_of_birth: Date.parse("1997-04-04"),
+  bio: bio_options.sample 
+
 )
 
 User.create!(
@@ -44,6 +59,8 @@ User.create!(
   last_name: "Hill",
   gender: 0,
   date_of_birth: Date.parse("2001-03-03"),
+  bio: bio_options.sample 
+
 )
 
 User.create!(
@@ -53,6 +70,8 @@ User.create!(
   last_name: "Scott",
   gender: 1,
   date_of_birth: Date.parse("1985-12-07"),
+  bio: bio_options.sample 
+
 )
 
 User.create!(
@@ -62,6 +81,8 @@ User.create!(
   last_name: "Reed",
   gender: 2,
   date_of_birth: Date.parse("1975-11-13"),
+  bio: bio_options.sample 
+
 )
 
 15.times do
@@ -76,6 +97,8 @@ User.create!(
     last_name: last_name,
     gender: 1,
     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75),
+    bio: bio_options.sample 
+
   )
 end
 
@@ -91,6 +114,8 @@ end
     last_name: last_name,
     gender: 0,
     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75),
+    bio: bio_options.sample 
+
   )
 end
 
@@ -106,7 +131,20 @@ end
     last_name: last_name,
     gender: 2,
     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75),
+    bio: bio_options.sample 
+   
   )
+end
+#Attach photo to users
+# Get all the users
+# iterate over the users array
+# on each user instance, we open a profile picture from this person does not exist .com
+# attach the opned photo to the user instance
+users = User.all
+users.each do |user| 
+  file = URI.open("https://thispersondoesnotexist.com")
+    user.photo.attach(io: file, filename: "#{user.first_name}.jpg", content_type: "image/jpeg")
+    user.save
 end
 
 #CONCERTS:
@@ -240,14 +278,4 @@ concerts.each do |concert|
   # end
 end
 
-# db/seeds.rb
 
-profiles = [
-  { name: 'John Doe', bio: 'Lorem ipsum dolor sit amet.', genre: 'Rock', age: 25 },
-  { name: 'Jane Smith', bio: 'Consectetur adipiscing elit.', genre: 'Pop', age: 30 },
-  # Add more profiles here
-]
-
-profiles.each do |profile|
-  Profile.create(profile)
-end
