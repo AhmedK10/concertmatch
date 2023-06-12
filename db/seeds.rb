@@ -127,7 +127,7 @@ rand_summaries = ["Join us for an extraordinary evening of live music, as some o
 
 puts "Fetching Concerts from TicketMaster...."
 #events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=200&apikey=#{ENV["TICKETMASTERKEY"]}")
-events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=200&classificationName=music&apikey=#{ENV["TICKETMASTERKEY"]}")
+events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=50&classificationName=music&apikey=#{ENV["TICKETMASTERKEY"]}")
 ams_raw =  HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=50&classificationName=music&city=Amsterdam&apikey=#{ENV["TICKETMASTERKEY"]}")
 #events_raw_ams = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?city=Amsterdam&size=1&apikey=#{ENV["TICKETMASTERKEY"]}")
 #puts events_raw
@@ -147,13 +147,13 @@ events_ams.each do |event|
     date: event["dates"]["start"]["dateTime"],
     artist: event["_embedded"]["attractions"][0]["name"],
     genre: event["classifications"][0]["genre"]["name"],
-    image: event['images'][0].nil? ? nil : event['images'][0]['url']
+    #image: event['images'][0].nil? ? nil : event['images'][0]['url']
   )
 
-  if event['images'][0].nil?
+  #if event['images'][0].nil?
     file = URI.open("https://source.unsplash.com/random/900x900/?concert%20crowd")
-    concert_ams.photo.attach(io: file, filename: "#{concert.name}.jpg", content_type: "image/jpeg")
-  end
+    concert_ams.photo.attach(io: file, filename: "#{concert_ams.name}.jpg", content_type: "image/jpeg")
+  #end
   concert_ams.save!
 end
 
@@ -172,13 +172,13 @@ events.each do |event|
     date: event["dates"]["start"]["dateTime"],
     artist: event["_embedded"]["attractions"][0]["name"],
     genre: event["classifications"][0]["genre"]["name"],
-    image: event['images'][0].nil? ? nil : event['images'][0]['url']
+    #image: event['images'][0].nil? ? nil : event['images'][0]['url']
   )
 
-  if event['images'][0].nil?
+  #if event['images'][0].nil?
     file = URI.open("https://source.unsplash.com/random/900x900/?concert%20crowd")
     concert.photo.attach(io: file, filename: "#{concert.name}.jpg", content_type: "image/jpeg")
-  end
+  #end
   concert.save!
 end
 
