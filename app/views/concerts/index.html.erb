@@ -7,29 +7,47 @@
 </div>
 
 <div class="container">
-  <div class="row justify-content-center">
-    <% @concerts.each do |concert| %>
-      <div class="col-12 my-4">
-      <div class="card-list">
-      <h2><%= concert.name %></h2>
-      <div class="card-list-infos">
-          <div class="date ms-4">
-            <h2 class="month"><%= concert.date.strftime("%B") %></h2>
-            <h2 class="day"><%= concert.date.day %></h2>
-          </div>
-          <div style="display: flex; justify-content: center;">
-            <div style="text-align: center;">
-              <h2 class="address py-1"><%= concert.artist %></h2>
-              <h2 class="address py-1"><%= concert.genre.capitalize %></h2>
-              <h4 class="address"><%= concert.address %></h4>
+
+    <div>
+      <%= form_tag concerts_path, method: :get do |f| %>
+        <%= select_tag :genre, options_for_select(Concert.pluck(:genre).uniq) %>
+        <%= submit_tag "Filter", class: "button-navbar-purple",
+        style: "margin-top: 15px;" %>
+      <% end %>
+
+      <%= form_tag concerts_path, method: :get do %>
+        <%= label_tag :start_date, "Start Date:" %>
+        <%= text_field_tag :start_date, params[:start_date], type: "date", class: "form-control" %>
+
+        <%= label_tag :end_date, "End Date:" %>
+        <%= text_field_tag :end_date, params[:end_date], type: "date", class: "form-control" %>
+        <%= submit_tag "Submit", class: "button-navbar-purple", style: "margin-top: 15px;" %>
+      <% end %>
+    </div>
+
+    <div class="row justify-content-center">
+      <% @concerts.each do |concert| %>
+        <div class="col-12 my-4">
+        <div class="card-list">
+        <h2><%= concert.name %></h2>
+        <div class="card-list-infos">
+            <div class="date ms-4">
+              <h2 class="month"><%= concert.date.strftime("%B") %></h2>
+              <h2 class="day"><%= concert.date.day %></h2>
             </div>
+            <div style="display: flex; justify-content: center;">
+              <div style="text-align: center;">
+                <h2 class="address py-1"><%= concert.artist %></h2>
+                <h2 class="address py-1"><%= concert.genre.capitalize %></h2>
+                <h4 class="address"><%= concert.address %></h4>
+              </div>
+            </div>
+          <div class="d-flex flex-column align-items-center">
+            <h3 class="mb-4"><strong>Amsterdam</strong></h3>
+            <%= link_to "Details", concert_path(concert), class:"card-list-button button-purple text-decoration-none"%>
           </div>
-        <div class="d-flex flex-column align-items-center">
-          <h3 class="mb-4"><strong>Amsterdam</strong></h3>
-          <%= link_to "Details", concert_path(concert), class:"card-list-button button-purple text-decoration-none"%>
+          </div>
         </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 </div>
