@@ -239,3 +239,15 @@ concerts.each do |concert|
   #   )
   # end
 end
+
+# db/seeds.rb
+
+profiles = [
+  { name: 'John Doe', bio: 'Lorem ipsum dolor sit amet.', genre: 'Rock', age: 25 },
+  { name: 'Jane Smith', bio: 'Consectetur adipiscing elit.', genre: 'Pop', age: 30 },
+  # Add more profiles here
+]
+
+profiles.each do |profile|
+  Profile.create(profile)
+end
