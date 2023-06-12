@@ -1,64 +1,41 @@
-<!-- Footer -->
-<footer class="text-center text-white">
-  <!-- Grid container -->
-  <div class="container p-4 pb-0">
-    <!-- Section: Social media -->
-    <section class="mb-4">
-      <!-- Facebook -->
-      <a
-        class="btn btn-primary btn-floating m-1"
-        style="background-color: #3b5998;"
-        href="#!"
-        role="button"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
-      <!-- Twitter -->
-      <a
-        class="btn btn-primary btn-floating m-1"
-        style="background-color: #55acee;"
-        href="#!"
-        role="button"
-        ><i class="fab fa-twitter"></i
-      ></a>
-      <!-- Google -->
-      <a
-        class="btn btn-primary btn-floating m-1"
-        style="background-color: #dd4b39;"
-        href="#!"
-        role="button"
-        ><i class="fab fa-google"></i
-      ></a>
-      <!-- Instagram -->
-      <a
-        class="btn btn-primary btn-floating m-1"
-        style="background-color: #ac2bac;"
-        href="#!"
-        role="button"
-        ><i class="fab fa-instagram"></i
-      ></a>
-      <!-- Linkedin -->
-      <a
-        class="btn btn-primary btn-floating m-1"
-        style="background-color: #0082ca;"
-        href="#!"
-        role="button"
-        ><i class="fab fa-linkedin-in"></i
-      ></a>
-      <!-- Github -->
-      <a
-        class="btn btn-primary btn-floating m-1"
-        style="background-color: #333333;"
-        href="#!"
-        role="button"
-        ><i class="fab fa-github"></i
-      ></a>
-    </section>
-    <!-- Section: Social media -->
+<footer class="custom-footer">
+  <div class="container">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-sm-4 social text-center">
+        <h4>Follow Us</h4>
+        <ul class="list-inline social-icons">
+          <li class="list-inline-item"><i class="fab fa-facebook" style="font-size: 35px;"></i></li>
+          <li class="list-inline-item"><i class="fab fa-twitter" style="font-size: 35px;"></i></li>
+          <li class="list-inline-item"><i class="fab fa-instagram" style="font-size: 35px;"></i></li>
+        </ul>
+      </div>
+      <div class="col-sm-4 text-center">
+        <%= image_tag "concertmatchlogo.png", alt: "Logo", style: "max-height: 150px;" %>
+      </div>
+      <div class="col-sm-4 text-left">
+        <h4 class="links-heading">Links</h4>
+        <div class="row menu">
+          <div class="col-sm-6" style="width: 180px;">
+            <ul class="list-unstyled">
+              <li><span class="footer-link">About Us</span></li>
+              <li><span class="footer-link">Contact</span></li>
+              <li><span class="footer-link">Profile</span></li>
+            </ul>
+          </div>
+          <div class="col-sm-6" style="width: 180px;">
+            <ul class="list-unstyled">
+              <li><span class="footer-link">Favorites</span></li>
+              <li><span class="footer-link">Conversations</span></li>
+              <li><span class="footer-link">Forums</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row justify-content-center">
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+      </div>
+    </div>
   </div>
-  <!-- Grid container -->
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: #8A2BE2;">
-    <a class="text-white" href="https://concertmatch.online/" style="text-decoration: none; font-style: italic;"> ©2023 concertmatch.online</a>
-  </div>
-  <!-- Copyright -->
+</div>
 </footer>

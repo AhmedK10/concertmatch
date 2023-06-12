@@ -1,29 +1,48 @@
-.details-info {
-
+.card {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  padding: 0px;
+  border-radius: 0;
 }
 
-.details-img {
-  // border-radius: 5px;
-  // background-size: cover;
-  // //width: 500px;
-
-  width: 800px; /* Adjust the width as desired */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 5px;
+.card-img {
+  height: 200px;
+  width: 100%;
   background-size: cover;
+  background-position: center;
+  border-radius: 0px;
 }
 
-.vertical-line {
-  border-left: 1px solid rgb(175, 162, 162); /* Adjust the width and color as needed */
-  height: 100px; /* Adjust the height as needed */
+.card-content {
+  padding: 10px;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
-.flex-column {
-  flex-direction: column;
+.card h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
 }
 
-.city-info {
-  h3 {
-    font-weight: bold;
-  }
+.card-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 10px;
 }
+
+// .card-address {
+//   font-size: 14px; /* Adjust the font size as desired */
+//   opacity: 0.7;
+//   margin: 0;
+// }
+
+
+// .card-artist {
+//   font-size: 12px;
+//   font-weight: bold;
+//   margin: 0;
+// }

@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   ##:confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable
 
   enum gender: { male: 0, female: 1, other: 2 }
 
@@ -16,6 +16,6 @@ class User < ApplicationRecord
   def favorited?(concert)
     concert.users.include?(self)
   end
-
-  
+  has_one_attached :photo
 end
+

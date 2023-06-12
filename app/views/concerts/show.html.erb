@@ -76,6 +76,19 @@
                     <li class="list-inline-item"><i class="fab fa-facebook" style="font-size: 20px;"></i></li>
                     <li class="list-inline-item"><i class="fab fa-twitter" style="font-size: 20px;"></i></li>
                     <li class="list-inline-item"><i class="fab fa-instagram" style="font-size: 20px;"></i></li>
+                    
+                  <% if f.user.photo.attached? %>
+                    <%= cl_image_tag f.user.photo.key, class: "avatar" %>
+                  <% else %>
+                    <%= image_tag "user-pic.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                  <% end %>
+                  <%= f.user.first_name %>
+                  <h6 style="font-size: 14px; font-style: italic; text-align: center;"><%= f.user.bio %></h6>
+                  <ul class="list-inline social-icons">
+                    <li class="list-inline-item"><a href="https://www.facebook.com"><i class="fab fa-facebook" style="font-size: 20px; color: #4267B2;"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.twitter.com"><i class="fab fa-twitter" style="font-size: 20px; color: #1DA1F2;"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.instagram.com"><i class="fab fa-instagram" style="font-size: 20px; color: #C13584;"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.spotify.com"><i class="fab fa-spotify" style="font-size: 20px; color: #1DB954;"></i></a></li>
                   </ul>
                 </div>
               </div>
