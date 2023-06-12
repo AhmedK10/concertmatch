@@ -75,10 +75,9 @@
   align-items: center;
 }
 
-.login-button:hover,
-.login-button:hover .nav-link {
+.login-button:hover {
   background-position: left;
-  color: black !important; /* Add !important to override any conflicting styles */
+  color: black;
 }
 
 #navbarDropdown {

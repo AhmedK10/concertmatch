@@ -1,4 +1,10 @@
 // Specific CSS for your home-page
+h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
 .events {
     color: black;
     text-shadow: 2px 2px 4px hsl(0, 0%, 100%);
@@ -46,9 +52,6 @@
     margin-bottom: 4rem;
 }
 
-.font-size {
-    font-size: 24px;
-}
 // .gif{
 //  width: 400px;
 //     overflow: hidden;

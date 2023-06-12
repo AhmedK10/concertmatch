@@ -7,7 +7,7 @@
   background-position: top;
   margin-bottom: 20px;
   justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  align-items: end; /* Center vertically */
   margin-bottom: 20px;
 }
 
@@ -18,4 +18,12 @@
   text-align: center; /* Center the text */
   background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent black background */
   padding: 20px; /* Adjust the padding as needed */
+}
+
+.banner h1 {
+  font-size: 56px;
+}
+
+.banner p {
+  font-size: 24px;
 }
