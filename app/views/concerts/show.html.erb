@@ -32,16 +32,18 @@
     <div class="details-img ms-5">
       <%# <div class="" style="background-image: url(<%= cl_image_path @concert.photo.key %>
       <%#= image_tag(cl_image_path @concert.photo.key) %>
-      <% if @concert.photo.attached? %>
-        <%= cl_image_tag @concert.photo.key, height:700%>
-        <%= link_to concert_favorites_path(@concert), data: { turbo_method: :post } do %>
-          <% if current_user.favorited?(@concert) %>
-            <i class="fa-solid fa-heart" style="color: red;" ></i>
-          <% else %>
-            <i class="fa-regular fa-heart"></i>
+      <div class="image-container">
+        <% if @concert.photo.attached? %>
+          <%= cl_image_tag @concert.photo.key, height:700%>
+          <%= link_to concert_favorites_path(@concert), data: { turbo_method: :post } do %>
+            <% if current_user.favorited?(@concert) %>
+              <i class="fa-solid fa-heart" style="color: red; font-size: 40px;"></i>
+            <% else %>
+              <i class="fa-regular fa-heart" style="font-size: 40px;"></i>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
   <div class="d-flex align-items-center">

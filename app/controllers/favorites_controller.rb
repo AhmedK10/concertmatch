@@ -15,7 +15,7 @@ class FavoritesController < ApplicationController
     if @favorite.save
       redirect_to concert_path(@concert), notice: "Added to favorite"
     else
-      render 'new'
+      redirect_to concert_path(@concert), notice: @favorite.errors.full_messages[0]
     end
   end
 
