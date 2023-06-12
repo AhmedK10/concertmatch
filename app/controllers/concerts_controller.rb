@@ -5,8 +5,7 @@ class ConcertsController < ApplicationController
     @concerts = Concert.all
     if params[:query].present? && params[:query] != ""
       sql_subquery = <<~SQL
-        genre ILIKE :query
-        OR summary ILIKE :query
+        summary ILIKE :query
         OR concerts.name ILIKE :query
         OR artist ILIKE :query
       SQL

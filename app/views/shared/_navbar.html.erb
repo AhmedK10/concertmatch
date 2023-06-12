@@ -9,7 +9,7 @@
     <div class="row justify-content-center">
       <div class="col-sm-12 my-6">
         <%= form_with url: concerts_path, method: :get, class: "search-form" do %>
-          <%= text_field_tag :query, params[:query], class: "form-control search-input", placeholder: "Search Concert, Genre or Artist" %>
+          <%= text_field_tag :query, params[:query], class: "form-control search-input", placeholder: "Search Concert or Artist" %>
           <%= submit_tag "Search", name: "", class: "nav-link button-navbar-purple search-button mt-0" %>
         <% end %>
       </div>
