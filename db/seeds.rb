@@ -7,6 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require "faker"
+require 'json'
+require 'httparty'
 
 puts "deleting all old data....."
 User.destroy_all
@@ -124,28 +126,59 @@ rand_summaries = ["Join us for an extraordinary evening of live music, as some o
                   "Indulge in an evening of musical storytelling, as this concert presents a collection of songs that explore universal"]
 
 puts "Fetching Concerts from TicketMaster...."
-events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=200&apikey=#{ENV["TICKETMASTERKEY"]}")
+#events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=200&apikey=#{ENV["TICKETMASTERKEY"]}")
+events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=200&classificationName=music&apikey=#{ENV["TICKETMASTERKEY"]}")
+ams_raw =  HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=50&classificationName=music&city=Amsterdam&apikey=#{ENV["TICKETMASTERKEY"]}")
 #events_raw_ams = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?city=Amsterdam&size=1&apikey=#{ENV["TICKETMASTERKEY"]}")
 #puts events_raw
-events = events_raw["_embedded"]["events"]
+#https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=0fP8LQ9olh872SrkGDjeESOHYdSybHUJ
+data = JSON.parse(events_raw.body)
+ams_data = JSON.parse(ams_raw.body)
+events = data["_embedded"]["events"]
+events_ams = ams_data["_embedded"]["events"]
 #p events.count
-events.each do |event|
-  sports = event["classifications"][0]["segment"]["name"] == "Sports"
-  theatre = event["classifications"][0]["genre"]["name"] == "Theatre"
-  art = event["classifications"][0]["genre"]["name"] == "Performance Art"
-  next if sports || theatre || art
 
-  concert = Concert.new(
+events_ams.each do |event|
+
+  concert_ams = Concert.new(
     name: event["name"],
-    summary: rand_summaries.sample,
+    summary: event['info'] || rand_summaries.sample,
     address: "#{event["_embedded"]["venues"][0]["name"]}, #{event["_embedded"]["venues"][0]["address"]["line1"]}",
     date: event["dates"]["start"]["dateTime"],
     artist: event["_embedded"]["attractions"][0]["name"],
-    genre: event["classifications"][0]["genre"]["name"]
+    genre: event["classifications"][0]["genre"]["name"],
+    image: event['images'][0].nil? ? nil : event['images'][0]['url']
   )
 
-  file = URI.open("https://source.unsplash.com/random/900x900/?concert%20crowd")
-  concert.photo.attach(io: file, filename: "#{concert.name}.jpg", content_type: "image/jpeg")
+  if event['images'][0].nil?
+    file = URI.open("https://source.unsplash.com/random/900x900/?concert%20crowd")
+    concert_ams.photo.attach(io: file, filename: "#{concert.name}.jpg", content_type: "image/jpeg")
+  end
+  concert_ams.save!
+end
+
+
+events.each do |event|
+  # sports = event["classifications"][0]["segment"]["name"] == "Sports"
+  # theatre = event["classifications"][0]["genre"]["name"] == "Theatre"
+  # art = event["classifications"][0]["genre"]["name"] == "Performance Art"
+  # next if sports || theatre || art
+
+  #concert =
+  concert = Concert.new(
+    name: event["name"],
+    summary: event['info'] || rand_summaries.sample,
+    address: "#{event["_embedded"]["venues"][0]["name"]}, #{event["_embedded"]["venues"][0]["address"]["line1"]}",
+    date: event["dates"]["start"]["dateTime"],
+    artist: event["_embedded"]["attractions"][0]["name"],
+    genre: event["classifications"][0]["genre"]["name"],
+    image: event['images'][0].nil? ? nil : event['images'][0]['url']
+  )
+
+  if event['images'][0].nil?
+    file = URI.open("https://source.unsplash.com/random/900x900/?concert%20crowd")
+    concert.photo.attach(io: file, filename: "#{concert.name}.jpg", content_type: "image/jpeg")
+  end
   concert.save!
 end
 
@@ -176,7 +209,7 @@ concerts = Concert.all
 users = User.all
 
 concerts.each do |concert|
-  num_forums = 10
+  num_forums = 20
 
   num_forums.times do
     user = users.sample
