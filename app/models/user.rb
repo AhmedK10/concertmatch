@@ -13,6 +13,14 @@ class User < ApplicationRecord
   has_many :forums, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+
+  
+    def age 
+      current_age = Date.today.year -  date_of_birth.year
+      current_age -= 1 if Date.today <  date_of_birth + current_age.years 
+      current_age 
+    end
+
   def favorited?(concert)
     concert.users.include?(self)
   end
