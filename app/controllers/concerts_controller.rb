@@ -3,23 +3,36 @@ class ConcertsController < ApplicationController
 
   def index
     @concerts = Concert.all
+
     if params[:query].present? && params[:query] != ""
-      sql_subquery = <<~SQL
-        summary ILIKE :query
-        OR concerts.name ILIKE :query
-        OR artist ILIKE :query
-      SQL
-      @concerts = @concerts.where(sql_subquery, query: "%#{params[:query]}%")
+      @concerts = @concerts.where("name ILIKE :query OR artist ILIKE :query", query: "%#{params[:query]}%")
     end
 
     if params[:genre].present?
       @concerts = @concerts.where(genre: params[:genre])
     end
 
-    if params[:start_date].present? && params[:end_date].present?
+    if params[:start_date].present?
       start_date = Date.parse(params[:start_date])
-      end_date = Date.parse(params[:end_date])
-      @concerts = @concerts.where(date: start_date..end_date)
+      @concerts = @concerts.where("date >= ?", start_date)
+    end
+
+    if params[:artist].present?
+      @concerts = @concerts.where("artist ILIKE ?", "%#{params[:artist]}%")
+    end
+
+    if params[:location].present?
+      @concerts = @concerts.where("address ILIKE ?", "%#{params[:location]}%")
+    end
+
+    # if params[:start_date].present? && params[:end_date].present?
+    #   start_date = Date.parse(params[:start_date])
+    #   end_date = Date.parse(params[:end_date])
+    #   @concerts = @concerts.where(date: start_date..end_date)
+    # end
+
+    if params[:start_date].blank? || params[:end_date].blank?
+      @concerts = @concerts.order(date: :asc)
     end
   end
 

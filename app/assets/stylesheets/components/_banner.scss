@@ -1,31 +1,92 @@
 .banner-index {
+  background: linear-gradient(to top, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)),
+              url('travel.jpg');
+  background-size: cover;
+  background-position: top;
+  padding: 30px;
+  height: 625px;
+  // margin-top: 90px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  //padding: 120px 64px;
+  justify-content: center;
+  text-align: center;
+  align-items: end; /* Center vertically */
+  margin-bottom: 40px;
+}
+
+
+.filter-concerts {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  max-width: max-content;
+  width: 100%;
+  margin: auto;
+  margin-top: 40px;
+  text-align: left; /* Align text to the left */
+  border-radius: 4px;
+}
+
+
+.banner-text-index {
+  padding-left: 20px;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  text-align: center; /* Center the text */
+  padding: 20px; /* Adjust the padding as needed */
+}
+
+.banner-text-index h1 {
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.banner h6 {
+  font-size: 24px;
+  font-size: bold;
+}
+
+.banner-text h6 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.banner-text h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.banner-text p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+
+
+.filter-concerts label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.filter-concerts .button-navbar-purple {
+  margin-top: 30px;
   margin-bottom: 15px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 700px;
+}
 
-  .banner-text {
-    width: 42%;
-    color: white;
-    padding-left: 50px;
+.button-navbar-purple {
+  padding: 5px 20px; /* top right bottom left */
+}
 
-    h1 {
-      font-size: 55px;
-      margin-bottom: 30px;
-    }
-
-    h6 {
-      font-size: 20px;
-    }
-
-    p {
-      font-size: 21px;
-      margin-bottom: 50px;
-    }
-  }
+.filter-concerts select,
+.filter-concerts input[type="date"],
+.filter-concerts input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  background-color: #ffffff; /* Set the background color */
 }
