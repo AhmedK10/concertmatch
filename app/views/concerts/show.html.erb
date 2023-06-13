@@ -30,8 +30,6 @@
       </div>
     </div>
     <div class="details-img ms-5">
-      <%# <div class="" style="background-image: url(<%= cl_image_path @concert.photo.key %>
-      <%#= image_tag(cl_image_path @concert.photo.key) %>
       <% if @concert.photo.attached? %>
         <%= cl_image_tag @concert.photo.key, height:700%>
         <%= link_to concert_favorites_path(@concert), data: { turbo_method: :post } do %>
@@ -48,7 +46,6 @@
   </div>
   <div class="d-flex align-items-center">
     <div class="me-5">
-      <%#= image_tag('index-banner-pic.jpg', class: 'img-fluid')%>
       <%= image_tag "https://source.unsplash.com/random/900x900/?concert%20crowd", alt: "Concert Crowd Image", style: "max-height: 300px; max-width: 1500px;" %>
     </div>
     <div class="text-justify">
@@ -81,7 +78,9 @@
                     <i class="fa-solid fa-music fa-beat"></i>&nbsp; <%= f.user.genres %>&nbsp;
                     <i class="fa-sharp fa-solid fa-volume-high fa-beat"></i>
                   </p>
-                  <li class="list-inline-item" style="margin-bottom: 10px;"><a href="https://www.facebook.com"><i class="fa-regular fa-comments fa-shake fa-xl" style="color: #132c58;"></i></a></li>
+                  <%= link_to chatrooms_path(f.user), data: {turbo_method: :post} do %>
+                    <li class="list-inline-item" style="margin-bottom: 10px;"><i class="fa-regular fa-comments fa-shake fa-xl" style="color: #132c58;"></i></a></li>
+                  <% end %>
                   <h6 style="font-size: 14px; font-style: italic; text-align: center;"><%= f.user.bio %></h6>
                   <ul class="list-inline social-icons">
                     <li class="list-inline-item"><a href="https://www.facebook.com"><i class="fab fa-facebook" style="font-size: 20px; color: #4267B2;"></i></a></li>
