@@ -8,11 +8,11 @@ class User < ApplicationRecord
 
   validates :email, presence: true
   validates :password, presence: true, length: { minimum: 6 }
-  
+
   has_many :favorites, dependent: :destroy
   has_many :forums, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_one_attached :photo
+
 
   
     def age 
@@ -20,5 +20,9 @@ class User < ApplicationRecord
       current_age -= 1 if Date.today <  date_of_birth + current_age.years 
       current_age 
     end
-end
 
+  def favorited?(concert)
+    concert.users.include?(self)
+  end
+  has_one_attached :photo
+end
