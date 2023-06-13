@@ -1,15 +1,13 @@
-# This file should contain all the record creation needed to seed the database with its default values.
+#This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples#:
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
 require "faker"
 require 'json'
 require 'httparty'
-
 puts "deleting all old data....."
 Chatroom.destroy_all
 Message.destroy_all
@@ -18,7 +16,6 @@ Concert.destroy_all
 Favorite.destroy_all
 Forum.destroy_all
 Comment.destroy_all
-
 # #USERS:
 bio_options = [
   "Passionate musician spreading good vibes through my music.",
@@ -49,9 +46,7 @@ bio_options = [
   "Choir member, harmonizing with others to create a celestial vocal blend.",
   "Music producer, shaping and molding sounds to create a sonic masterpiece."
 ]
-
 puts "Creating Users...."
-
 ben = User.new(
   email: "ben@gmail.com",
   password: "secret",
@@ -64,8 +59,6 @@ ben = User.new(
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/49.jpg")
 ben.photo.attach(io: file, filename: "#{ben.first_name}.jpg", content_type: "image/jpeg")
 ben.save
-
-
 sofia = User.new(
   email: "sofia@gmail.com",
   password: "secret",
@@ -78,8 +71,6 @@ sofia = User.new(
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/44.jpg")
 sofia.photo.attach(io: file, filename: "#{sofia.first_name}.jpg", content_type: "image/jpeg")
 sofia.save
-
-
 karena = User.new(
   email: "karena@gmail.com",
   password: "secret",
@@ -92,8 +83,6 @@ karena = User.new(
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/55.jpg")
 karena.photo.attach(io: file, filename: "#{karena.first_name}.jpg", content_type: "image/jpeg")
 karena.save
-
-
 pura = User.new(
   email: "pura@gmail.com",
   password: "secret",
@@ -106,8 +95,6 @@ pura = User.new(
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/20.jpg")
 karena.photo.attach(io: file, filename: "#{karena.first_name}.jpg", content_type: "image/jpeg")
 pura.save
-
-
 emma = User.new(
   email: "emma@gmail.com",
   password: "secret",
@@ -120,8 +107,6 @@ emma = User.new(
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/25.jpg")
 emma.photo.attach(io: file, filename: "#{emma.first_name}.jpg", content_type: "image/jpeg")
 emma.save
-
-
 dirk = User.new(
   email: "dirk@gmail.com",
   password: "secret",
@@ -134,8 +119,6 @@ dirk = User.new(
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/77.jpg")
 dirk.photo.attach(io: file, filename: "#{dirk.first_name}.jpg", content_type: "image/jpeg")
 dirk.save
-
-
 max = User.new(
   email: "max@gmail.com",
   password: "secret",
@@ -148,8 +131,6 @@ max = User.new(
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/77.jpg")
 max.photo.attach(io: file, filename: "#{max.first_name}.jpg", content_type: "image/jpeg")
 max.save
-
-
 alex = User.new(
   email: "alex@gmail.com",
   password: "secret",
@@ -162,8 +143,6 @@ alex = User.new(
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/45.jpg")
 alex.photo.attach(io: file, filename: "#{alex.first_name}.jpg", content_type: "image/jpeg")
 alex.save
-
-
 leo = User.new(
   email: "leo@gmail.com",
   password: "secret",
@@ -176,7 +155,6 @@ leo = User.new(
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/78.jpg")
 leo.photo.attach(io: file, filename: "#{alex.first_name}.jpg", content_type: "image/jpeg")
 leo.save
-
 sasha = User.new(
   email: "sasha@gmail.com",
   password: "secret",
@@ -189,8 +167,6 @@ sasha = User.new(
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/2.jpg")
 sasha.photo.attach(io: file, filename: "#{sasha.first_name}.jpg", content_type: "image/jpeg")
 sasha.save
-
-
 delbert = User.new(
   email: "delbert@gmail.com",
   password: "secret",
@@ -204,7 +180,6 @@ file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/56.jpg")
 delbert.photo.attach(io: file, filename: "#{delbert.first_name}.jpg", content_type: "image/jpeg")
 delbert.save
 
-
 lewana = User.new(
   email: "lawana@gmail.com",
   password: "secret",
@@ -217,7 +192,6 @@ lewana = User.new(
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/61.jpg")
 lewana.photo.attach(io: file, filename: "#{lewana.first_name}.jpg", content_type: "image/jpeg")
 lewana.save
-
 milton = User.new(
   email: "milton@gmail.com",
   password: "secret",
@@ -230,8 +204,6 @@ milton = User.new(
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/25.jpg")
 milton.photo.attach(io: file, filename: "#{milton.first_name}.jpg", content_type: "image/jpeg")
 milton.save
-
-
 lane = User.new(
   email: "lane@gmail.com",
   password: "secret",
@@ -240,8 +212,6 @@ lane = User.new(
   gender: 0,
   date_of_birth: Date.parse("1996-01-02"),
   bio: bio_options.sample )
-
-
 #CONCERTS:
 rand_summaries = ["Join us for an extraordinary evening of live music, as some of the most talented artists from around the world come together on one stage. From soulful ballads to high-energy rock anthems, this concert promises to take you on a musical journey like no other.",
                   "Prepare to be mesmerized by the sheer talent and artistry on display at this highly anticipated concert event. With a diverse lineup of musicians spanning various genres, this is your chance to experience the magic of live performances that will leave you in awe.",
@@ -257,7 +227,6 @@ rand_summaries = ["Join us for an extraordinary evening of live music, as some o
                   "Prepare to be enchanted by the ethereal sounds of acoustic instruments, as this concert showcases the beauty and intimacy of unplugged performances. From delicate fingerpicking on acoustic guitars to the rich tones of a grand piano, this event offers a serene and heartfelt musical experience.",
                   "Join us for an evening of breathtaking virtuosity, as a lineup of prodigious instrumentalists showcase their unmatched skill and dexterity on their respective instruments. From intricate guitar solos to mind-blowing drum performances, this concert will leave you in awe of human musical potential.",
                   "Indulge in an evening of musical storytelling, as this concert presents a collection of songs that explore universal"]
-
 puts "Fetching Concerts from TicketMaster...."
 events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=10&classificationName=music&apikey=#{ENV["TICKETMASTERKEY"]}")
 ams_raw =  HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=10&classificationName=music&city=Amsterdam&apikey=#{ENV["TICKETMASTERKEY"]}")
@@ -265,7 +234,6 @@ data = JSON.parse(events_raw.body)
 ams_data = JSON.parse(ams_raw.body)
 events = data["_embedded"]["events"]
 events_ams = ams_data["_embedded"]["events"]
-
 events_ams.each do |event|
   concert_ams = Concert.new(
     name: event["name"],
@@ -279,7 +247,6 @@ events_ams.each do |event|
     concert_ams.photo.attach(io: file, filename: "#{concert_ams.name}.jpg", content_type: "image/jpeg")
     concert_ams.save!
 end
-
 events.each do |event|
   concert = Concert.new(
     name: event["name"],
@@ -294,9 +261,7 @@ events.each do |event|
     concert.save!
 end
 Concert.where(date: nil).destroy_all
-
 puts "Creating Fromus and comments"
-
 rand_posts = ["You seem like a great person to share an apartment or room with for the concert!",
   "I love your enthusiasm for finding a concert buddy. It's contagious!",
   "You're going to have an amazing time at the concert, especially with the right roommate!",
@@ -317,10 +282,8 @@ rand_posts = ["You seem like a great person to share an apartment or room with f
   "The joy and excitement you bring to the search for a roommate make me confident you'll find an amazing match.",
   "You're on the right track to find a like-minded concert buddy. Keep up the positive energy!",
   "The concert will be even more special with the shared experience of finding a great roommate. Good luck!"]
-
   concerts = Concert.all
   users = User.all
-
   concerts.each do |concert|
     num_forums = 20
     num_forums.times do
@@ -333,7 +296,6 @@ rand_posts = ["You seem like a great person to share an apartment or room with f
       )
       end
     end
-
   puts "Creating Favorites...."
     concerts.each do |concert|
       20.times do
