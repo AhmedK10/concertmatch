@@ -211,7 +211,12 @@ lane = User.new(
   last_name: "Walmer",
   gender: 0,
   date_of_birth: Date.parse("1996-01-02"),
-  bio: bio_options.sample )
+  bio: bio_options.sample
+)
+file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/25.jpg")
+lane.photo.attach(io: file, filename: "#{milton.first_name}.jpg", content_type: "image/jpeg")
+lane.save
+
 #CONCERTS:
 rand_summaries = ["Join us for an extraordinary evening of live music, as some of the most talented artists from around the world come together on one stage. From soulful ballads to high-energy rock anthems, this concert promises to take you on a musical journey like no other.",
                   "Prepare to be mesmerized by the sheer talent and artistry on display at this highly anticipated concert event. With a diverse lineup of musicians spanning various genres, this is your chance to experience the magic of live performances that will leave you in awe.",
@@ -282,25 +287,28 @@ rand_posts = ["You seem like a great person to share an apartment or room with f
   "The joy and excitement you bring to the search for a roommate make me confident you'll find an amazing match.",
   "You're on the right track to find a like-minded concert buddy. Keep up the positive energy!",
   "The concert will be even more special with the shared experience of finding a great roommate. Good luck!"]
-  concerts = Concert.all
-  users = User.all
-  concerts.each do |concert|
-    num_forums = 20
-    num_forums.times do
-      user = users.sample
-      Forum.create!(
-        board: [0, 1, 2].sample,
-        content: rand_posts.sample,
-        user: user,
-        concert: concert,
-      )
-      end
+
+concerts = Concert.all
+users = User.all
+concerts.each do |concert|
+  num_forums = 20
+  num_forums.times do
+    user = users.sample
+    Forum.create!(
+      board: [0, 1, 2].sample,
+      content: rand_posts.sample,
+      user: user,
+      concert: concert,
+    )
+  end
+end
+puts "Creating Favorites...."
+concerts.each do |concert|
+  20.times do
+    user = User.all.sample
+    concert = Concert.all.sample
+    unless Favorite.exists?(user: user, concert: concert)
+      Favorite.create!(user: user, concert: concert)
     end
-  puts "Creating Favorites...."
-    concerts.each do |concert|
-      20.times do
-        user = User.all.sample
-        concert = Concert.all.sample
-        Favorite.create!(user: user, concert: concert)
-      end
-    end
+  end
+end
