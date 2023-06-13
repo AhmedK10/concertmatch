@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [:show, :create] do
     resources :messages, only: :create
   end
+
+  get "index", to: "user#index"
 end
