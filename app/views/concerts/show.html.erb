@@ -1,46 +1,86 @@
 <div class="container mt-5">
-  <div>
-    <h1><%= @concert.name %></h1>
-  </div>
-  <div class="d-flex align-items-center justify-content-between my-5">
-    <div class="details-info">
-      <div class="d-flex align-items-center justify-content-between">
-        <div class="date pe-4">
-          <h2 class="month"><%= @concert.date.strftime("%B") %></h2>
-          <h2 class="day"><%= @concert.date.day %></h2>
-        </div>
-        <div class="vertical-line ps-4"></div>
-        <div class="city-info d-flex flex-column align-items-center">
-          <h4 class="address"><%= @concert.address %></h4>
-          <h3 class="card-list-city">Amsterdam</h3>
+  <div class="row concert-details my-5">
+    <div class="col-md-6 align-self-center">
+      <div class="d-flex ">
+        <div class="icon me-4">
+          <i class="fa-solid fa-compact-disc fa-flip fa-2x"></i>
         </div>
       </div>
-      <div class="d-flex flex-column align-items-center mt-4">
-        <h2 class="address py-1"><strong><%= @concert.artist %></strong></h2>
-        <h2 class="address mb-4 py-1"><strong><%= @concert.genre.capitalize %></strong></h2>
-        <p class="text-justify"><%= @concert.summary %></p>
-      </div>
-      <div class="d-flex justify-content-center mt-4 mb-3">
-        <%= link_to "Buddies", "#", class: "card-list-button button-purple me-3 text-decoration-none", "data-bs-toggle": "modal", "data-bs-target": "#buddyModal" %>
-        <%= link_to "Interested", concert_forums_path(@concert), class:"card-list-button button-purple text-decoration-none"%>
+      <div class="details-info">
+        <h1><strong><%= @concert.name %></strong></h1>
+        <div class="row address-date">
+          <div class="col-sm-2">
+            <div class="date text-start"> <!-- Add text-start class -->
+              <h2 class="month"><%= @concert.date.strftime("%B") %></h2>
+              <h2 class="day"><%= @concert.date.day %></h2>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <div class="d-flex align-items-center">
+              <div class="vertical-line"></div>
+              <div class="city-info text-start"> <!-- Add text-start class -->
+                <h4 class="address"><%= @concert.address %></h4>
+                <h3 class="card-list-city">Amsterdam</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row artist-genre align-items-center mt-4">
+          <div class="col-6">
+            <h3 class="artist-label mb-4"><span class="label-text">Artist:</span> <strong><%= @concert.artist %></strong></h3>
+          </div>
+          <div class="col">
+            <h3 class="genre mb-4 py-1"><span class="label-text">Genre:</span> <strong><%= @concert.genre.capitalize %></strong></h3>
+          </div>
+        </div>
+        <div class="row summary-show">
+          <div class="col">
+            <h3><strong>Description:</strong></h3>
+            <p class="text-justify"><%= @concert.summary %></p>
+          </div>
+        </div>
+        <div class="buddies-forum-btn row">
+          <div class="col-4">
+            <%= link_to "Buddies", "#", class: "button-navbar-purple text-decoration-none", "data-bs-toggle": "modal", "data-bs-target": "#buddyModal" %>
+          </div>
+          <div class="col-4">
+            <% if current_user.favorited?(@concert) %>
+              <%= link_to "Go to Forum", concert_forums_path(@concert), class: "button-navbar-purple text-decoration-none" %>
+            <% else %>
+              <%= link_to "interested", concert_favorites_path(@concert), data: { turbo_method: :post }, class: "button-navbar-purple text-decoration-none" %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="details-img ms-5">
-      <%# <div class="" style="background-image: url(<%= cl_image_path @concert.photo.key %>
-      <%#= image_tag(cl_image_path @concert.photo.key) %>
-      <% if @concert.photo.attached? %>
-        <%= cl_image_tag @concert.photo.key, height:700%>
-      <% end %>
+    <div class="col-md-6">
+      <div class="details-img ms-5 img-fluid">
+        <% if @concert.photo.attached? %>
+          <%= cl_image_tag @concert.photo.key, height: 600 %>
+          <%= link_to concert_favorites_path(@concert), data: { turbo_method: :post } do %>
+            <div class="icon">
+              <% if current_user.favorited?(@concert) %>
+                <i class="fa-solid fa-heart" style="color: red; font-size: 40px;"></i>
+              <% else %>
+                <i class="fa-regular fa-heart" style="font-size: 40px;"></i>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-  <div class="d-flex align-items-center">
-    <div class="me-5">
-      <%#= image_tag('index-banner-pic.jpg', class: 'img-fluid')%>
-      <%= image_tag "https://source.unsplash.com/random/900x900/?concert%20crowd", alt: "Concert Crowd Image", style: "max-height: 300px; max-width: 1500px;" %>
+  <div class="row align-items-center justify-content-center">
+    <div class="col-md-5">
+      <div class="me-2 img-fluid">
+        <%= image_tag "https://source.unsplash.com/random/600x500/?concert%20crowd", alt: "Concert Crowd Image", style: "max-height: 600px; max-width: 100%;" %>
+      </div>
     </div>
-    <div class="text-justify">
-      <h2 class="mb-4 font-size"><strong>About</strong></h2>
-      <p>Welcome to our concert hub, where music comes alive and dreams take flight. With a passion for live performances, we curate unforgettable experiences that resonate with your soul. Immerse yourself in the rich tapestry of sounds and emotions as acclaimed artists from diverse genres take center stage. Our mission is to ignite your senses and create memories that will last a lifetime. Join us on this exhilarating musical journey, where the energy of the crowd blends seamlessly with the electrifying performances on stage. Discover the power of music and let it be the soundtrack to your unforgettable concert adventure.</p>
+    <div class="col-md-5">
+      <div class="text-justify about-summary">
+        <h2 class="mb-4 font-size"><strong>About</strong></h2>
+        <p>Welcome to our concert hub, where music comes alive and dreams take flight. With a passion for live performances, we curate unforgettable experiences that resonate with your soul. Immerse yourself in the rich tapestry of sounds and emotions as acclaimed artists from diverse genres take center stage. Our mission is to ignite your senses and create memories that will last a lifetime. Join us on this exhilarating musical journey, where the energy of the crowd blends seamlessly with the electrifying performances on stage. Discover the power of music and let it be the soundtrack to your unforgettable concert adventure.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -57,6 +97,15 @@
             <% @favorites.each do |f| %>
               <div class="col-sm-4 mb-5">
                 <div class="d-flex flex-column align-items-center">
+
+                  <!-- <%= image_tag "user-pic.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                  <%= f.user.first_name %>
+                  <ul class="list-inline social-icons">
+                    <li class="list-inline-item"><i class="fab fa-facebook" style="font-size: 20px;"></i></li>
+                    <li class="list-inline-item"><i class="fab fa-twitter" style="font-size: 20px;"></i></li>
+                    <li class="list-inline-item"><i class="fab fa-instagram" style="font-size: 20px;"></i></li>
+                  </ul> -->
+
                   <% if f.user.photo.attached? %>
                     <%= cl_image_tag f.user.photo.key, class: "avatar" %>
                   <% else %>
