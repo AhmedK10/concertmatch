@@ -16,15 +16,15 @@
     <% end %>
   </div>
 
-<div class="container d-flex justify-content-center">
-  <div class="form-msg input-group mb-3 mt-5">
+<div class="container d-flex justify-content-center mb-0">
+  <div class="form-msg input-group mt-5 mb-0">
     <%= simple_form_for [@chatroom, @message],
         html: {data: {action: "turbo:submit-end->chatroom-subscription#resetForm"}, class: "d-flex"} do |f|
       %>
         <%= f.input :content,
           label: false,
-          placeholder: "Message",
-          wrapper_html: {class: "me-1 form-control transparent-borderless"}
+          placeholder: "Message"
+          #wrapper_html: {class: "me-1 form-control transparent-borderless mb-0"}
         %>
         <%= f.submit "Send", class: "button-chat" %>
       <% end %>

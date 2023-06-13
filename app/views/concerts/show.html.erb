@@ -70,17 +70,17 @@
             <% @favorites.each do |f| %>
               <div class="col-sm-4 mb-5">
                 <div class="d-flex flex-column align-items-center">
-                  <%= image_tag "user-pic.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                  <%= f.user.first_name %>
-                  <ul class="list-inline social-icons" >
-                    <li class="list-inline-item"><i class="fab fa-facebook" style="font-size: 20px;"></i></li>
-                    <li class="list-inline-item"><i class="fab fa-twitter" style="font-size: 20px;"></i></li>
-                    <li class="list-inline-item"><i class="fab fa-instagram" style="font-size: 20px;"></i></li>
+                  <%# <%= image_tag "user-pic.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                  <%# <%= f.user.first_name %>
+                  <%# <ul class="list-inline social-icons" > %>
+                    <%# <li class="list-inline-item"><i class="fab fa-facebook" style="font-size: 20px;"></i></li> %>
+                    <%# <li class="list-inline-item"><i class="fab fa-twitter" style="font-size: 20px;"></i></li> %>
+                    <%# <li class="list-inline-item"><i class="fab fa-instagram" style="font-size: 20px;"></i></li> %>
 
                   <% if f.user.photo.attached? %>
                     <%= cl_image_tag f.user.photo.key, class: "avatar" %>
                   <% else %>
-                    <%= image_tag "jas-pic.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <%# <%= image_tag "user-pic.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <% end %>
                   <%= f.user.first_name %>,
                   <%= f.user.age %>
