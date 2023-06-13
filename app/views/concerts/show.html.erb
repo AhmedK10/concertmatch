@@ -72,11 +72,11 @@
                 <div class="d-flex flex-column align-items-center">
                   <%= image_tag "user-pic.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <%= f.user.first_name %>
-                  <ul class="list-inline social-icons" >
+                  <ul class="list-inline social-icons">
                     <li class="list-inline-item"><i class="fab fa-facebook" style="font-size: 20px;"></i></li>
                     <li class="list-inline-item"><i class="fab fa-twitter" style="font-size: 20px;"></i></li>
                     <li class="list-inline-item"><i class="fab fa-instagram" style="font-size: 20px;"></i></li>
-
+                  </ul>
                   <% if f.user.photo.attached? %>
                     <%= cl_image_tag f.user.photo.key, class: "avatar" %>
                   <% else %>
@@ -89,17 +89,18 @@
                     <li class="list-inline-item"><a href="https://www.twitter.com"><i class="fab fa-twitter" style="font-size: 20px; color: #1DA1F2;"></i></a></li>
                     <li class="list-inline-item"><a href="https://www.instagram.com"><i class="fab fa-instagram" style="font-size: 20px; color: #C13584;"></i></a></li>
                     <li class="list-inline-item"><a href="https://www.spotify.com"><i class="fab fa-spotify" style="font-size: 20px; color: #1DB954;"></i></a></li>
-                    </ul>
+                  </ul>
                 </div>
-              <% end %>
-            <% else %>
-              <%= 'Buddies not found' %>
+              </div>
             <% end %>
-          </div>
+          <% else %>
+            <%= 'Buddies not found' %>
+          <% end %>
         </div>
-        <div class="modal-footer">
-          <%= link_to "Go to the forum", concert_forums_path(@concert), class:"card-list-button button-purple text-decoration-none" %>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <%= link_to "Go to the forum", concert_forums_path(@concert), class: "card-list-button button-purple text-decoration-none" %>
       </div>
     </div>
   </div>
+</div>
