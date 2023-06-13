@@ -8,14 +8,13 @@
           <%# <p>Indulge in the thrill of live music and immerse yourself in the electric atmosphere of concerts. Feel the rhythm pulsating through your veins as talented artists take the stage, creating magical moments that will stay with you forever.</p> %>
         </div>
       </div>
-
       <div class="col-md-12">
         <div class="filter-concerts">
-          <%= form_tag concerts_path, method: :get do |f| %>
+          <%= form_with url: concerts_path, method: :get do |f| %>
             <div class="row">
               <div class="col-md-4">
                 <%= label_tag :genre, "Genre:" %>
-                <%= select_tag :genre, options_for_select(Concert.pluck(:genre).uniq) %>
+                <%= select_tag :genre, options_for_select(Concert.pluck(:genre).uniq), include_blank: true %>
               </div>
               <div class="col-md-4">
                 <%= label_tag :start_date, "Start Date:" %>
@@ -41,8 +40,6 @@
     </div>
   </div>
 </div>
-
-
 <div class="container">
   <div class="row justify-content-center">
     <% @concerts.each do |concert| %>
