@@ -4,13 +4,14 @@
   background-size: cover;
   background-position: top;
   padding: 30px;
-  height: 600px;
+  height: 625px;
   // margin-top: 90px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   align-items: end; /* Center vertically */
+  margin-bottom: 40px;
 }
 
 
@@ -22,6 +23,7 @@
   margin: auto;
   margin-top: 40px;
   text-align: left; /* Align text to the left */
+  border-radius: 4px;
 }
 
 
