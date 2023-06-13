@@ -3,7 +3,8 @@
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
 >
 
-  <h1><%= "#{current_user.first_name}'s Chatroom" %></h1>
+
+  <h1><strong><%= "#{current_user.first_name}'s Chatroom" %></strong></h1>
 
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
@@ -15,18 +16,20 @@
     <% end %>
   </div>
 
-  <div class="d-flex justify-content-center">
+<div class="container d-flex justify-content-center">
+  <div class="form-msg input-group mb-3 mt-5">
     <%= simple_form_for [@chatroom, @message],
-      html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm"}, class: "d-flex" } do |f|
-    %>
-      <div class="d-flex align-items-center">
+        html: {data: {action: "turbo:submit-end->chatroom-subscription#resetForm"}, class: "d-flex"} do |f|
+      %>
         <%= f.input :content,
           label: false,
           placeholder: "Message",
-          wrapper_html: {class: "flex-grow-1 form-control transparent-borderless"}
+          wrapper_html: {class: "me-1 form-control transparent-borderless"}
         %>
-        <%= f.submit "Send", class: "button-navbar-purple ms-2 mb-3" %>
-      </div>
-    <% end %>
+        <%= f.submit "Send", class: "button-chat" %>
+      <% end %>
+        <%# <input type="text" class="me-3 form-control" placeholder="Message" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button class="btn button-chat btn-outline-secondary" type="submit" id="button-addon2">Submit</button> %>
+    </div>
   </div>
 </div>
