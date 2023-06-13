@@ -23,17 +23,23 @@ class User < ApplicationRecord
     @chatrooms.uniq
   end
 
+  def shared_chat(other)
+    self.active_chats & other.active_chats
+  end
   
+  def has_shared_chat?(other)
+    shared_chat(other)&.any?
+  end
 
-    def age
-      current_age = Date.today.year -  date_of_birth.year
-      current_age -= 1 if Date.today <  date_of_birth + current_age.years
-      current_age
-    end
+  def age
+    current_age = Date.today.year -  date_of_birth.year
+    current_age -= 1 if Date.today <  date_of_birth + current_age.years
+    current_age
+  end
 
   def favorited?(concert)
     concert.users.include?(self)
   end
   has_one_attached :photo
-  
+
 end
