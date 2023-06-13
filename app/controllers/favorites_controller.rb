@@ -19,10 +19,9 @@ class FavoritesController < ApplicationController
     end
   end
 
-  def destory
-    @favorite = current_user.favorites.find_by(concert_id: params[:concert_id])
-    @concert = @favorite.concert
-
+  def destroy
+    @favorite = Favorite.find(params[:id])
+    @concert = Concert.where(user: current_user, favorites: @favorite)
     if @favorite.destroy
       redirect_to concert_path(@concert), notice: "removed from favorite"
     else

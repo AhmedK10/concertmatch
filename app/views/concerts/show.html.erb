@@ -34,15 +34,18 @@
       <%#= image_tag(cl_image_path @concert.photo.key) %>
       <% if @concert.photo.attached? %>
         <%= cl_image_tag @concert.photo.key, height:700%>
-        <%= link_to concert_favorites_path(@concert), data: { turbo_method: :post } do %>
-          <div class="icon">
-            <% if current_user.favorited?(@concert) %>
+        <div class="icon">
+          <% if current_user.favorited?(@concert) %>
+            <% favorite = Favorite.find_by(user: current_user, concert: @concert) %>
+            <%= link_to favorite_path(favorite), data: { turbo_method: :delete } do %>
               <i class="fa-solid fa-heart" style="color: red; font-size: 40px;"></i>
-            <% else %>
+            <% end %>
+          <% else %>
+            <%= link_to concert_favorites_path(@concert), data: { turbo_method: :post } do %>
               <i class="fa-regular fa-heart" style="font-size: 40px;"></i>
             <% end %>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
