@@ -1,10 +1,16 @@
-.image-container {
+.details-img {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
 }
 
-.fa-regular.fa-heart,
-.fa-solid.fa-heart{
-  font-size: 40px;
-  margin: 10px;
+.icon{
+  position: relative;
+
+.fa-heart {
+  position: absolute;
+  top: -680px;
+  left: -60px;
+}
 }
