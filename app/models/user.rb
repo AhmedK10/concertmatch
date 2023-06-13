@@ -18,4 +18,3 @@ class User < ApplicationRecord
   end
   has_one_attached :photo
 end
-
