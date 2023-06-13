@@ -1,0 +1,122 @@
+.date {
+  padding-top: 20px;
+}
+
+.artist-genre {
+  display: flex;
+
+}
+
+.city-info {
+  padding-top: 20px;
+}
+
+/* Custom CSS for the address-date section */
+.row.address-date {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.row.address-date .col-sm-8 {
+  display: flex;
+  align-items: center;
+}
+
+.row.address-date .vertical-line {
+  width: 2px;
+  height: 100%;
+  background-color: #000;
+  margin-right: 10px;
+}
+
+.row.address-date .city-info {
+  flex: 1;
+}
+
+.row.address-date .address {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.row.address-date .card-list-city {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.row.address-date .date {
+  text-align: right;
+}
+
+.row.address-date .month {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.row.address-date .day {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.artist-genre {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid black;
+}
+
+.artist-genre h3 {
+  margin-right: 10px;
+}
+
+.artist-genre h3:last-child {
+  margin-right: 0;
+}
+
+
+.genre {
+  margin-bottom: 0px;
+}
+
+.label-text {
+  font-size: 18px; /* Adjust the font size as per your preference */
+}
+
+.buddies-forum-btn .col-4 {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.buddies-forum-btn .col-4 a {
+  margin-right: 10px;
+  margin-top: 20px;
+  padding: 15px 20px;
+  width: 300px;
+  text-align: center; /* Center the text */
+}
+
+
+// .text-justify p {
+//   line-height: 1.2; /* Adjust the value as desired */
+// }
+
+.summary-show {
+  margin-top: 20px;
+}
+.summary-show p {
+  // line-height: 1.2; /* Adjust the value as desired */
+  font-size: 16px;
+}
+
+.about-summary p {
+  font-size: 16px;
+}
+
+.concert-details {
+  margin-bottom: 40px;
+}
