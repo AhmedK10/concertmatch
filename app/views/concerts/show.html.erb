@@ -56,16 +56,19 @@
     <div class="col-md-6">
       <div class="details-img ms-5 img-fluid">
         <% if @concert.photo.attached? %>
-          <%= cl_image_tag @concert.photo.key, height: 600 %>
-          <%= link_to concert_favorites_path(@concert), data: { turbo_method: :post } do %>
-            <div class="icon">
-              <% if current_user.favorited?(@concert) %>
+          <%= cl_image_tag @concert.photo.key, height:600%>
+          <div class="icon">
+            <% if current_user.favorited?(@concert) %>
+              <% favorite = Favorite.find_by(user: current_user, concert: @concert) %>
+              <%= link_to favorite_path(favorite), data: { turbo_method: :delete } do %>
                 <i class="fa-solid fa-heart" style="color: red; font-size: 40px;"></i>
-              <% else %>
+              <% end %>
+            <% else %>
+              <%= link_to concert_favorites_path(@concert), data: { turbo_method: :post } do %>
                 <i class="fa-regular fa-heart" style="font-size: 40px;"></i>
               <% end %>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>
@@ -97,7 +100,6 @@
             <% @favorites.each do |f| %>
               <div class="col-sm-4 mb-5">
                 <div class="d-flex flex-column align-items-center">
-
                   <!-- <%= image_tag "user-pic.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <%= f.user.first_name %>
                   <ul class="list-inline social-icons">
@@ -105,7 +107,6 @@
                     <li class="list-inline-item"><i class="fab fa-twitter" style="font-size: 20px;"></i></li>
                     <li class="list-inline-item"><i class="fab fa-instagram" style="font-size: 20px;"></i></li>
                   </ul> -->
-
                   <% if f.user.photo.attached? %>
                     <%= cl_image_tag f.user.photo.key, class: "avatar" %>
                   <% else %>

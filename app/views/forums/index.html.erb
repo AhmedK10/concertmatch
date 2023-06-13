@@ -1,49 +1,58 @@
-<div class="form-index">
-  <%= simple_form_for [@concert, @forum] do |f| %>
-    <%= f.input :content, placeholder: "Enter content", class: "smaller-input", style: "margin-right: 10px;" %>
+<div class="body-lavanda">
+  <div class="container-post white-box">
+    <div class="form">
+      <div class="form-index">
+        <%= simple_form_for [@concert, @forum] do |f| %>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.input :content, placeholder: "Enter content", class: "smaller-input" %>
+            </div>
+            <div class="col-md-6">
+              <%= f.submit "Post", class: "button-navbar-purple" %>
+            </div>
+          </div>
 
-    <div class="board-checkboxes">
-      <% Forum.boards.keys.each do |key| %>
-        <div class="form-check">
-          <%= check_box_tag 'forum[board][]', key, false, id: "board_#{key}", class: "form-check-input" %>
-          <%= label_tag "board_#{key}", key.humanize, class: "form-check-label" %>
-        </div>
-      <% end %>
+          <div class="board-checkboxes">
+            <% Forum.boards.keys.each do |key| %>
+              <div class="form-check">
+                <%= check_box_tag 'forum[board][]', key, false, id: "board_#{key}", class: "form-check-input" %>
+                <%= label_tag "board_#{key}", key.humanize, class: "form-check-label" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
-
-    <%= f.submit "Post", class: "button-navbar-purple" %>
-  <% end %>
+  </div>
 </div>
 
 <div class="container-forum">
   <div class="filter-box">
     <div class="board-type">
       <%= form_with url: concert_forums_path(@concert), method: :get do |f| %>
-      <div>
-        <%= label_tag :board_type, "Board Type" %><br>
-        <%= f.collection_check_boxes :board_type,
+        <div>
+          <%= label_tag :board_type, "Board Type" %><br>
+          <%= f.collection_check_boxes :board_type,
           Forum.boards.keys,
           :to_s,
           :humanize,
           { include_hidden: false },
           class: "form-check-input",
           style: "margin-right: 15px; margin-left: 10px;" %>
+        </div>
       </div>
-    </div>
-
-    <div class="gender">
-      <%= label_tag :gender, "User Gender" %><br>
-      <%= f.collection_check_boxes :gender,
+      <div class="gender">
+        <%= label_tag :gender, "User Gender" %><br>
+        <%= f.collection_check_boxes :gender,
         User.genders.keys,
         :to_s,
         :humanize,
         { include_hidden: false },
         class: "form-check-input",
         style: "margin-right: 15px; margin-left: 10px;" %>
-    </div>
-
-    <div class="age-group">
-      <%= f.select :age_range,
+      </div>
+      <div class="age-group">
+        <%= f.select :age_range,
         options_for_select({
           "18-25" => "18-25",
           "26-35" => "26-35",
@@ -53,14 +62,11 @@
       }),
       { include_blank: false, prompt: " Age-group" },
       class: "form-control smaller-input", style: "width: 90px;" %>
-    </div>
-
-    <%= f.submit "Filter", class: "button-navbar-purple",
+      </div>
+      <%= f.submit "Filter", class: "button-navbar-purple",
       style: "margin-top: 15px;" %>
     <% end %>
   </div>
-
-
   <div class="card-forum">
     <% @forums.each do |forum| %>
       <%= link_to concert_forum_path(forum.concert, forum), class: "full-card-link" do %>
@@ -84,5 +90,4 @@
       <% end %>
     <% end %>
   </div>
-
 </div>
