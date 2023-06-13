@@ -35,4 +35,5 @@ class User < ApplicationRecord
     concert.users.include?(self)
   end
   has_one_attached :photo
+  
 end

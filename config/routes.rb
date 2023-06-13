@@ -23,5 +23,9 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
+
   post ':user_id/chatrooms', to: 'chatrooms#create', as: :chatrooms
+
+  get "index", to: "user#index"
+
 end
