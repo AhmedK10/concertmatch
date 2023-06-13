@@ -1,6 +1,6 @@
 <div class="container mt-5">
   <div>
-    <h1><%= @concert.name %></h1>
+    <h1><strong><%= @concert.name %></strong></h1>
   </div>
   <div class="d-flex align-items-center justify-content-between my-5">
     <div class="details-info">
@@ -22,7 +22,11 @@
       </div>
       <div class="d-flex justify-content-center mt-4 mb-3">
         <%= link_to "Buddies", "#", class: "card-list-button button-purple me-3 text-decoration-none", "data-bs-toggle": "modal", "data-bs-target": "#buddyModal" %>
-        <%= link_to "Interested", concert_forums_path(@concert), class:"card-list-button button-purple text-decoration-none"%>
+        <% if current_user.favorited?(@concert) %>
+          <%= link_to "Go to forum", concert_forums_path(@concert), class:"card-list-button button-purple text-decoration-none"%>
+        <% else %>
+          <%= link_to "intersted", concert_favorites_path(@concert), data: { turbo_method: :post }, class:"card-list-button button-purple text-decoration-none" %>
+        <% end %>
       </div>
     </div>
     <div class="details-img ms-5">
@@ -30,6 +34,15 @@
       <%#= image_tag(cl_image_path @concert.photo.key) %>
       <% if @concert.photo.attached? %>
         <%= cl_image_tag @concert.photo.key, height:700%>
+        <%= link_to concert_favorites_path(@concert), data: { turbo_method: :post } do %>
+          <div class="icon">
+            <% if current_user.favorited?(@concert) %>
+              <i class="fa-solid fa-heart" style="color: red; font-size: 40px;"></i>
+            <% else %>
+              <i class="fa-regular fa-heart" style="font-size: 40px;"></i>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -57,6 +70,13 @@
             <% @favorites.each do |f| %>
               <div class="col-sm-4 mb-5">
                 <div class="d-flex flex-column align-items-center">
+                  <%= image_tag "user-pic.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                  <%= f.user.first_name %>
+                  <ul class="list-inline social-icons" >
+                    <li class="list-inline-item"><i class="fab fa-facebook" style="font-size: 20px;"></i></li>
+                    <li class="list-inline-item"><i class="fab fa-twitter" style="font-size: 20px;"></i></li>
+                    <li class="list-inline-item"><i class="fab fa-instagram" style="font-size: 20px;"></i></li>
+
                   <% if f.user.photo.attached? %>
                     <%= cl_image_tag f.user.photo.key, class: "avatar" %>
                   <% else %>
@@ -69,18 +89,17 @@
                     <li class="list-inline-item"><a href="https://www.twitter.com"><i class="fab fa-twitter" style="font-size: 20px; color: #1DA1F2;"></i></a></li>
                     <li class="list-inline-item"><a href="https://www.instagram.com"><i class="fab fa-instagram" style="font-size: 20px; color: #C13584;"></i></a></li>
                     <li class="list-inline-item"><a href="https://www.spotify.com"><i class="fab fa-spotify" style="font-size: 20px; color: #1DB954;"></i></a></li>
-                  </ul>
+                    </ul>
                 </div>
-              </div>
+              <% end %>
+            <% else %>
+              <%= 'Buddies not found' %>
             <% end %>
-          <% else %>
-            <%= 'Buddies not found' %>
-          <% end %>
+          </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <%= link_to "Go to the forum", concert_forums_path(@concert), class:"card-list-button button-purple text-decoration-none" %>
+        <div class="modal-footer">
+          <%= link_to "Go to the forum", concert_forums_path(@concert), class:"card-list-button button-purple text-decoration-none" %>
+        </div>
       </div>
     </div>
   </div>
-</div>
