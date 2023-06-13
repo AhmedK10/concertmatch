@@ -44,8 +44,17 @@ bio_options = [
   "Multi-instrumentalist, mastering various instruments to create a symphony of sounds.",
   "Music therapist, using the power of music to heal and uplift spirits.",
   "Choir member, harmonizing with others to create a celestial vocal blend.",
-  "Music producer, shaping and molding sounds to create a sonic masterpiece."
-]
+  "Music producer, shaping and molding sounds to create a sonic masterpiece."]
+
+
+
+#GENRES
+genres = ["Rock", "Pop", "Hip Hop", "R&B", "Electronic", "Country", "Jazz", "Classical", "Folk", "Reggae", "Metal"]
+
+
+
+
+
 puts "Creating Users...."
 ben = User.new(
   email: "ben@gmail.com",
@@ -53,10 +62,15 @@ ben = User.new(
   first_name: "Ben",
   last_name: "Lee",
   gender: 0,
-  date_of_birth: Date.parse("1999-01-08"),
-  bio: bio_options.sample
+
+  date_of_birth: Date.parse("1989-01-08"),
+  bio: bio_options.sample,
+  genres: genres.sample
+
 )
-file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/49.jpg")
+ben.save!
+
+file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/47.jpg")
 ben.photo.attach(io: file, filename: "#{ben.first_name}.jpg", content_type: "image/jpeg")
 ben.save
 sofia = User.new(
@@ -66,8 +80,13 @@ sofia = User.new(
   last_name: "Neille",
   gender: 1,
   date_of_birth: Date.parse("1983-02-09"),
-  bio: bio_options.sample
+
+  bio: bio_options.sample,
+  genres: genres.sample
+
 )
+sofia.save!
+
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/44.jpg")
 sofia.photo.attach(io: file, filename: "#{sofia.first_name}.jpg", content_type: "image/jpeg")
 sofia.save
@@ -77,21 +96,49 @@ karena = User.new(
   first_name: "Karena",
   last_name: "Radican",
   gender: 1,
-  date_of_birth: Date.parse("1998-03-09"),
-  bio: bio_options.sample
+
+  date_of_birth: Date.parse("1999-03-09"),
+  bio: bio_options.sample,
+  genres: genres.sample
+
 )
+karena.save!
+
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/55.jpg")
 karena.photo.attach(io: file, filename: "#{karena.first_name}.jpg", content_type: "image/jpeg")
 karena.save
+
+
+yevette = User.new(
+  email: "yevette@gmail.com",
+  password: "secret",
+  first_name: "Yevette",
+  last_name: "Horcham",
+  gender: 1,
+  date_of_birth: Date.parse("2004-07-10"),
+  bio: bio_options.sample,
+  genres: genres.sample
+)
+yevette.save!
+
+file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/68.jpg")
+yevette.photo.attach(io: file, filename: "#{yevette.first_name}.jpg", content_type: "image/jpeg")
+yevette.save
+
+
 pura = User.new(
   email: "pura@gmail.com",
   password: "secret",
   first_name: "Pura",
   last_name: "Greven",
   gender: 1,
-  date_of_birth: Date.parse("2001-04-02"),
-  bio: bio_options.sample
+
+  date_of_birth: Date.parse("2003-04-02"),
+  bio: bio_options.sample,
+  genres: genres.sample
 )
+pura.save!
+
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/20.jpg")
 karena.photo.attach(io: file, filename: "#{karena.first_name}.jpg", content_type: "image/jpeg")
 pura.save
@@ -101,21 +148,31 @@ emma = User.new(
   first_name: "Emma",
   last_name: "Smith",
   gender: 1,
-  date_of_birth: Date.parse("1997-04-04"),
-  bio: bio_options.sample
+
+  date_of_birth: Date.parse("1991-04-04"),
+  bio: bio_options.sample,
+  genres: genres.sample
+
 )
+emma.save!
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/25.jpg")
 emma.photo.attach(io: file, filename: "#{emma.first_name}.jpg", content_type: "image/jpeg")
 emma.save
 dirk = User.new(
   email: "dirk@gmail.com",
   password: "secret",
-  first_name: "Dİrk",
+  first_name: "Dirk",
   last_name: "Buns",
   gender: 0,
-  date_of_birth: Date.parse("1992-07-03"),
-  bio: bio_options.sample
+
+  date_of_birth: Date.parse("1982-07-03"),
+  bio: bio_options.sample,
+  genres: genres.sample
+
+
 )
+dirk.save!
+
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/77.jpg")
 dirk.photo.attach(io: file, filename: "#{dirk.first_name}.jpg", content_type: "image/jpeg")
 dirk.save
@@ -125,9 +182,12 @@ max = User.new(
   first_name: "Max",
   last_name: "Hill",
   gender: 0,
-  date_of_birth: Date.parse("2001-03-03"),
-  bio: bio_options.sample
+  date_of_birth: Date.parse("2002-03-03"),
+  bio: bio_options.sample,
+  genres: genres.sample
+
 )
+max.save!
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/77.jpg")
 max.photo.attach(io: file, filename: "#{max.first_name}.jpg", content_type: "image/jpeg")
 max.save
@@ -137,9 +197,14 @@ alex = User.new(
   first_name: "Alex",
   last_name: "Scott",
   gender: 1,
-  date_of_birth: Date.parse("1985-12-07"),
-  bio: bio_options.sample
+
+  date_of_birth: Date.parse("1977-12-07"),
+  bio: bio_options.sample,
+  genres: genres.sample
+
 )
+alex.save!
+
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/45.jpg")
 alex.photo.attach(io: file, filename: "#{alex.first_name}.jpg", content_type: "image/jpeg")
 alex.save
@@ -150,20 +215,49 @@ leo = User.new(
   last_name: "Reed",
   gender: 2,
   date_of_birth: Date.parse("1975-11-13"),
-  bio: bio_options.sample
+  bio: bio_options.sample,
+  genres: genres.sample
 )
+leo.save!
+
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/78.jpg")
 leo.photo.attach(io: file, filename: "#{alex.first_name}.jpg", content_type: "image/jpeg")
 leo.save
+
+
+
+
+elena = User.new(
+  email: "elena@gmail.com",
+  password: "secret",
+  first_name: "Elena",
+  last_name: "Quartes",
+  gender: 1,
+  date_of_birth: Date.parse("1987-08-05"),
+  bio: bio_options.sample,
+  genres: genres.sample
+)
+elena.save!
+
+file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/64.jpg")
+elena.photo.attach(io: file, filename: "#{elena.first_name}.jpg", content_type: "image/jpeg")
+elena.save
+
+
+
 sasha = User.new(
   email: "sasha@gmail.com",
   password: "secret",
   first_name: "Sasha",
   last_name: "Olshan",
   gender: 1,
-  date_of_birth: Date.parse("1087-08-05"),
-  bio: bio_options.sample
+  date_of_birth: Date.parse("1987-08-05"),
+  bio: bio_options.sample,
+  genres: genres.sample
+
 )
+sasha.save!
+
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/2.jpg")
 sasha.photo.attach(io: file, filename: "#{sasha.first_name}.jpg", content_type: "image/jpeg")
 sasha.save
@@ -173,9 +267,13 @@ delbert = User.new(
   first_name: "Delbert",
   last_name: "Kewley",
   gender: 1,
-  date_of_birth: Date.parse("1985-12-07"),
-  bio: bio_options.sample
+
+  date_of_birth: Date.parse("1995-12-07"),
+  bio: bio_options.sample,
+  genres: genres.sample
+
 )
+delbert.save!
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/56.jpg")
 delbert.photo.attach(io: file, filename: "#{delbert.first_name}.jpg", content_type: "image/jpeg")
 delbert.save
@@ -183,15 +281,19 @@ delbert.save
 lewana = User.new(
   email: "lawana@gmail.com",
   password: "secret",
-  first_name: "Lawana",
+  first_name: "Lewana",
   last_name: "Armey",
   gender: 1,
   date_of_birth: Date.parse("1996-01-02"),
-  bio: bio_options.sample
+
+  bio: bio_options.sample,
+  genres: genres.sample
 )
+lewana.save!
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/61.jpg")
 lewana.photo.attach(io: file, filename: "#{lewana.first_name}.jpg", content_type: "image/jpeg")
 lewana.save
+
 milton = User.new(
   email: "milton@gmail.com",
   password: "secret",
@@ -199,8 +301,13 @@ milton = User.new(
   last_name: "Borch",
   gender: 1,
   date_of_birth: Date.parse("1996-01-02"),
-  bio: bio_options.sample
+
+  bio: bio_options.sample,
+  genres: genres.sample
+
+
 )
+milton.save!
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/25.jpg")
 milton.photo.attach(io: file, filename: "#{milton.first_name}.jpg", content_type: "image/jpeg")
 milton.save
@@ -210,11 +317,13 @@ lane = User.new(
   first_name: "Lane",
   last_name: "Walmer",
   gender: 0,
-  date_of_birth: Date.parse("1996-01-02"),
-  bio: bio_options.sample
+  date_of_birth: Date.parse("1995-10-02"),
+  bio: bio_options.sample,
+  genres: genres.sample
 )
-file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/25.jpg")
-lane.photo.attach(io: file, filename: "#{milton.first_name}.jpg", content_type: "image/jpeg")
+lane.save!
+file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/29.jpg")
+lane.photo.attach(io: file, filename: "#{lane.first_name}.jpg", content_type: "image/jpeg")
 lane.save
 
 #CONCERTS:
@@ -287,28 +396,28 @@ rand_posts = ["You seem like a great person to share an apartment or room with f
   "The joy and excitement you bring to the search for a roommate make me confident you'll find an amazing match.",
   "You're on the right track to find a like-minded concert buddy. Keep up the positive energy!",
   "The concert will be even more special with the shared experience of finding a great roommate. Good luck!"]
-
-concerts = Concert.all
-users = User.all
-concerts.each do |concert|
-  num_forums = 20
-  num_forums.times do
-    user = users.sample
-    Forum.create!(
-      board: [0, 1, 2].sample,
-      content: rand_posts.sample,
-      user: user,
-      concert: concert,
-    )
-  end
-end
-puts "Creating Favorites...."
-concerts.each do |concert|
-  20.times do
-    user = User.all.sample
-    concert = Concert.all.sample
-    unless Favorite.exists?(user: user, concert: concert)
-      Favorite.create!(user: user, concert: concert)
+  concerts = Concert.all
+  users = User.all
+  concerts.each do |concert|
+    num_forums = 20
+    num_forums.times do
+      user = users.sample
+      Forum.create!(
+        board: [0, 1, 2].sample,
+        content: rand_posts.sample,
+        user: user,
+        concert: concert,
+      )
+      end
+    end
+  puts "Creating Favorites...."
+    concerts.each do |concert|
+      20.times do
+        user = User.all.sample
+        concert = Concert.all.sample
+       
+        unless user.favorited?(concert)
+          Favorite.create!(user: user, concert: concert)
+      end
     end
   end
-end
