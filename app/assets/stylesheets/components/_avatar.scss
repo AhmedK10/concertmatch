@@ -18,10 +18,16 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
-  .avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 20%;
-    object-fit: cover;
-  }
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 20%;
+  object-fit: cover;
+}
 
+.dropdown-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 20%;
+  object-fit: cover;
+}
