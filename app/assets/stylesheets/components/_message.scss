@@ -14,14 +14,15 @@
 }
 
 .sender-style {
-  background-color: lightcoral;
+  background-color: rgb(235, 157, 235);
 }
 
 .receiver-style {
-  background-color: lightblue;
+  background-color: $yellow;
 }
 
 .transparent-borderless {
   background: transparent;
   border: none;
 }
+

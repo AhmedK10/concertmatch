@@ -76,7 +76,7 @@
                     <li class="list-inline-item"><i class="fab fa-facebook" style="font-size: 20px;"></i></li>
                     <li class="list-inline-item"><i class="fab fa-twitter" style="font-size: 20px;"></i></li>
                     <li class="list-inline-item"><i class="fab fa-instagram" style="font-size: 20px;"></i></li>
-                    
+
                   <% if f.user.photo.attached? %>
                     <%= cl_image_tag f.user.photo.key, class: "avatar" %>
                   <% else %>
