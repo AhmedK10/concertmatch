@@ -44,7 +44,7 @@ bio_options = [
   "Multi-instrumentalist, mastering various instruments to create a symphony of sounds.",
   "Music therapist, using the power of music to heal and uplift spirits.",
   "Choir member, harmonizing with others to create a celestial vocal blend.",
-  "Music producer, shaping and molding sounds to create a sonic masterpiece."
+  "Music producer, shaping and molding sounds to create a sonic masterpiece."]
 
 
 
@@ -136,7 +136,7 @@ pura = User.new(
   date_of_birth: Date.parse("2003-04-02"),
   bio: bio_options.sample,
   genres: genres.sample
-
+)
 pura.save!
 
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/20.jpg")
@@ -216,7 +216,7 @@ leo = User.new(
   gender: 2,
   date_of_birth: Date.parse("1975-11-13"),
   bio: bio_options.sample,
-  genres: genres.sample 
+  genres: genres.sample
 )
 leo.save!
 
@@ -235,7 +235,7 @@ elena = User.new(
   gender: 1,
   date_of_birth: Date.parse("1987-08-05"),
   bio: bio_options.sample,
-  genres: genres.sample 
+  genres: genres.sample
 )
 elena.save!
 
@@ -303,7 +303,7 @@ milton = User.new(
   date_of_birth: Date.parse("1996-01-02"),
 
   bio: bio_options.sample,
-  genres: genres.sample 
+  genres: genres.sample
 
 
 )
@@ -324,7 +324,7 @@ lane = User.new(
 lane.save!
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/29.jpg")
 lane.photo.attach(io: file, filename: "#{lane.first_name}.jpg", content_type: "image/jpeg")
-lane.save 
+lane.save
 
 #CONCERTS:
 rand_summaries = ["Join us for an extraordinary evening of live music, as some of the most talented artists from around the world come together on one stage. From soulful ballads to high-energy rock anthems, this concert promises to take you on a musical journey like no other.",
@@ -415,8 +415,8 @@ rand_posts = ["You seem like a great person to share an apartment or room with f
       20.times do
         user = User.all.sample
         concert = Concert.all.sample
-	unless user.favorited?(concert)
+	    unless user.favorited?(concert)
         	Favorite.create!(user: user, concert: concert)
-	end
-      end
+	    end
     end
+  end
