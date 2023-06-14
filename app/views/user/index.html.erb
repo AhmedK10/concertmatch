@@ -14,10 +14,13 @@
             </li>
           </div>
         </div>
-        <h4 class="text-decoration-line text-white custom-light-text mt-3">ABOUT ME</h4>
+        <h4 class="text-decoration-line text-white custom-light-text mt-3" style="border-bottom:9px solid white; ">ABOUT ME</h4>
         <p class="text-white">Some description</p>
-        <h4 class="text-white text-decoration-line mt-1">SOCIALS</h4>
+        <h4 class="text-white text-decoration-line mt-1">CONVERSATIONS</h4>
         <ul class="list-unstyled">
+          <% current_user.active_chats.each do |chat| %>
+            <li class="text-white "><%= link_to chat.name, chatroom_path(chat) %></li>
+          <% end %>
           <li class="text-white "><i class="fa-sharp fa-solid fa-phone"> 064453554</i></li>
           <li class="text-white "><i class="fa-sharp fa-solid fa-paper-plane"> ggg@gmail.com</i></li>
           <li class="text-white "><i class="fa-sharp fa-solid fa-globe"> www//wwwww</i></li>
