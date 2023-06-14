@@ -3,6 +3,7 @@
 }
 
 .bgwhite {
+
   background-color: white;
 }
 
@@ -18,7 +19,7 @@
 
 .background-yellow {
   background-color: yellow;
-  width: 351px;
+  width: 420px;
 }
 
 .text-center {
@@ -29,10 +30,6 @@
   width: 130px;
   margin-top: 15px;
   margin-bottom: 10px;
-}
-
-.container-smaller {
-  width: 700px;
 }
 
 .background-yellow-smaller {
@@ -80,4 +77,12 @@
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
   }
+}
+
+.black-text {
+  color: black;
+}
+
+.shadow-gray {
+  box-shadow: 8px 8px 20px rgb(164, 162, 162);
 }
