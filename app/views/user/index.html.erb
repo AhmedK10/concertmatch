@@ -1,6 +1,6 @@
 <div class="container d-flex flex-column align-items-center mt-2">
   <div class="container-smaller">
-    <div class="row">
+    <div class="row shadow-gray">
       <div class="col-5 bgpurple d-flex flex-column align-items-center">
         <%= image_tag "jas-pic.jpg", class: "profile-img" %>
         <h2 class="text-white">- Jas -</h2>
@@ -54,18 +54,23 @@
           <div>
             <h4 class="background-yellow">CONCERTS I'M INTERESTED IN</h4>
             <div class='mt-4 mb-4'>
-              <ul>
+              <% current_user.favorites.first(5).each do |f| %>
+                <ul>
+                  <li class="black-text"><%= f.concert.name %></li>
+                </ul>
+              <% end %>
+              <%# <ul>
                 <li class="black_text">AWAKENINGS, AMSTERDAM</li>
                 <li class="black_text">MAROON 5, BOSTON</li>
                 <li class="black_text">GORILLAZ, LONDON</li>
                 <li class="black_text">BEYONCE, BERLIN</li>
                 <li class="black_text">JUSTIN, TOKYO</li>
-              </ul>
+              </ul> %>
             </div>
           </div>
           <div>
             <h4 class="background-yellow">TOP GENRES</h4>
-            <div class="grid-prof mb-2">
+            <div class="grid-prof">
               <div class="card-prof">
                 <div class="card-prof-img" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= asset_path('starset.jpg') %>)">
                   <p class="text-white">STARSET</p>
