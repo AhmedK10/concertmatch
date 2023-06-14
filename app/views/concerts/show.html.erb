@@ -137,15 +137,15 @@
                   </ul>
                 </div>
               </div>
-            <% end %>
-          <% else %>
-            <%= 'Buddies not found' %>
+            </div>
           <% end %>
-        </div>
+        <% else %>
+          <%= 'Buddies not found' %>
+        <% end %>
       </div>
-      <div class="modal-footer">
-        <%= link_to "Go to the forum", concert_forums_path(@concert), class:"card-list-button button-purple text-decoration-none" %>
-      </div>
+    </div>
+    <div class="modal-footer">
+      <%= link_to "Go to the forum", concert_forums_path(@concert), class:"card-list-button button-purple text-decoration-none" %>
     </div>
   </div>
 </div>

@@ -1,88 +1,113 @@
-<div class="form-index">
-  <%= simple_form_for [@concert, @forum] do |f| %>
-    <%= f.input :content, placeholder: "Enter content", class: "smaller-input", style: "margin-right: 10px;" %>
-
-    <div class="board-checkboxes">
-      <% Forum.boards.keys.each do |key| %>
-        <div class="form-check">
-          <%= check_box_tag 'forum[board][]', key, false, id: "board_#{key}", class: "form-check-input" %>
-          <%= label_tag "board_#{key}", key.humanize, class: "form-check-label" %>
-        </div>
-      <% end %>
-    </div>
-
-    <%= f.submit "Post", class: "button-navbar-purple" %>
-  <% end %>
-</div>
-
-<div class="container-forum">
-  <div class="filter-box">
-    <div class="board-type">
-      <%= form_with url: concert_forums_path(@concert), method: :get do |f| %>
-      <div>
-        <%= label_tag :board_type, "Board Type" %><br>
-        <%= f.collection_check_boxes :board_type,
-          Forum.boards.keys,
-          :to_s,
-          :humanize,
-          { include_hidden: false },
-          class: "form-check-input",
-          style: "margin-right: 15px; margin-left: 10px;" %>
-      </div>
-    </div>
-
-    <div class="gender">
-      <%= label_tag :gender, "User Gender" %><br>
-      <%= f.collection_check_boxes :gender,
-        User.genders.keys,
-        :to_s,
-        :humanize,
-        { include_hidden: false },
-        class: "form-check-input",
-        style: "margin-right: 15px; margin-left: 10px;" %>
-    </div>
-
-    <div class="age-group">
-      <%= f.select :age_range,
-        options_for_select({
-          "18-25" => "18-25",
-          "26-35" => "26-35",
-          "36-45" => "36-45",
-          "46-60" => "46-60",
-          "60+" => "60+"
-      }),
-      { include_blank: false, prompt: " Age-group" },
-      class: "form-control smaller-input", style: "width: 90px;" %>
-    </div>
-
-    <%= f.submit "Filter", class: "button-navbar-purple",
-      style: "margin-top: 15px;" %>
-    <% end %>
-  </div>
-
-
-  <div class="card-forum">
-    <% @forums.each do |forum| %>
-      <%= link_to concert_forum_path(forum.concert, forum), class: "full-card-link" do %>
-        <div class="card">
-          <div class="user-info">
-            <% if forum.user.gender == "male" %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
-            <% else %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
-            <% end %>
-            <div class="user-first_name">
-              <h2><%= forum.user.first_name %></h2>
-              <p class="timestamp"><%= forum.created_at.strftime("%B %d, %Y %H:%M") %></p>
+<div class="container d-flex align-items-center justify-content-center">
+  <div class="form">
+    <div class="form-index">
+      <%= simple_form_for [@concert, @forum] do |f| %>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="d-flex align-items-center">
+              <%= f.input :content, placeholder: "Enter content", label: false, class: "smaller-input mr-2" %>
+              <%= f.submit "Post", class: "button-navbar-purple" %>
             </div>
           </div>
-          <div class="forum-info d-flex justify-content-between">
-            <p class="content"><%= forum.content %></p>
-            <p class="content"><%= forum.board %></p>
-          </div>
         </div>
-      <% end %>
+        <div class="board-checkboxes d-flex">
+          <% Forum.boards.keys.each do |key| %>
+            <div class="form-check">
+              <%= check_box_tag 'forum[board]', key, false, id: "board_#{key}", class: "form-check-input" %>
+              <%= label_tag "board_#{key}", class: "form-check-label" do %>
+                <span>
+                  <%= key.humanize %>
+                  <% case key.to_s %>
+                  <% when "accommodation" %>
+                  <i class="fa-solid fa-house fa-beat pe-4 ps-1" style="color: #8a2be2;"></i>
+                  <% when "travel" %>
+                  <i class="fa-solid fa-route fa-beat pe-4 ps-1" style="color: #8a2be2;"></i>
+                  <% when "buddies" %>
+                  <i class="fa-solid fa-user-plus fa-beat pe-4 ps-1" style="color: #8a2be2;"></i>
+                <% end %>
+              </span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
-
+</div>
+</div>
+<div class="container-forum">
+  <div class="filter-box">
+    <div class="pin-icon rotated-icon">
+      <i class="fa-solid fa-map-pin fa-4x fa-bounce rotated-icon" style="color: #8A2BE2;"></i>
+    </div>
+    <div class="board-type">
+      <%= form_with url: concert_forums_path(@concert), method: :get do |f| %>
+        <div>
+          <%= label_tag :board, "Board Type" %><br>
+          <%= f.collection_check_boxes :board,
+            Forum.boards.keys,
+            :to_s,
+            :humanize,
+            { include_hidden: false },
+            class: "form-check-input",
+            style: "margin-right: 15px; margin-left: 10px;" %>
+        </div>
+        <div class="gender">
+          <%= label_tag :gender, "User Gender" %><br>
+          <%= f.collection_check_boxes :gender,
+            User.genders.keys,
+            :to_s,
+            :humanize,
+            { include_hidden: false },
+            class: "form-check-input",
+            style: "margin-right: 15px; margin-left: 10px;" %>
+        </div>
+        <div class="age-group">
+          <%= f.select :age_range,
+            options_for_select({
+              "18-25" => "18-25",
+              "26-35" => "26-35",
+              "36-45" => "36-45",
+              "46-60" => "46-60",
+              "60+" => "60+"
+            }),
+            { include_blank: false, prompt: " Age-group" },
+            class: "form-control smaller-input",
+            style: "width: 90px;" %>
+        </div>
+        <%= f.submit "Filter", class: "button-navbar-purple", id: "reuse-form-button", style: "margin-top: 15px;" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="card-forum">
+  <% @forums.each do |forum| %>
+    <%= link_to concert_forum_path(forum.concert, forum), class: "full-card-link" do %>
+      <div class="card">
+        <div class="user-info">
+          <% if forum.user.photo.attached? %>
+            <%= cl_image_tag forum.user.photo.key, class: "avatar-large" %>
+          <% elsif forum.user.gender == "male" %>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
+          <% else %>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
+          <% end %>
+          <div class="user-first_name">
+            <h3><%= forum.user.first_name %></h3>
+            <p class="timestamp"><%= forum.created_at.strftime("%B %d, %Y %H:%M") %></p>
+          </div>
+        </div>
+        <div class="forum-info d-flex justify-content-between">
+          <p class="content"><%= forum.content %></p>
+          <% case forum.board.to_s %>
+          <% when "accommodation" %>
+          <i class="fa-solid fa-house fa-beat pe-4 ps-1" id="board-type" style="color: #8a2be2;"></i>
+          <% when "travel" %>
+          <i class="fa-solid fa-route fa-beat pe-4 ps-1" id="board-type" style="color: #8a2be2;"></i>
+          <% when "buddies" %>
+          <i class="fa-solid fa-user-plus fa-beat pe-4 ps-1" id="board-type" style="color: #8a2be2;"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 </div>
