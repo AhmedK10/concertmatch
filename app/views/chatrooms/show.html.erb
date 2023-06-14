@@ -3,8 +3,8 @@
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
 >
   <div class="header">
-    <%= link_to :back, class: "back-button" do %>
-      <i class="fa-regular fa-arrow-left"></i> Back
+    <%= link_to :back do %>
+      <i class="fa-solid fa-arrow-left" style="color: #c30bd0;"> Back</i>
     <% end %>
     <h1><strong><%= "#{@chatroom.name}'s Chatroom" %></strong></h1>
   </div>
@@ -30,5 +30,5 @@
       <%= f.submit "Send", class: "button-chat" %>
     <% end %>
   </div>
-</div>
+  </div>
 </div>
