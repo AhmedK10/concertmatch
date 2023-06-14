@@ -148,7 +148,7 @@ pura = User.new(
 pura.save!
 
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/female/20.jpg")
-karena.photo.attach(io: file, filename: "#{karena.first_name}.jpg", content_type: "image/jpeg")
+pura.photo.attach(io: file, filename: "#{karena.first_name}.jpg", content_type: "image/jpeg")
 pura.save
 emma = User.new(
   email: "emma@gmail.com",
