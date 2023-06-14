@@ -1,40 +1,52 @@
-<div class="body-lavanda">
-  <div class="container-post white-box">
-    <div class="form">
-      <div class="form-index">
-        <%= simple_form_for [@concert, @forum] do |f| %>
-          <div class="row">
-            <div class="col-md-6">
-              <%= f.input :content, placeholder: "Enter content", class: "smaller-input" %>
+<div class="container d-flex align-items-center justify-content-center">
+  <div class="form">
+    <div class="form-index">
+      <%= simple_form_for [@concert, @forum] do |f| %>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="d-flex align-items-center">
+              <%= f.input :content, placeholder: "Enter content", label: false, class: "smaller-input mr-2" %>
               <%= f.submit "Post", class: "button-navbar-purple" %>
             </div>
           </div>
-          <div class="board-checkboxes">
-            <% Forum.boards.keys.each do |key| %>
-              <div class="form-check">
-                <%= check_box_tag 'forum[board][]', key, false, id: "board_#{key}", class: "form-check-input" %>
-                <%= label_tag "board_#{key}", key.humanize, class: "form-check-label" %>
-              </div>
+        </div>
+        <div class="board-checkboxes d-flex">
+          <% Forum.boards.keys.each do |key| %>
+            <div class="form-check">
+              <%= check_box_tag 'forum[board]', key, false, id: "board_#{key}", class: "form-check-input" %>
+              <%= label_tag "board_#{key}", class: "form-check-label" do %>
+                <span>
+                  <%= key.humanize %>
+                  <% case key.to_s %>
+                  <% when "accommodation" %>
+                    <i class="fa-solid fa-house fa-beat pe-4 ps-1" style="color: #8a2be2;"></i>
+                  <% when "travel" %>
+                    <i class="fa-solid fa-route fa-beat pe-4 ps-1" style="color: #8a2be2;"></i>
+                  <% when "buddies" %>
+                   <i class="fa-solid fa-user-plus fa-beat pe-4 ps-1" style="color: #8a2be2;"></i>
+                <% end %>
+              </span>
             <% end %>
           </div>
         <% end %>
       </div>
-    </div>
+    <% end %>
   </div>
+</div>
 </div>
 <div class="container-forum">
   <div class="filter-box">
     <div class="board-type">
       <%= form_with url: concert_forums_path(@concert), method: :get do |f| %>
         <div>
-          <%= label_tag :board_type, "Board Type" %><br>
-          <%= f.collection_check_boxes :board_type,
-          Forum.boards.keys,
-          :to_s,
-          :humanize,
-          { include_hidden: false },
-          class: "form-check-input",
-          style: "margin-right: 15px; margin-left: 10px;" %>
+          <%= label_tag :board, "Board Type" %><br>
+          <%= f.collection_check_boxes :board,
+            Forum.boards.keys,
+            :to_s,
+            :humanize,
+            { include_hidden: false },
+            class: "form-check-input",
+            style: "margin-right: 15px; margin-left: 10px;" %>
         </div>
       </div>
       <div class="gender">

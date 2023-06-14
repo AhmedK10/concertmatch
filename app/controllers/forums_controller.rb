@@ -32,7 +32,6 @@ class ForumsController < ApplicationController
     end
   end
 
-
   def show
     @forum = Forum.find(params[:id])
     @comment = Comment.new
@@ -44,6 +43,8 @@ class ForumsController < ApplicationController
     @forum = Forum.new(forum_params)
     @forum.concert = @concert
     @forum.user = current_user
+
+    @forum.board = params[:forum][:board]
 
     if @forum.save
       redirect_to concert_forums_path(@concert)
