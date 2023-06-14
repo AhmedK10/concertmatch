@@ -82,7 +82,7 @@
 <div class="card-forum">
   <% @forums.each do |forum| %>
     <%= link_to concert_forum_path(forum.concert, forum), class: "full-card-link" do %>
-      <div class="card">
+      <div class="card-small-forum">
         <div class="user-info">
           <% if forum.user.photo.attached? %>
             <%= cl_image_tag forum.user.photo.key, class: "avatar-large" %>
