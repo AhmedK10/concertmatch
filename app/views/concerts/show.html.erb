@@ -20,7 +20,7 @@
               <div class="vertical-line"></div>
               <div class="city-info text-start"> <!-- Add text-start class -->
                 <h4 class="address"><%= @concert.address %></h4>
-                <h3 class="card-list-city">Amsterdam</h3>
+                <h3 class="card-list-city"><%= @concert.city.capitalize %>, <%= @concert.country.capitalize %></h3>
               </div>
             </div>
           </div>
@@ -137,16 +137,15 @@
                   </ul>
                 </div>
               </div>
-            </div>
+            <% end %>
+          <% else %>
+            <%= 'Buddies not found' %>
           <% end %>
-        <% else %>
-          <%= 'Buddies not found' %>
-        <% end %>
+        </div>
       </div>
-    </div>
-    <div class="modal-footer">
-      <%= link_to "Go to the forum", concert_forums_path(@concert), class:"card-list-button button-purple text-decoration-none" %>
+      <div class="modal-footer">
+        <%= link_to "Go to the forum", concert_forums_path(@concert), class:"card-list-button button-purple text-decoration-none" %>
+      </div>
     </div>
   </div>
 </div>
-
