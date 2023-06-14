@@ -8,8 +8,8 @@ class ForumsController < ApplicationController
       @forums = @forums.where("board ILIKE ?", "%#{params[:query]}%")
     end
 
-    if params[:board_type].present?
-      @forums = @forums.where(board: params[:board_type])
+    if params[:board].present?
+      @forums = @forums.where(board: params[:board])
     end
 
     if params[:gender].present?
@@ -31,6 +31,7 @@ class ForumsController < ApplicationController
       end
     end
   end
+
 
   def show
     @forum = Forum.find(params[:id])
