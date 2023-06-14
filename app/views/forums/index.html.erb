@@ -19,11 +19,11 @@
                   <%= key.humanize %>
                   <% case key.to_s %>
                   <% when "accommodation" %>
-                    <i class="fa-solid fa-house fa-beat pe-4 ps-1" style="color: #8a2be2;"></i>
+                  <i class="fa-solid fa-house fa-beat pe-4 ps-1" style="color: #8a2be2;"></i>
                   <% when "travel" %>
-                    <i class="fa-solid fa-route fa-beat pe-4 ps-1" style="color: #8a2be2;"></i>
+                  <i class="fa-solid fa-route fa-beat pe-4 ps-1" style="color: #8a2be2;"></i>
                   <% when "buddies" %>
-                   <i class="fa-solid fa-user-plus fa-beat pe-4 ps-1" style="color: #8a2be2;"></i>
+                  <i class="fa-solid fa-user-plus fa-beat pe-4 ps-1" style="color: #8a2be2;"></i>
                 <% end %>
               </span>
             <% end %>
@@ -75,27 +75,37 @@
       style: "margin-top: 15px;" %>
     <% end %>
   </div>
-  <div class="card-forum">
-    <% @forums.each do |forum| %>
-      <%= link_to concert_forum_path(forum.concert, forum), class: "full-card-link" do %>
-        <div class="card">
-          <div class="user-info">
-            <% if forum.user.gender == "male" %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
-            <% else %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
-            <% end %>
-            <div class="user-first_name">
-              <h2><%= forum.user.first_name %></h2>
-              <p class="timestamp"><%= forum.created_at.strftime("%B %d, %Y %H:%M") %></p>
-            </div>
-          </div>
-          <div class="forum-info d-flex justify-content-between">
-            <p class="content"><%= forum.content %></p>
-            <p class="content"><%= forum.board %></p>
+<div class="card-forum">
+  <% @forums.each do |forum| %>
+    <%= link_to concert_forum_path(forum.concert, forum), class: "full-card-link" do %>
+      <div class="card">
+        <div class="user-info">
+          <% if forum.user.photo.attached? %>
+            <%= cl_image_tag forum.user.photo.key, class: "avatar-large" %>
+          <% elsif forum.user.gender == "male" %>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
+          <% else %>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
+          <% end %>
+          <div class="user-first_name">
+            <h3><%= forum.user.first_name %></h3>
+            <p class="timestamp"><%= forum.created_at.strftime("%B %d, %Y %H:%M") %></p>
           </div>
         </div>
-      <% end %>
+        <div class="forum-info d-flex justify-content-between">
+          <p class="content"><%= forum.content %></p>
+          <% case forum.board.to_s %>
+            <% when "accommodation" %>
+              <i class="fa-solid fa-house fa-beat pe-4 ps-1" id="board-type" style="color: #8a2be2;"></i>
+            <% when "travel" %>
+              <i class="fa-solid fa-route fa-beat pe-4 ps-1" id="board-type" style="color: #8a2be2;"></i>
+            <% when "buddies" %>
+              <i class="fa-solid fa-user-plus fa-beat pe-4 ps-1" id="board-type" style="color: #8a2be2;"></i>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-  </div>
+  <% end %>
 </div>
+</div>
+
