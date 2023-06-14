@@ -1,5 +1,10 @@
 <body class="black-page">
   <div class="container mt-5">
+    <div class="header mb-2">
+      <%= link_to :back do %>
+        <i class="fa-solid fa-arrow-left" style="color: #c30bd0;"> Back</i>
+      <% end %>
+    </div>
     <div class="comments">
       <% @forum.comments.each do |comment| %>
         <% if comment.user == current_user %>
@@ -21,7 +26,6 @@
         <% end %>
       <% end %>
     </div>
-
     <%= simple_form_for [@forum, @comment], html: { class: "d-flex" } do |f| %>
       <div class="d-flex comment-form-container mt-4" >
         <%= f.input :content, label: false, placeholder: "Comment #{current_user.first_name}", class: "form-control" %>

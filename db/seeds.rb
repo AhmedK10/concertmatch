@@ -53,7 +53,7 @@ genres = ["Rock", "Pop", "Hip Hop", "R&B", "Electronic", "Country", "Jazz", "Cla
 
 puts "Creating Users...."
 
-ahmed = User.create!(
+ahmed = User.new(
   email: "ahmed@gmail.com",
   password: "secret",
   first_name: "Ahmed",
@@ -63,6 +63,9 @@ ahmed = User.create!(
   bio: "I like listening to Rock, Metal, Pop and Electronic Music",
   genres: "Rock"
 )
+ahmed.save!
+ahmed.photo.attach(io: File.open('app/assets/images/ahmed-pic.png'), filename: 'ahmed-pic.png')
+ahmed.save
 
 ben = User.new(
   email: "ben@gmail.com",
@@ -410,18 +413,55 @@ rand_posts = ["You seem like a great person to share an apartment or room with f
   "The joy and excitement you bring to the search for a roommate make me confident you'll find an amazing match.",
   "You're on the right track to find a like-minded concert buddy. Keep up the positive energy!",
   "The concert will be even more special with the shared experience of finding a great roommate. Good luck!"]
+
+  rand_comments = [
+    "Sounds like a great plan! I'm also looking for someone to share accommodation for the concert.",
+    "Count me in! It would be awesome to travel together and attend the concert.",
+    "I'm interested! Let's coordinate and find a place to stay for the concert.",
+    "I've been searching for a concert buddy. It would be fun to share accommodation and enjoy the event together.",
+    "I'm up for it! Finding a roommate for the concert would make the experience even better.",
+    "I love the idea! Let's find a suitable place and make the most of our concert experience.",
+    "I'm on board! Sharing accommodation and attending the concert together sounds like a great plan.",
+    "I'm looking for someone to split the cost of accommodation for the concert. Let's connect!",
+    "I'm excited about the prospect of sharing accommodation and attending the concert with someone. Count me in!",
+    "Sounds like a great opportunity to meet new people and have a memorable concert experience.",
+    "I'm interested in finding a concert buddy and splitting the expenses for accommodation. Let's discuss further!",
+    "I'm searching for a roommate for the concert too. Let's team up and make it a fantastic experience.",
+    "I'm open to the idea of sharing accommodation. It would be great to have company for the concert.",
+    "I've been looking for someone to share the travel and accommodation arrangements for the concert. Let's connect!",
+    "I'm definitely up for finding a concert buddy and sharing accommodation. Let's make it happen!",
+    "Count me in! Sharing accommodation and attending the concert together would be a lot of fun.",
+    "I'm interested in splitting the costs and finding a concert buddy. Let's make this concert unforgettable!",
+    "I'm searching for a roommate for the concert. Let's coordinate and make arrangements together.",
+    "I'm excited about the idea of sharing accommodation and enjoying the concert with a fellow fan.",
+    "Finding someone to travel with and share accommodation for the concert would make it an incredible experience."
+  ]
+
   concerts = Concert.all
-  users = User.all
+  users = User.where.not(email: "ahmed@gmail.com")
   concerts.each do |concert|
-    num_forums = 20
+    num_forums = 40
     num_forums.times do
       user = users.sample
-      Forum.create!(
+      forum = Forum.create!(
         board: [0, 1, 2].sample,
         content: rand_posts.sample,
         user: user,
         concert: concert,
       )
+      puts "Creatting comments for forums"
+
+      num_comments = rand(0..3)
+      num_comments.times do
+        content = rand_comments.sample
+        comment_user = users.sample
+
+        Comment.create!(
+          content: content,
+          forum: forum,
+          user: comment_user
+        )
+        end
       end
     end
   puts "Creating Favorites...."
