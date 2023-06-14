@@ -22,15 +22,13 @@
       <%= simple_form_for [@chatroom, @message],
         html: {data: {action: "turbo:submit-end->chatroom-subscription#resetForm"}, class: "d-flex"} do |f|
       %>
-        <%= f.input :content,
+      <%= f.input :content,
           label: false,
           placeholder: "Message"
           #wrapper_html: {class: "me-1 form-control transparent-borderless mb-0"}
         %>
-        <%= f.submit "Send", class: "button-chat" %>
-      <% end %>
-    </div>
+      <%= f.submit "Send", class: "button-chat" %>
+    <% end %>
+  </div>
   </div>
 </div>
-
-<i class="fa-sharp fa-light fa-hand-point-left"></i>

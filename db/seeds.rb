@@ -51,11 +51,19 @@ bio_options = [
 #GENRES
 genres = ["Rock", "Pop", "Hip Hop", "R&B", "Electronic", "Country", "Jazz", "Classical", "Folk", "Reggae", "Metal"]
 
-
-
-
-
 puts "Creating Users...."
+
+ahmed = User.create!(
+  email: "ahmed@gmail.com",
+  password: "secret",
+  first_name: "Ahmed",
+  last_name: "Khogali",
+  gender: 0,
+  date_of_birth: Date.parse("1997-03-14"),
+  bio: "I like listening to Rock, Metal, Pop and Electronic Music",
+  genres: "Rock"
+)
+
 ben = User.new(
   email: "ben@gmail.com",
   password: "secret",
@@ -349,6 +357,7 @@ ams_data = JSON.parse(ams_raw.body)
 events = data["_embedded"]["events"]
 events_ams = ams_data["_embedded"]["events"]
 events_ams.each do |event|
+  venue = event["_embedded"]["venues"][0]
   concert_ams = Concert.new(
     name: event["name"],
     summary: event['info'] || rand_summaries.sample,
@@ -356,12 +365,15 @@ events_ams.each do |event|
     date: event["dates"]["start"]["dateTime"],
     artist: event["_embedded"]["attractions"][0]["name"],
     genre: event["classifications"][0]["genre"]["name"],
+    city: venue["city"]["name"],
+    country: venue["country"]["name"]
   )
     file = URI.open("https://source.unsplash.com/random/900x900/?concert%20crowd")
     concert_ams.photo.attach(io: file, filename: "#{concert_ams.name}.jpg", content_type: "image/jpeg")
     concert_ams.save!
 end
 events.each do |event|
+  venue = event["_embedded"]["venues"][0]
   concert = Concert.new(
     name: event["name"],
     summary: event['info'] || rand_summaries.sample,
@@ -369,6 +381,8 @@ events.each do |event|
     date: event["dates"]["start"]["dateTime"],
     artist: event["_embedded"]["attractions"][0]["name"],
     genre: event["classifications"][0]["genre"]["name"],
+    city: venue["city"]["name"],
+    country: venue["country"]["name"]
   )
     file = URI.open("https://source.unsplash.com/random/900x900/?concert%20crowd")
     concert.photo.attach(io: file, filename: "#{concert.name}.jpg", content_type: "image/jpeg")
@@ -415,7 +429,7 @@ rand_posts = ["You seem like a great person to share an apartment or room with f
       20.times do
         user = User.all.sample
         concert = Concert.all.sample
-       
+
         unless user.favorited?(concert)
           Favorite.create!(user: user, concert: concert)
       end
