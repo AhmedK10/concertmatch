@@ -41,6 +41,7 @@
 .buddies-forum-btn .button-navbar-purple {
   padding: 10px 40px 10px 40px;
 }
+
 .button-chat {
   background-color: $purple;
   color: #fff;
@@ -51,7 +52,9 @@
   padding-top: 1px;
   padding-bottom: 1px;
   height: 37px;
-  margin-left: 4px;
+  width: 80px;
+  margin-left: 8px;
+  border-radius: 2px;
 }
 
 .button-chat:hover {

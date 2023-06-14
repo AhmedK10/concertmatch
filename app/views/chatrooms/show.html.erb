@@ -2,23 +2,24 @@
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
 >
-
-
-  <h1><strong><%= "#{current_user.first_name}'s Chatroom" %></strong></h1>
-
+  <div class="header">
+    <%= link_to :back, class: "back-button" do %>
+      <i class="fa-regular fa-arrow-left"></i> Back
+    <% end %>
+    <h1><strong><%= "#{@chatroom.name}'s Chatroom" %></strong></h1>
+  </div>
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
       <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
         <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-           <%= render "messages/message", message: message %>
+          <%= render "messages/message", message: message %>
         </div>
       </div>
     <% end %>
   </div>
-
-<div class="container d-flex justify-content-center mb-0">
-  <div class="form-msg input-group mt-5 mb-0">
-    <%= simple_form_for [@chatroom, @message],
+  <div class="container d-flex justify-content-center mb-0">
+    <div class="form-msg input-group mt-5 mb-0">
+      <%= simple_form_for [@chatroom, @message],
         html: {data: {action: "turbo:submit-end->chatroom-subscription#resetForm"}, class: "d-flex"} do |f|
       %>
         <%= f.input :content,
@@ -28,8 +29,6 @@
         %>
         <%= f.submit "Send", class: "button-chat" %>
       <% end %>
-        <%# <input type="text" class="me-3 form-control" placeholder="Message" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn button-chat btn-outline-secondary" type="submit" id="button-addon2">Submit</button> %>
     </div>
   </div>
 </div>
