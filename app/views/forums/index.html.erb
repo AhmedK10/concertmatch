@@ -6,12 +6,9 @@
           <div class="row">
             <div class="col-md-6">
               <%= f.input :content, placeholder: "Enter content", class: "smaller-input" %>
-            </div>
-            <div class="col-md-6">
               <%= f.submit "Post", class: "button-navbar-purple" %>
             </div>
           </div>
-
           <div class="board-checkboxes">
             <% Forum.boards.keys.each do |key| %>
               <div class="form-check">
@@ -25,7 +22,6 @@
     </div>
   </div>
 </div>
-
 <div class="container-forum">
   <div class="filter-box">
     <div class="board-type">

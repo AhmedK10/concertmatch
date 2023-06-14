@@ -118,25 +118,27 @@
                     <i class="fa-solid fa-music fa-beat"></i>&nbsp; <%= f.user.genres %>&nbsp;
                     <i class="fa-sharp fa-solid fa-volume-high fa-beat"></i>
                   </p>
-                  <li class="list-inline-item" style="margin-bottom: 10px;"><a href="https://www.facebook.com"><i class="fa-regular fa-comments fa-shake fa-xl" style="color: #132c58;"></i></a></li>
-                  <h6 style="font-size: 14px; font-style: italic; text-align: center;"><%= f.user.bio %></h6>
-                  <ul class="list-inline social-icons">
-                    <li class="list-inline-item"><a href="https://www.facebook.com"><i class="fab fa-facebook" style="font-size: 20px; color: #4267B2;"></i></a></li>
-                    <li class="list-inline-item"><a href="https://www.twitter.com"><i class="fab fa-twitter" style="font-size: 20px; color: #1DA1F2;"></i></a></li>
-                    <li class="list-inline-item"><a href="https://www.instagram.com"><i class="fab fa-instagram" style="font-size: 20px; color: #C13584;"></i></a></li>
-                    <li class="list-inline-item"><a href="https://www.spotify.com"><i class="fab fa-spotify" style="font-size: 20px; color: #1DB954;"></i></a></li>
-                  </ul>
-                </div>
+                  <%= link_to chatrooms_path(f.user), data: {turbo_method: :post} do %>
+                    <li class="list-inline-item" style="margin-bottom: 10px;"><i class="fa-regular fa-comments fa-shake fa-xl" style="color: #132C58;"></i></a></li>
+                <% end %>
+                <h6 style="font-size: 14px; font-style: italic; text-align: center;"><%= f.user.bio %></h6>
+                <ul class="list-inline social-icons">
+                  <li class="list-inline-item"><a href="https://www.facebook.com"><i class="fab fa-facebook" style="font-size: 20px; color: #4267B2;"></i></a></li>
+                  <li class="list-inline-item"><a href="https://www.twitter.com"><i class="fab fa-twitter" style="font-size: 20px; color: #1DA1F2;"></i></a></li>
+                  <li class="list-inline-item"><a href="https://www.instagram.com"><i class="fab fa-instagram" style="font-size: 20px; color: #C13584;"></i></a></li>
+                  <li class="list-inline-item"><a href="https://www.spotify.com"><i class="fab fa-spotify" style="font-size: 20px; color: #1DB954;"></i></a></li>
+                </ul>
               </div>
-            <% end %>
-          <% else %>
-            <%= 'Buddies not found' %>
+            </div>
           <% end %>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <%= link_to "Go to the forum", concert_forums_path(@concert), class:"card-list-button button-purple text-decoration-none" %>
+        <% else %>
+          <%= 'Buddies not found' %>
+        <% end %>
       </div>
     </div>
+    <div class="modal-footer">
+      <%= link_to "Go to the forum", concert_forums_path(@concert), class:"card-list-button button-purple text-decoration-none" %>
+    </div>
   </div>
+</div>
 </div>
