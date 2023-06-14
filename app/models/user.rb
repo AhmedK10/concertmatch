@@ -20,15 +20,15 @@ class User < ApplicationRecord
 
     ids = Message.where(user: self).pluck(:chatroom_id).uniq
     ids.each { |id| @chatrooms << Chatroom.find(id) }
-    @chatrooms.uniq
+    @chatrooms.flatten.uniq
   end
 
   def shared_chat(other)
-    self.active_chats & other.active_chats
+    (self.active_chats & other.active_chats).first
   end
-  
+
   def has_shared_chat?(other)
-    shared_chat(other)&.any?
+    !shared_chat(other).nil?
   end
 
   def age

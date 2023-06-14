@@ -17,7 +17,7 @@
                 <%= select_tag :genre, options_for_select(Concert.pluck(:genre).uniq), include_blank: true %>
               </div>
               <div class="col-md-4">
-                <%= label_tag :start_date, "Start Date:" %>
+                <%= label_tag :start_date, "Date:" %>
                 <%= text_field_tag :start_date, params[:start_date], type: "date", class: "form-control" %>
               </div>
               <div class="col-md-4">
