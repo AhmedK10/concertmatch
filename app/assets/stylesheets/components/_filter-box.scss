@@ -9,6 +9,14 @@
   padding: 20px;
   z-index: 9999; /* Increase the z-index value if necessary */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  h3 {
+    font-weight: bold;
+  }
+}
+
+input[type="checkbox"] {
+  transform: scale(1.5); /* Adjust the scale value as desired */
+  margin-right: 10px;
 }
 
 .card-forum {
@@ -23,4 +31,37 @@
 
 .rotated-icon {
   transform: rotate(30deg);
+}
+
+.filter-box .board-type {
+  display: flex;
+  flex-direction: column;
+}
+
+.types {
+  margin-bottom: 10px;
+}
+
+.types > label {
+ padding-bottom: 10px;
+ font-size: 18px;
+ font-weight: bold;
+}
+
+.gender {
+  margin-bottom: 10px;
+}
+.gender > label {
+  padding-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.age-group {
+  margin-bottom: 10px;
+}
+.age-group > label {
+  padding-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
 }
