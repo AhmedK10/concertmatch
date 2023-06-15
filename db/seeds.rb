@@ -53,6 +53,7 @@ genres = ["Rock", "Pop", "Hip Hop", "R&B", "Electronic", "Country", "Jazz", "Cla
 
 puts "Creating Users...."
 
+#Ahmed & Ben:
 ahmed = User.new(
   email: "ahmed@gmail.com",
   password: "secret",
@@ -74,7 +75,7 @@ ben = User.new(
   last_name: "Lee",
   gender: 0,
 
-  date_of_birth: Date.parse("1996-01-08"),
+  date_of_birth: Date.parse("1997-01-08"),
   bio: "Concert advocate, promoting the importance of live music for the soul and community.",
   genres: "Rock"
 
@@ -84,6 +85,8 @@ ben.save!
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/47.jpg")
 ben.photo.attach(io: file, filename: "#{ben.first_name}.jpg", content_type: "image/jpeg")
 ben.save
+
+#Others:
 sofia = User.new(
   email: "sofia@gmail.com",
   password: "secret",
@@ -338,6 +341,127 @@ lane.photo.attach(io: file, filename: "#{lane.first_name}.jpg", content_type: "i
 lane.save
 
 #CONCERTS:
+#custom_concerts:
+
+#starset
+concert_starset_1 = Concert.new(
+  name: "Starset: Horizons Tour",
+  summary: "Cinematic rock outfit Starset uses the mysteries of deep space as the launching pad for their cerebral, galactic anthems. In concert the band blasts off with blazing guitars, heavy drums, and swirling symphonic touches, lifting their soaring songs into the cosmos with razor-sharp playing and gravity-defying energy.",
+  address: "Alcatraz",
+  date: Time.new(2023, 7, 1, 20, 0, 0, "+00:00"), # Example: June 30, 2023, 8:00 PM UTC,
+  artist: "Starset",
+  genre: "Rock",
+  city: "Milan",
+  country: "Italy"
+)
+file = URI.open("https://source.unsplash.com/random/900x900/?concert%20crowd")
+concert_starset_1.photo.attach(io: file, filename: "#{concert_starset_1.name}.jpg", content_type: "image/jpeg")
+concert_starset_1.save!
+
+#skillet
+concert_skillet = Concert.new(
+  name: "Skillet: European Tour",
+  summary: "Epic, expansive and anthemic, SKILLET create the type of rock that simply explodes in a live setting.  Rather than merely a show, SKILLET put on an experience for their fans through authentic and energetic performances of their studio work, as well as existential banter with fans touching on everything from the bands faith, to frontman John Cooper’s passion for video games.",
+  address: "Melkweg Max",
+  date: Time.new(2023, 7, 10, 20, 0, 0, "+00:00"),
+  artist: "Skillet",
+  genre: "Rock",
+  city: "Amsterdam",
+  country: "Netherlands"
+)
+file = URI.open("https://source.unsplash.com/random/900x900/?concert%20crowd")
+concert_skillet.photo.attach(io: file, filename: "#{concert_skillet.name}.jpg", content_type: "image/jpeg")
+concert_skillet.save!
+
+#bmth
+concert_bmth = Concert.new(
+  name: "Bring Me The Horizon: World Tour",
+  summary: "Bring Me The Horizon is a British metal band form Sheffield, Yorkshire. They are formed in 2003 and exist out of singer Oliver Sykes, pianist Jordan Fish, guitarist Lee Malia, bass guitarist Matt Kean and drummer Matt Nicholls.",
+  address: "Melkweg Max",
+  date: Time.new(2023, 7, 11, 20, 0, 0, "+00:00"),
+  artist: "Bring Me The Horizon",
+  genre: "Metal",
+  city: "Amsterdam",
+  country: "Netherlands"
+)
+file = URI.open("https://source.unsplash.com/random/900x900/?concert%20crowd")
+concert_skillet.photo.attach(io: file, filename: "#{concert_skillet.name}.jpg", content_type: "image/jpeg")
+concert_skillet.save!
+
+#Starset
+concert_starset_2 = Concert.new(
+  name: "Starset: Horizons Tour",
+  summary: "Cinematic rock outfit Starset uses the mysteries of deep space as the launching pad for their cerebral, galactic anthems. In concert the band blasts off with blazing guitars, heavy drums, and swirling symphonic touches, lifting their soaring songs into the cosmos with razor-sharp playing and gravity-defying energy.",
+  address: "Tonhalle",
+  date: Time.new(2023, 7, 2, 20, 0, 0, "+00:00"),
+  artist: "Starset",
+  genre: "Rock",
+  city: "Munich",
+  country: "Germany"
+)
+file = URI.open("https://source.unsplash.com/random/900x900/?concert%20crowd")
+concert_starset_2.photo.attach(io: file, filename: "#{concert_starset_2.name}.jpg", content_type: "image/jpeg")
+concert_starset_2.save!
+
+concert_starset_3 = Concert.new(
+  name: "Starset: Horizons Tour",
+  summary: "Cinematic rock outfit Starset uses the mysteries of deep space as the launching pad for their cerebral, galactic anthems. In concert the band blasts off with blazing guitars, heavy drums, and swirling symphonic touches, lifting their soaring songs into the cosmos with razor-sharp playing and gravity-defying energy.",
+  address: "Proxima",
+  date: Time.new(2023, 7, 3, 20, 0, 0, "+00:00"),
+  artist: "Starset",
+  genre: "Rock",
+  city: "Warsaw",
+  country: "Poland"
+)
+file = URI.open("https://source.unsplash.com/random/900x900/?concert%20crowd")
+concert_starset_3.photo.attach(io: file, filename: "#{concert_starset_3.name}.jpg", content_type: "image/jpeg")
+concert_starset_3.save!
+
+concert_starset_4 = Concert.new(
+  name: "Starset: Horizons Tour",
+  summary: "Cinematic rock outfit Starset uses the mysteries of deep space as the launching pad for their cerebral, galactic anthems. In concert the band blasts off with blazing guitars, heavy drums, and swirling symphonic touches, lifting their soaring songs into the cosmos with razor-sharp playing and gravity-defying energy.",
+  address: "Melkweg Max",
+  date: Time.new(2023, 7, 6, 20, 0, 0, "+00:00"),
+  artist: "Starset",
+  genre: "Rock",
+  city: "Amsterdam",
+  country: "Netherlands"
+)
+file = URI.open("https://source.unsplash.com/random/900x900/?concert%20crowd")
+concert_starset_4.photo.attach(io: file, filename: "#{concert_starset_4.name}.jpg", content_type: "image/jpeg")
+concert_starset_4.save!
+
+concert_starset_5 = Concert.new(
+  name: "Starset: Horizons Tour",
+  summary: "Cinematic rock outfit Starset uses the mysteries of deep space as the launching pad for their cerebral, galactic anthems. In concert the band blasts off with blazing guitars, heavy drums, and swirling symphonic touches, lifting their soaring songs into the cosmos with razor-sharp playing and gravity-defying energy.",
+  address: "Melkweg Max",
+  date: Time.new(2023, 7, 8, 20, 0, 0, "+00:00"),
+  artist: "Starset",
+  genre: "Rock",
+  city: "Amsterdam",
+  country: "Netherlands"
+)
+file = URI.open("https://source.unsplash.com/random/900x900/?concert%20crowd")
+concert_starset_5.photo.attach(io: file, filename: "#{concert_starset_5.name}.jpg", content_type: "image/jpeg")
+concert_starset_5.save!
+
+
+#ed
+concert_ed = Concert.new(
+  name: "Ed Sheeran's Tour Worldwide",
+  summary: "It's been a quick rise for soulful British singer/songwriter Ed Sheeran. He played his first club gig in New York City in early 2012, and by the summer of 2013 tickets for his first headlining concert at New York's Madison Garden sold out in just three minutes. Sheeran's take on acoustic-based folk is updated with hip hop influenced hooks and beats.",
+  address: "Melkweg Max",
+  date: Time.new(2023, 7, 15, 20, 0, 0, "+00:00"),
+  artist: "Ed Sheeran",
+  genre: "Pop",
+  city: "Amsterdam",
+  country: "Netherlands"
+)
+file = URI.open("https://source.unsplash.com/random/900x900/?concert%20crowd")
+concert_ed.photo.attach(io: file, filename: "#{concert_ed.name}.jpg", content_type: "image/jpeg")
+concert_ed.save!
+#
+#Ticket_Master_ones
 rand_summaries = ["Join us for an extraordinary evening of live music, as some of the most talented artists from around the world come together on one stage. From soulful ballads to high-energy rock anthems, this concert promises to take you on a musical journey like no other.",
                   "Prepare to be mesmerized by the sheer talent and artistry on display at this highly anticipated concert event. With a diverse lineup of musicians spanning various genres, this is your chance to experience the magic of live performances that will leave you in awe.",
                   "Immerse yourself in a symphony of sounds as a world-renowned orchestra, accompanied by an exceptional lineup of guest soloists, takes you on an unforgettable musical adventure. From classical masterpieces to contemporary compositions, this concert is a celebration of the rich heritage of orchestral music.",
@@ -451,7 +575,7 @@ rand_posts = ["You seem like a great person to share an apartment or room with f
       )
       puts "Creatting comments for forums"
 
-      num_comments = rand(0..3)
+      num_comments = rand(3..6)
       num_comments.times do
         content = rand_comments.sample
         comment_user = users.sample
@@ -465,14 +589,67 @@ rand_posts = ["You seem like a great person to share an apartment or room with f
       end
     end
   puts "Creating Favorites...."
+  puts "creating ahmed and bens favorites........."
+
+  # Favorite concerts for Ahmed
+ahmed_favorite_concerts = [concert_starset_1, concert_starset_2, concert_bmth, concert_skillet, concert_ed]
+ahmed_favorite_concerts.each do |concert|
+  Favorite.create!(user: ahmed, concert: concert) unless ahmed.favorited?(concert)
+end
+
+# Favorite concerts for Ben
+ben_favorite_concerts = [concert_starset_1, concert_starset_2, concert_starset_3, concert_starset_4, concert_starset_5, concert_bmth, concert_skillet, concert_ed]
+ben_favorite_concerts.each do |concert|
+  Favorite.create!(user: ben, concert: concert) unless ben.favorited?(concert)
+end
+
     concerts.each do |concert|
       20.times do
-        user = User.all.sample
-        concert = Concert.all.sample
+        fav_user = users.sample
+        fav_concert = Concert.all.sample
 
 
-      unless user.favorited?(concert)
-        Favorite.create!(user: user, concert: concert)
+
+      unless fav_user.favorited?(concert)
+        Favorite.create!(user: fav_user, concert: concert)
       end
     end
   end
+
+
+  puts "creating chatrooms and messages for ahmed profile......"
+
+  # Find or create the chatroom between Ahmed and Dirk
+  chatroom1 = Chatroom.create!(name: "Ahmed & Dirk Chatroom", user: dirk)
+
+
+  # Create messages
+  message1 = Message.create!(
+    content: "Hi Dirk",
+    user: ahmed,
+    chatroom: chatroom1
+  )
+
+  message2 = Message.create!(
+    content: "Hi Ahmed",
+    user: dirk,
+    chatroom: chatroom1
+  )
+
+
+  # Find or create the chatroom between Ahmed and Emma
+  chatroom2 = Chatroom.create!(name: "Ahmed & Emma Chatroom", user: emma)
+
+
+  # Create messages
+  message3 = Message.create!(
+    content: "Hi Emma",
+    user: ahmed,
+    chatroom: chatroom2
+  )
+
+  message4 = Message.create!(
+    content: "Hi Ahmed",
+    user: emma,
+    chatroom: chatroom2
+  )
