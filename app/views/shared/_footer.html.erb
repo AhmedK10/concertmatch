@@ -37,5 +37,19 @@
       </div>
     </div>
   </div>
-</div>
 </footer>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var footer = document.getElementById("sticky-footer");
+    var isContentScrollable = document.body.scrollHeight > window.innerHeight;
+
+    function toggleFooter() {
+      footer.style.display = isContentScrollable ? "block" : "none";
+    }
+
+    window.addEventListener("scroll", toggleFooter);
+    window.addEventListener("resize", toggleFooter);
+
+    toggleFooter();
+  });
+</script>

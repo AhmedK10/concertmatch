@@ -1,11 +1,19 @@
 <body class="black-page">
   <div class="container mt-5">
+
+    <div class="header mb-2">
+      <%= link_to :back do %>
+        <i class="fa-solid fa-arrow-left" style="color: #c30bd0;"> Back</i>
+      <% end %>
+    </div>
+
       <%= simple_form_for [@forum, @comment], html: { class: "d-flex" } do |f| %>
       <div class="d-flex comment-form-container mt-4" >
         <%= f.input :content, label: false, placeholder: "Add a comment...", class: "form-control" %>
         <%= f.submit "Send", class: "card-list-button button-purple text-decoration-none", style: 'height: 40px; margin-left: 10px;' %>
       </div>
     <% end %>
+
     <div class="comments">
       <% @forum.comments.order(created_at: :desc).each do |comment| %>
         <% if comment.user == current_user %>
@@ -33,6 +41,5 @@
         <% end %>
       <% end %>
     </div>
-
   </div>
 </body>
