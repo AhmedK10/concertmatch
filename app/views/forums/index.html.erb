@@ -1,7 +1,7 @@
 <div id="forum-title">
   <h1>Explore, Connect, and Share: Your Journey Begins Here!</h1>
 </div>
-<div class="container mt-5 d-flex justify-content-center align-items-center flex-column align-items-center">
+<div class="container d-flex justify-content-center align-items-center flex-column align-items-center">
   <div class="form">
     <div class="form-index">
       <%= simple_form_for [@concert, @forum] do |f| %>
@@ -85,7 +85,7 @@
     </div>
   </div>
 </div>
-<div class="card-forum">
+<div class="card-forum container d-flex justify-content-center align-items-center flex-column align-items-center">
   <% @forums.each do |forum| %>
     <%= link_to concert_forum_path(forum.concert, forum), class: "full-card-link" do %>
       <div class="card-small-forum">
@@ -107,9 +107,9 @@
           <i class="fa-solid fa-route fa-beat pe-4 ps-1" class="icon-types" style="color: #8a2be2;"></i>
           <% when "buddies" %>
           <i class="fa-solid fa-user-plus fa-beat pe-4 ps-1" class="icon-types" style="color: #8a2be2;"></i>
-        <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
-<% end %>
 </div>
