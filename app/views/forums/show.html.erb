@@ -32,9 +32,9 @@
         </div>
       </div>
       <%= simple_form_for [@forum, @comment], html: { class: "d-flex" } do |f| %>
-        <div class="d-flex comment-form-container mt-4" >
+        <div class="d-inline-flex comment-form-container mt-4">
           <%= f.input :content, label: false, placeholder: "Add a comment...", class: "form-control" %>
-          <%= f.submit "Send", class: "card-list-button button-purple text-decoration-none", style: 'height: 40px; margin-left: 10px;' %>
+          <%= f.submit "Send", class: "card-list-button button-navbar-purple text-decoration-none", style: 'height: 40px; margin-left: 10px;' %>
         </div>
       <% end %>
       <div class="comments">
