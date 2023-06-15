@@ -53,6 +53,7 @@ genres = ["Rock", "Pop", "Hip Hop", "R&B", "Electronic", "Country", "Jazz", "Cla
 
 puts "Creating Users...."
 
+#Ahmed & Ben:
 ahmed = User.new(
   email: "ahmed@gmail.com",
   password: "secret",
@@ -84,6 +85,8 @@ ben.save!
 file = URI.open("https://xsgames.co/randomusers/assets/avatars/male/47.jpg")
 ben.photo.attach(io: file, filename: "#{ben.first_name}.jpg", content_type: "image/jpeg")
 ben.save
+
+#Others:
 sofia = User.new(
   email: "sofia@gmail.com",
   password: "secret",
@@ -338,6 +341,102 @@ lane.photo.attach(io: file, filename: "#{lane.first_name}.jpg", content_type: "i
 lane.save
 
 #CONCERTS:
+#custom_concerts:
+
+#starset
+concert_starset_1 = Concert.create!(
+  name: "Starset: Horizons Tour",
+  summary: "Cinematic rock outfit Starset uses the mysteries of deep space as the launching pad for their cerebral, galactic anthems. In concert the band blasts off with blazing guitars, heavy drums, and swirling symphonic touches, lifting their soaring songs into the cosmos with razor-sharp playing and gravity-defying energy.",
+  address: "Alcatraz",
+  date: Time.new(2023, 7, 1, 20, 0, 0, "+00:00"), # Example: June 30, 2023, 8:00 PM UTC,
+  artist: "Starset",
+  genre: "Rock",
+  city: "Milan",
+  country: "Italy"
+)
+
+concert_starset_2 = Concert.create!(
+  name: "Starset: Horizons Tour",
+  summary: "Cinematic rock outfit Starset uses the mysteries of deep space as the launching pad for their cerebral, galactic anthems. In concert the band blasts off with blazing guitars, heavy drums, and swirling symphonic touches, lifting their soaring songs into the cosmos with razor-sharp playing and gravity-defying energy.",
+  address: "Tonhalle",
+  date: Time.new(2023, 7, 2, 20, 0, 0, "+00:00"),
+  artist: "Starset",
+  genre: "Rock",
+  city: "Munich",
+  country: "Germany"
+)
+
+concert_starset_3 = Concert.create!(
+  name: "Starset: Horizons Tour",
+  summary: "Cinematic rock outfit Starset uses the mysteries of deep space as the launching pad for their cerebral, galactic anthems. In concert the band blasts off with blazing guitars, heavy drums, and swirling symphonic touches, lifting their soaring songs into the cosmos with razor-sharp playing and gravity-defying energy.",
+  address: "Proxima",
+  date: Time.new(2023, 7, 3, 20, 0, 0, "+00:00"),
+  artist: "Starset",
+  genre: "Rock",
+  city: "Warsaw",
+  country: "Poland"
+)
+
+concert_starset_4 = Concert.create!(
+  name: "Starset: Horizons Tour",
+  summary: "Cinematic rock outfit Starset uses the mysteries of deep space as the launching pad for their cerebral, galactic anthems. In concert the band blasts off with blazing guitars, heavy drums, and swirling symphonic touches, lifting their soaring songs into the cosmos with razor-sharp playing and gravity-defying energy.",
+  address: "Melkweg Max",
+  date: Time.new(2023, 7, 6, 20, 0, 0, "+00:00"),
+  artist: "Starset",
+  genre: "Rock",
+  city: "Amsterdam",
+  country: "Netherlands"
+)
+
+concert_starset_5 = Concert.create!(
+  name: "Starset: Horizons Tour",
+  summary: "Cinematic rock outfit Starset uses the mysteries of deep space as the launching pad for their cerebral, galactic anthems. In concert the band blasts off with blazing guitars, heavy drums, and swirling symphonic touches, lifting their soaring songs into the cosmos with razor-sharp playing and gravity-defying energy.",
+  address: "Melkweg Max",
+  date: Time.new(2023, 7, 8, 20, 0, 0, "+00:00"),
+  artist: "Starset",
+  genre: "Rock",
+  city: "Amsterdam",
+  country: "Netherlands"
+)
+
+
+#skillet
+concert_skillet = Concert.create!(
+  name: "Skillet: European Tour",
+  summary: "Cinematic rock outfit Starset uses the mysteries of deep space as the launching pad for their cerebral, galactic anthems. In concert the band blasts off with blazing guitars, heavy drums, and swirling symphonic touches, lifting their soaring songs into the cosmos with razor-sharp playing and gravity-defying energy.",
+  address: "Melkweg Max",
+  date: Time.new(2023, 7, 10, 20, 0, 0, "+00:00"),
+  artist: "Skillet",
+  genre: "Rock",
+  city: "Amsterdam",
+  country: "Netherlands"
+)
+
+#bmth
+concert_bmth = Concert.create!(
+  name: "Bring Me The Horizon: World Tour",
+  summary: "Cinematic rock outfit Starset uses the mysteries of deep space as the launching pad for their cerebral, galactic anthems. In concert the band blasts off with blazing guitars, heavy drums, and swirling symphonic touches, lifting their soaring songs into the cosmos with razor-sharp playing and gravity-defying energy.",
+  address: "Melkweg Max",
+  date: Time.new(2023, 7, 11, 20, 0, 0, "+00:00"),
+  artist: "Bring Me The Horizon",
+  genre: "Metal",
+  city: "Amsterdam",
+  country: "Netherlands"
+)
+
+#ed
+concert_ed = Concert.create!(
+  name: "Ed Sheeran's Tour Worldwide",
+  summary: "Cinematic rock outfit Starset uses the mysteries of deep space as the launching pad for their cerebral, galactic anthems. In concert the band blasts off with blazing guitars, heavy drums, and swirling symphonic touches, lifting their soaring songs into the cosmos with razor-sharp playing and gravity-defying energy.",
+  address: "Melkweg Max",
+  date: Time.new(2023, 7, 15, 20, 0, 0, "+00:00"),
+  artist: "Ed Sheeran",
+  genre: "Pop",
+  city: "Amsterdam",
+  country: "Netherlands"
+)
+#
+#Ticket_Master_ones
 rand_summaries = ["Join us for an extraordinary evening of live music, as some of the most talented artists from around the world come together on one stage. From soulful ballads to high-energy rock anthems, this concert promises to take you on a musical journey like no other.",
                   "Prepare to be mesmerized by the sheer talent and artistry on display at this highly anticipated concert event. With a diverse lineup of musicians spanning various genres, this is your chance to experience the magic of live performances that will leave you in awe.",
                   "Immerse yourself in a symphony of sounds as a world-renowned orchestra, accompanied by an exceptional lineup of guest soloists, takes you on an unforgettable musical adventure. From classical masterpieces to contemporary compositions, this concert is a celebration of the rich heritage of orchestral music.",
@@ -451,7 +550,7 @@ rand_posts = ["You seem like a great person to share an apartment or room with f
       )
       puts "Creatting comments for forums"
 
-      num_comments = rand(0..3)
+      num_comments = rand(3..6)
       num_comments.times do
         content = rand_comments.sample
         comment_user = users.sample
@@ -467,8 +566,8 @@ rand_posts = ["You seem like a great person to share an apartment or room with f
   puts "Creating Favorites...."
     concerts.each do |concert|
       20.times do
-        user = User.all.sample
-        concert = Concert.all.sample
+        fav_user = users.sample
+        fav_concert = Concert.all.sample
 
 
         unless user.favorited?(concert)
