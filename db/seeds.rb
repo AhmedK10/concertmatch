@@ -616,41 +616,39 @@ end
   end
 
 
-  # puts "creating chatrooms and messages for ahmed profile......"
+  puts "creating chatrooms and messages for ahmed profile......"
 
-  # # Find or create the chatroom between Ahmed and Ben
-  # chatroom1 = Chatroom.create!(name: "Ahmed & Dirk Chatroom")
-  # chatroom1.users = [ahmed, dirk]
-  # chatroom1.save!
-
-  # # Create messages
-  # message1 = Message.create!(
-  #   content: "Hi Dirk",
-  #   user: ahmed,
-  #   chatroom: chatroom1
-  # )
-
-  # message2 = Message.create!(
-  #   content: "Hi Ahmed",
-  #   user: ben,
-  #   chatroom: chatroom1
-  # )
+  # Find or create the chatroom between Ahmed and Dirk
+  chatroom1 = Chatroom.create!(name: "Ahmed & Dirk Chatroom", user: dirk)
 
 
-  # # Find or create the chatroom between Ahmed and Ben
-  # chatroom2 = Chatroom.create!(name: "Ahmed & Emma's Chatroom")
-  # chatroom2.users = [ahmed, emma]
-  # chatroom2.save!
+  # Create messages
+  message1 = Message.create!(
+    content: "Hi Dirk",
+    user: ahmed,
+    chatroom: chatroom1
+  )
 
-  # # Create messages
-  # message3 = Message.create!(
-  #   content: "Hi Emma",
-  #   user: ahmed,
-  #   chatroom: chatroom2
-  # )
+  message2 = Message.create!(
+    content: "Hi Ahmed",
+    user: dirk,
+    chatroom: chatroom1
+  )
 
-  # message4 = Message.create!(
-  #   content: "Hi Ahmed",
-  #   user: emma,
-  #   chatroom: chatroom2
-  # )
+
+  # Find or create the chatroom between Ahmed and Emma
+  chatroom2 = Chatroom.create!(name: "Ahmed & Emma Chatroom", user: emma)
+
+
+  # Create messages
+  message3 = Message.create!(
+    content: "Hi Emma",
+    user: ahmed,
+    chatroom: chatroom2
+  )
+
+  message4 = Message.create!(
+    content: "Hi Ahmed",
+    user: emma,
+    chatroom: chatroom2
+  )
