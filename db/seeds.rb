@@ -609,8 +609,9 @@ end
         fav_concert = Concert.all.sample
 
 
-        unless fav_user.favorited?(concert)
-          Favorite.create!(user: fav_user, concert: concert)
+
+      unless fav_user.favorited?(concert)
+        Favorite.create!(user: fav_user, concert: concert)
       end
     end
   end
