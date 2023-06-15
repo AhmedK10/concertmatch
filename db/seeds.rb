@@ -413,7 +413,7 @@ rand_posts = ["You seem like a great person to share an apartment or room with f
   "The joy and excitement you bring to the search for a roommate make me confident you'll find an amazing match.",
   "You're on the right track to find a like-minded concert buddy. Keep up the positive energy!",
   "The concert will be even more special with the shared experience of finding a great roommate. Good luck!"]
-
+#
   rand_comments = [
     "Sounds like a great plan! I'm also looking for someone to share accommodation for the concert.",
     "Count me in! It would be awesome to travel together and attend the concert.",
