@@ -9,7 +9,6 @@
           <div class="col-md-6">
             <div class="d-flex align-items-center">
               <%= f.input :content, placeholder: "Enter content", label: false, class: "smaller-input mr-2" %>
-              <%= f.submit "Post", class: "button-navbar-purple" %>
             </div>
           </div>
         </div>
@@ -27,15 +26,16 @@
                   <i class="fa-solid fa-route fa-beat pe-4 ps-1" style="color: #8a2be2;"></i>
                   <% when "buddies" %>
                   <i class="fa-solid fa-user-plus fa-beat pe-4 ps-1" style="color: #8a2be2;"></i>
-                <% end %>
-              </span>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+                  <% end %>
+                </span>
+              <% end %>
+            </div>
+          <% end %>
+          <%= f.submit "Post", class: "button-navbar-purple" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
 </div>
 <div class="container-forum">
   <div class="filter-box">
