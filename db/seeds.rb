@@ -470,6 +470,7 @@ rand_posts = ["You seem like a great person to share an apartment or room with f
         user = User.all.sample
         concert = Concert.all.sample
 
+
         unless user.favorited?(concert)
           Favorite.create!(user: user, concert: concert)
       end

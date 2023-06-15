@@ -27,7 +27,7 @@
             <%= link_to "Threads", "#", class: "nav-link" %>
           </li>
           <li class="nav-item custom-active">
-            <%= link_to "Conversations", "#", class: "nav-link", style: "padding-right: 50px" %>
+            <%= link_to "My profile", index_path , class: "nav-link", style: "padding-right: 50px" %>
           </li>
           <li class="nav-item dropdown">
             <% if current_user.photo.url.present? %>

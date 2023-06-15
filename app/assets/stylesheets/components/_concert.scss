@@ -1,5 +1,5 @@
 .date {
-  padding-top: 20px;
+  margin-top: 20px;
 }
 
 .artist-genre {
@@ -124,4 +124,12 @@
 
 .concert-details {
   margin-bottom: 40px;
+}
+
+.date {
+  border-right: 2px solid black;
+}
+
+.details-info h1 {
+  margin-bottom: 20px;
 }

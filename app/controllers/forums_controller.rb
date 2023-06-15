@@ -8,8 +8,8 @@ class ForumsController < ApplicationController
       @forums = @forums.where("board ILIKE ?", "%#{params[:query]}%")
     end
 
-    if params[:board_type].present?
-      @forums = @forums.where(board: params[:board_type])
+    if params[:board].present?
+      @forums = @forums.where(board: params[:board])
     end
 
     if params[:gender].present?
@@ -44,6 +44,8 @@ class ForumsController < ApplicationController
     @forum = Forum.new(forum_params)
     @forum.concert = @concert
     @forum.user = current_user
+
+    @forum.board = params[:forum][:board]
 
     if @forum.save
       redirect_to concert_forums_path(@concert)
