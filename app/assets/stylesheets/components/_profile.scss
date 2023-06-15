@@ -1,45 +1,45 @@
 .bgpurple {
-  background-color: #8A2BE2;
+  background-color: $purple;
 }
 
 .bgwhite {
-
   background-color: white;
 }
 
 .music-list {
-  background-color: yellow;
+  background-color: $yellow;
   width: 300px;
 }
 
 .artist-list {
-  background-color: yellow;
+  background-color: $yellow;
   width: 300px;
 }
 
 .background-yellow {
-  background-color: yellow;
+  background-color: $yellow;
   width: 420px;
 }
 
 .text-center {
-  text-align: center
-}
-.profile-img {
-  border-radius: 50%;
-  width: 130px;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  text-align: center;
 }
 
+// .profile-img {
+//   border-radius: 50%;
+//   width: 130px;
+//   margin-top: 15px;
+//   margin-bottom: 10px;
+// }
+
 .background-yellow-smaller {
-  background-color: yellow;
+  background-color: $yellow;
   border-radius: 3px;
   font-weight: 100;
   width: 200px;
 }
 
-.text-decoration-line{
+.text-decoration-line {
   text-decoration-line: underline;
 }
 
@@ -63,20 +63,20 @@
   height: 100%;
   background-repeat: no-repeat;
   background-position: center;
+}
 
-  .card-prof-img {
-    background-size: cover;
-    background-position: center;
-    height: 175px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 29px;
-    font-weight: bolder;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  }
+.card-prof-img {
+  background-size: cover;
+  background-position: center;
+  height: 175px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 29px;
+  font-weight: bolder;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .black-text {
@@ -95,34 +95,91 @@
 
 .artist-text-card {
   font-weight: bolder;
-  text-shadow: 1px 1px 0 #000,
-    -1px 1px 0 #000,
-    1px -1px 0 #000,
-    -1px -1px 0 #000,
-    0px 1px 0 #000,
-    0px -1px 0 #000,
-    -1px 0px 0 #000,
-    1px 0px 0 #000,
-    2px 2px 0 #000,
-    -2px 2px 0 #000,
-    2px -2px 0 #000,
-    -2px -2px 0 #000,
-    0px 2px 0 #000,
-    0px -2px 0 #000,
-    -2px 0px 0 #000,
-    2px 0px 0 #000,
-    1px 2px 0 #000,
-    -1px 2px 0 #000,
-    1px -2px 0 #000,
-    -1px -2px 0 #000,
-    2px 1px 0 #000,
-    -2px 1px 0 #000,
-    2px -1px 0 #000,
-    -2px -1px 0 #000;
+  text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000, 0px 1px 0 #000, 0px -1px 0 #000, -1px 0px 0 #000, 1px 0px 0 #000, 2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0px 2px 0 #000, 0px -2px 0 #000, -2px 0px 0 #000, 2px 0px 0 #000, 1px 2px 0 #000, -1px 2px 0 #000, 1px -2px 0 #000, -1px -2px 0 #000, 2px 1px 0 #000, -2px 1px 0 #000, 2px -1px 0 #000, -2px -1px 0 #000;
+}
+
+.private-chat {
+  margin-left: 50px;
+  margin-bottom: 10px;
+  font-weight: bolder;
+  text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000, 0px 1px 0 #000, 0px -1px 0 #000, -1px 0px 0 #000, 1px 0px 0 #000, 2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0px 2px 0 #000, 0px -2px 0 #000, -2px 0px 0 #000, 2px 0px 0 #000, 1px 2px 0 #000, -1px 2px 0 #000, 1px -2px 0 #000, -1px -2px 0 #000, 2px 1px 0 #000, -2px 1px 0 #000, 2px -1px 0 #000, -2px -1px 0 #000;
 }
 
 
 .msg-history {
   color: white;
   text-decoration: none;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.yellow-line {
+  width: 100%;
+  background-color: $yellow;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.favorites-list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none; /* Remove the bullets */
+  padding-left: 0; /* Remove the left indentation */
+}
+
+.profile-text {
+  h4 {
+    color: white;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+.socials .list-inline-item a i {
+  font-size: 40px;
+  color: white;
+  transition: color 0.3s;
+}
+
+.socials .list-inline-item a:hover i {
+  color: yellow;
+}
+
+.btn-friend {
+  color: $purple;
+  background-color: $yellow;
+  padding: 10px 15px;
+  border-radius: 3px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+  transition: background 0.5s ease;
+  margin-right: 20px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.btn-friend i {
+  margin-right: 5px;
+}
+
+.btn-friend:hover {
+  background-color: white;
+  color: $purple;
+  border: 2px solid $yellow;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  opacity: 1;
+  text-decoration: none;
+}
+
+.profile-img {
+  width: 200px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border-radius: 30px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
 }

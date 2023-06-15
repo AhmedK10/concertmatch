@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :forums, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :chatrooms, dependent: :destroy
-
+  has_one_attached :photo
   def active_chats
     @chatrooms = []
     @chatrooms << self.chatrooms    # chat coming from reciver (has_many)
@@ -40,6 +40,4 @@ class User < ApplicationRecord
   def favorited?(concert)
     concert.users.include?(self)
   end
-  has_one_attached :photo
-
 end

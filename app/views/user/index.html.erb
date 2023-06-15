@@ -2,42 +2,50 @@
   <div class="container-smaller">
     <div class="row shadow-gray">
       <div class="col-5 bgpurple d-flex flex-column align-items-center pt-3 pb-3">
+        <!--<#% if @user.photo.attached? %>
+          <#%= image_tag url_for(@user.photo), class: "profile-img" %>
+        <#% end %> -->
         <%= image_tag "ahmed-pic.png", class: "profile-img" %>
         <h2 class="text-white artist-text-card">- Ahmed -</h2>
-        <div class="text-center d-flex justify-content-between align-items-center fw-light">
+        <div class="text-center d-flex justify-content-between align-items-center fw-light" style="margin-left: 10px;">
           <div>
-            <h4 class="background-yellow-smaller mt-2 mb-2 ms-3 me-3 pt-1 pb-1 ps-3 pe-3" style="font-weight: bolder;">ADD FRIEND</h4>
+            <a class="btn-friend">
+              <i class="fa-solid fa-user-plus pe-2" style="font-size: 20px; color: #8a2be2;"></i>
+              Add Friend
+            </a>
           </div>
           <div>
-            <li class="list-inline-item" style="margin-bottom: 10px; font-size: 18px;">
+            <li class="list-inline-item" style="margin-bottom: 10px; margin-top: 10px; padding-top: 10px; font-size: 18px;">
               <i class="fa-regular fa-comments fa-shake fa-xl" style="color: $yellow;"></i>
             </li>
           </div>
         </div>
-        <ul class="list-inline social-icons mt-3">
-          <li class="list-inline-item"><a href="https://www.facebook.com"><i class="fab fa-facebook" style="font-size: 40px; color: yellow;"></i></a></li>
-          <li class="list-inline-item"><a href="https://www.twitter.com"><i class="fab fa-twitter" style="font-size: 40px; color: yellow;"></i></a></li>
-          <li class="list-inline-item"><a href="https://www.instagram.com"><i class="fab fa-instagram" style="font-size: 40px; color: yellow;"></i></a></li>
-          <li class="list-inline-item"><a href="https://www.spotify.com"><i class="fab fa-spotify" style="font-size: 40px; color: yellow;"></i></a></li>
+        <ul class="socials list-inline social-icons mt-3">
+          <li class="list-inline-item"><a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.spotify.com"><i class="fab fa-spotify"></i></a></li>
         </ul>
-        <h4 class="text-white custom-light-text mt-3" style="border-bottom:4px solid white; ">ABOUT ME</h4>
-        <p class="text-white mt-2 ps-5 pe-5 artist-text-card" style="font-size: 19px;">I like listening to Rock, Metal, Pop and Electronic Music. Looking to connect with concert goers who share similar interests! Would like to find travel and accommodation buddies.</p>
-        <h4 class="text-white mt-1" style="border-bottom:4px solid white; ">CONVERSATIONS</h4>
-        <ul class="list-unstyled mt-3" style="font-size :21px; ">
-          <% current_user.active_chats.each do |chat| %>
-            <li class="text-white artist-text-card"><i class="fa-regular fa-comments fa-shake fa-xl me-3" style="color: $yellow;"></i><%= link_to chat.name, chatroom_path(chat), class:"msg-history" %>'s Chat</li>
-          <% end %>
-          <%# <li class="text-white "><i class="fa-sharp fa-solid fa-phone"> 064453554</i></li>
-          <li class="text-white "><i class="fa-sharp fa-solid fa-paper-plane"> ggg@gmail.com</i></li>
-          <li class="text-white "><i class="fa-sharp fa-solid fa-globe"> www//wwwww</i></li>
-          <li class="text-white "><i class="fa-sharp fa-solid fa-location-dot">Amsterdam, 54-8</i></li> %>
-        </ul>
+        <div class="profile-text">
+          <h4 class="text-white custom-light-text mt-3" style="border-bottom:4px solid white; ">ABOUT ME</h4>
+          <p class="text-white mt-2 ps-5 pe-5 artist-text-card" style="font-size: 19px;">I like listening to Rock, Metal, Pop and Electronic Music. Looking to connect with concert goers who share similar interests! Would like to find travel and accommodation buddies.</p>
+          <h4 class="text-white mt-1" style="border-bottom:4px solid white; ">CONVERSATIONS</h4>
+          <ul class="list-unstyled mt-3" style="font-size :21px; ">
+            <% current_user.active_chats.each do |chat| %>
+              <li class=" private-chat text-white"><i class="fa-regular fa-comments fa-shake fa-xl me-3" style="color: $yellow;"></i><%= link_to chat.name, chatroom_path(chat), class:"msg-history" %>'s Chat</li>
+            <% end %>
+            <%# <li class="text-white "><i class="fa-sharp fa-solid fa-phone"> 064453554</i></li>
+            <li class="text-white "><i class="fa-sharp fa-solid fa-paper-plane"> ggg@gmail.com</i></li>
+            <li class="text-white "><i class="fa-sharp fa-solid fa-globe"> www//wwwww</i></li>
+            <li class="text-white "><i class="fa-sharp fa-solid fa-location-dot">Amsterdam, 54-8</i></li> %>
+          </ul>
+        </div>
       </div>
       <div class="col-7 bg-white d-flex flex-column align-items-center pt-3 pb-3">
         <div class="text-center">
           <div>
-            <div class="d-flex justify-content-center align-items-center">
-              <h4 class="text-center background-yellow mt-2 mb-2 ms-3 me-3 pt-2 pb-2 ps-3 pe-3" style="font-weight: bolder;">TOP ARTISTS</h4>
+            <div class="yellow-line">
+              <h4 class="text-center" style="font-weight: bolder;">TOP ARTISTS</h4>
             </div>
             <div class="grid-prof mb-2">
               <div class="card-prof">
@@ -63,48 +71,46 @@
             </div>
           </div>
           <div class="mt-5">
-            <div class="d-flex justify-content-center align-items-center">
-              <h4 class="text-center background-yellow mt-2 mb-2 ms-3 me-3 pt-2 pb-2 ps-2 pe-2" style="font-weight: bolder;">CONCERTS I'M INTERESTED IN</h4>
+            <div class="yellow-line">
+              <h4 class="text-center" style="font-weight: bolder;">CONCERTS I'M INTERESTED IN</h4>
             </div>
-            <div class='mt-4 mb-4'>
+            <div class="favorites-list mt-4 mb-4">
               <% current_user.favorites.first(4).each do |f| %>
-                <ul>
-                  <li class="black-text"><%= f.concert.name %></li>
-                </ul>
+                <p class="black-text"><%= f.concert.name %></p>
               <% end %>
-              <%# <ul>
+            </div>
+            <%# <ul>
                 <li class="black_text">AWAKENINGS, AMSTERDAM</li>
                 <li class="black_text">MAROON 5, BOSTON</li>
                 <li class="black_text">GORILLAZ, LONDON</li>
                 <li class="black_text">BEYONCE, BERLIN</li>
                 <li class="black_text">JUSTIN, TOKYO</li>
               </ul> %>
-            </div>
           </div>
-          <div>
-            <div class="d-flex justify-content-center align-items-center">
-              <h4 class="text-center background-yellow mt-2 mb-2 ms-3 me-3 pt-2 pb-2 ps-3 pe-3" style="font-weight: bolder;">TOP GENRES</h4>
+        </div>
+        <div>
+          <div class="d-flex justify-content-center align-items-center">
+            <h4 class="yellow-line text-center" style="font-weight: bolder; width: 750px;">TOP GENRES</h4>
+          </div>
+          <div class="grid-prof">
+            <div class="card-prof">
+              <div class="card-prof-img" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= asset_path('rock.jpg') %>)">
+                <p class="text-white artist-text-card">ROCK</p>
+              </div>
             </div>
-            <div class="grid-prof">
-              <div class="card-prof">
-                <div class="card-prof-img" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= asset_path('rock.jpg') %>)">
-                  <p class="text-white artist-text-card">ROCK</p>
-                </div>
+            <div class="card-prof">
+              <div class="card-prof-img" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= asset_path('metal.jpg') %>)">
+                <p class="text-white artist-text-card">METAL</p>
               </div>
-              <div class="card-prof">
-                <div class="card-prof-img" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= asset_path('metal.jpg') %>)">
-                  <p class="text-white artist-text-card">METAL</p>
-                </div>
+            </div>
+            <div class="card-prof">
+              <div class="card-prof-img" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= asset_path('pop.jpg') %>)">
+                <p class="text-white artist-text-card">POP</p>
               </div>
-              <div class="card-prof">
-                <div class="card-prof-img" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= asset_path('pop.jpg') %>)">
-                  <p class="text-white artist-text-card">POP</p>
-                </div>
-              </div>
-              <div class="card-prof">
-                <div class="card-prof-img" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= asset_path('electro.jpg') %>)">
-                  <p class="text-white artist-text-card">Electronic</p>
-                </div>
+            </div>
+            <div class="card-prof">
+              <div class="card-prof-img" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= asset_path('electro.jpg') %>)">
+                <p class="text-white artist-text-card">Electronic</p>
               </div>
             </div>
           </div>
@@ -112,4 +118,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
