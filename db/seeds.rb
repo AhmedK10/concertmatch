@@ -74,9 +74,9 @@ ben = User.new(
   last_name: "Lee",
   gender: 0,
 
-  date_of_birth: Date.parse("1989-01-08"),
-  bio: bio_options.sample,
-  genres: genres.sample
+  date_of_birth: Date.parse("1996-01-08"),
+  bio: "Concert advocate, promoting the importance of live music for the soul and community.",
+  genres: "Rock"
 
 )
 ben.save!
