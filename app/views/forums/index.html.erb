@@ -92,10 +92,6 @@
         <div class="user-info">
           <% if forum.user.photo.attached? %>
             <%= cl_image_tag forum.user.photo.key, class: "avatar-large" %>
-          <% elsif forum.user.gender == "male" %>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
-          <% else %>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
           <% end %>
           <div class="user-first_name">
             <h3><%= forum.user.first_name %></h3>
