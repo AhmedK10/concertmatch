@@ -22,7 +22,7 @@ class ConcertsController < ApplicationController
     end
 
     if params[:location].present?
-      @concerts = @concerts.where("address ILIKE ?", "%#{params[:location]}%")
+      @concerts = @concerts.where("address ILIKE :location OR city ILIKE :location OR country ILIKE :location", location: "%#{params[:location]}%")
     end
 
     # if params[:start_date].present? && params[:end_date].present?
