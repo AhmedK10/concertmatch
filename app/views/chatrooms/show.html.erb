@@ -3,7 +3,7 @@
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
 >
   <div class="header mt-4">
-    <a href="http://localhost:3000/concerts/2800">
+    <a href="<%= request.referrer || https://www.concertmatch.online/concerts/231 %>">
       <i class="fa-solid fa-arrow-left" style="color: #c30bd0;"> Back</i>
     </a>
     <h1><strong><%= "#{@chatroom.name}'s Chatroom" %></strong></h1>
