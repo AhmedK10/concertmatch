@@ -48,7 +48,7 @@
               <% if current_user.favorited?(@concert) %>
                 <%= link_to "Go to Forum", concert_forums_path(@concert), class: "button-navbar-purple text-decoration-none" %>
               <% else %>
-                <%= link_to "interested", concert_favorites_path(@concert), data: { turbo_method: :post }, class: "button-navbar-purple text-decoration-none" %>
+                <%= link_to "Interested", concert_favorites_path(@concert), data: { turbo_method: :post }, class: "button-navbar-purple text-decoration-none" %>
               <% end %>
             <% end %>
           </div>
@@ -102,7 +102,7 @@
         <div class="row">
           <% if !@favorites.empty? %>
             <% @favorites.each do |f| %>
-              <div class="col-sm-4 mb-5"> 
+              <div class="col-sm-4 mb-5">
                 <div class="d-flex flex-column align-items-center">
                   <% if f.user.photo.attached? %>
                     <%= cl_image_tag f.user.photo.key, class: "avatar" %>
