@@ -3,9 +3,9 @@
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
 >
   <div class="header mt-4">
-    <%= link_to :back do %>
+    <a href="http://localhost:3000/concerts/2800">
       <i class="fa-solid fa-arrow-left" style="color: #c30bd0;"> Back</i>
-    <% end %>
+    </a>
     <h1><strong><%= "#{@chatroom.name}'s Chatroom" %></strong></h1>
   </div>
   <div class="messages" data-chatroom-subscription-target="messages">
@@ -30,5 +30,5 @@
       <%= f.submit "Send", class: "button-chat" %>
     <% end %>
   </div>
-  </div>
+</div>
 </div>
