@@ -3,9 +3,9 @@
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
 >
   <div class="header mt-4">
-    <a href="<%= request.referrer || https://www.concertmatch.online/concerts/231 %>">
+    <%= link_to :back do %>
       <i class="fa-solid fa-arrow-left" style="color: #c30bd0;"> Back</i>
-    </a>
+    <% end %>
     <h1><strong><%= "#{@chatroom.name}'s Chatroom" %></strong></h1>
   </div>
   <div class="messages" data-chatroom-subscription-target="messages">
