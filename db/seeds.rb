@@ -345,7 +345,7 @@ lane.save
 
 #starset
 concert_starset_1 = Concert.new(
-  name: "Starset: Horizons Tour",
+  name: "Starset: Horizons Tour - Milan",
   summary: "Cinematic rock outfit Starset uses the mysteries of deep space as the launching pad for their cerebral, galactic anthems. In concert the band blasts off with blazing guitars, heavy drums, and swirling symphonic touches, lifting their soaring songs into the cosmos with razor-sharp playing and gravity-defying energy.",
   address: "Alcatraz",
   date: Time.new(2023, 7, 1, 20, 0, 0, "+00:00"), # Example: June 30, 2023, 8:00 PM UTC,
@@ -390,7 +390,7 @@ concert_skillet.save!
 
 #Starset
 concert_starset_2 = Concert.new(
-  name: "Starset: Horizons Tour",
+  name: "Starset: Horizons Tour - Munich",
   summary: "Cinematic rock outfit Starset uses the mysteries of deep space as the launching pad for their cerebral, galactic anthems. In concert the band blasts off with blazing guitars, heavy drums, and swirling symphonic touches, lifting their soaring songs into the cosmos with razor-sharp playing and gravity-defying energy.",
   address: "Tonhalle",
   date: Time.new(2023, 7, 2, 20, 0, 0, "+00:00"),
@@ -404,7 +404,7 @@ concert_starset_2.photo.attach(io: file, filename: "#{concert_starset_2.name}.jp
 concert_starset_2.save!
 
 concert_starset_3 = Concert.new(
-  name: "Starset: Horizons Tour",
+  name: "Starset: Horizons Tour - Warsaw",
   summary: "Cinematic rock outfit Starset uses the mysteries of deep space as the launching pad for their cerebral, galactic anthems. In concert the band blasts off with blazing guitars, heavy drums, and swirling symphonic touches, lifting their soaring songs into the cosmos with razor-sharp playing and gravity-defying energy.",
   address: "Proxima",
   date: Time.new(2023, 7, 3, 20, 0, 0, "+00:00"),
@@ -418,7 +418,7 @@ concert_starset_3.photo.attach(io: file, filename: "#{concert_starset_3.name}.jp
 concert_starset_3.save!
 
 concert_starset_4 = Concert.new(
-  name: "Starset: Horizons Tour",
+  name: "Starset: Horizons Tour - Amsterdam",
   summary: "Cinematic rock outfit Starset uses the mysteries of deep space as the launching pad for their cerebral, galactic anthems. In concert the band blasts off with blazing guitars, heavy drums, and swirling symphonic touches, lifting their soaring songs into the cosmos with razor-sharp playing and gravity-defying energy.",
   address: "Melkweg Max",
   date: Time.new(2023, 7, 6, 20, 0, 0, "+00:00"),
@@ -432,7 +432,7 @@ concert_starset_4.photo.attach(io: file, filename: "#{concert_starset_4.name}.jp
 concert_starset_4.save!
 
 concert_starset_5 = Concert.new(
-  name: "Starset: Horizons Tour",
+  name: "Starset: Horizons Tour - Amsterdam",
   summary: "Cinematic rock outfit Starset uses the mysteries of deep space as the launching pad for their cerebral, galactic anthems. In concert the band blasts off with blazing guitars, heavy drums, and swirling symphonic touches, lifting their soaring songs into the cosmos with razor-sharp playing and gravity-defying energy.",
   address: "Melkweg Max",
   date: Time.new(2023, 7, 8, 20, 0, 0, "+00:00"),
@@ -477,8 +477,8 @@ rand_summaries = ["Join us for an extraordinary evening of live music, as some o
                   "Join us for an evening of breathtaking virtuosity, as a lineup of prodigious instrumentalists showcase their unmatched skill and dexterity on their respective instruments. From intricate guitar solos to mind-blowing drum performances, this concert will leave you in awe of human musical potential.",
                   "Indulge in an evening of musical storytelling, as this concert presents a collection of songs that explore universal"]
 puts "Fetching Concerts from TicketMaster...."
-events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=10&classificationName=music&apikey=#{ENV["TICKETMASTERKEY"]}")
-ams_raw =  HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=10&classificationName=music&city=Amsterdam&apikey=#{ENV["TICKETMASTERKEY"]}")
+events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=30&classificationName=music&apikey=#{ENV["TICKETMASTERKEY"]}")
+ams_raw =  HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=30&classificationName=music&city=Amsterdam&apikey=#{ENV["TICKETMASTERKEY"]}")
 data = JSON.parse(events_raw.body)
 ams_data = JSON.parse(ams_raw.body)
 events = data["_embedded"]["events"]
