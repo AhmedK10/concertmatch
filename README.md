@@ -20,9 +20,9 @@ This repo is for an extensive web development project made during time as a stud
 
 ## Website
 
-Link : <a href="https://concertmatch.online" "target="_blank">https://concertmatch.online</a>
+Link : <a href="https://concertmatch.online" target="_blank">https://concertmatch.online</a>
 
-<a href="https://concertmatch.online" "target="_blank"><img src="https://i.ibb.co/4mNhnH4/concertmatch-home.png" alt="concertmatch-home" border="0"></a>
+<a href="https://concertmatch.online" target="_blank"><img src="https://i.ibb.co/4mNhnH4/concertmatch-home.png" alt="concertmatch-home" border="0"></a>
 
 
 
