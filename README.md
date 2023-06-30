@@ -9,7 +9,7 @@ This repo is for an extensive web development project made during time as a stud
   - [Description](#description)
   - [Tools Used](#tools-used)
   - [Login Instructions](#login-instructions)
-  - [User Journey and Features](#user-journey-and-features)
+  - [User Journey & Features](#user-journey-&-features)
   - [Features To Add](#features-to-add)
 
 ## The Team
