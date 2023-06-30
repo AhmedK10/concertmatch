@@ -8,8 +8,8 @@ This repo is for an extensive web development project made during time as a stud
   - [Website](#website)
   - [Description](#description)
   - [Tools Used](#tools-used)
-  - [Features and User Journey](#features-and-user-journey)
   - [Login Instructions](#login-instructions)
+  - [User Journey and Features](#user-journey-and-features)
   - [Features To Add](#features-to-add)
 
 ## The Team
