@@ -70,7 +70,7 @@ To start the user journey, you can login in with the following credentials:
 ## Features To Add
 Ideas for future features to be implemented:
 <ul>
-	<li>linking the user to Spotify's API to get even more connectivity and reccomendations for artists and concerts based on taste</li>
-	<li>making a map system with user defined location filters to find concerts within a user specified range</li>
+	<li>Linking the user to thier Spotify account by using Spotify's API to get even more connectivity and reccomendations for artists and concerts based on taste</li>
+	<li>Making a map system with user defined location filters to find concerts within a user specified range</li>
 	<li>Adding the ability to add freinds to a freinds list</li>
 </ul>
