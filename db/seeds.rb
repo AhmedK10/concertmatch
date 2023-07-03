@@ -477,8 +477,8 @@ rand_summaries = ["Join us for an extraordinary evening of live music, as some o
                   "Join us for an evening of breathtaking virtuosity, as a lineup of prodigious instrumentalists showcase their unmatched skill and dexterity on their respective instruments. From intricate guitar solos to mind-blowing drum performances, this concert will leave you in awe of human musical potential.",
                   "Indulge in an evening of musical storytelling, as this concert presents a collection of songs that explore universal"]
 puts "Fetching Concerts from TicketMaster...."
-events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=30&classificationName=music&apikey=#{ENV["TICKETMASTERKEY"]}")
-ams_raw =  HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=30&classificationName=music&city=Amsterdam&apikey=#{ENV["TICKETMASTERKEY"]}")
+events_raw = HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=15&classificationName=music&apikey=#{ENV["TICKETMASTERKEY"]}")
+ams_raw =  HTTParty.get("https://app.ticketmaster.com/discovery/v2/events.json?size=10&classificationName=music&city=Amsterdam&apikey=#{ENV["TICKETMASTERKEY"]}")
 data = JSON.parse(events_raw.body)
 ams_data = JSON.parse(ams_raw.body)
 events = data["_embedded"]["events"]
@@ -620,7 +620,7 @@ end
   puts "creating chatrooms and messages for ahmed profile......"
 
   # Find or create the chatroom between Ahmed and Dirk
-  chatroom1 = Chatroom.create!(name: "Ahmed & Dirk Chatroom", user: dirk)
+  chatroom1 = Chatroom.create!(name: "Ahmed & Dirk", user: dirk)
 
 
   # Create messages
@@ -638,7 +638,7 @@ end
 
 
   # Find or create the chatroom between Ahmed and Emma
-  chatroom2 = Chatroom.create!(name: "Ahmed & Emma Chatroom", user: emma)
+  chatroom2 = Chatroom.create!(name: "Ahmed & Emma", user: emma)
 
 
   # Create messages
