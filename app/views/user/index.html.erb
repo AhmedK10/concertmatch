@@ -5,7 +5,7 @@
         <!--<#% if @user.photo.attached? %>
           <#%= image_tag url_for(@user.photo), class: "profile-img" %>
         <#% end %> -->
-        <%= image_tag "ahmed-pic.png", class: "profile-img" %>
+        <%= image_tag current_user.photo.url, class: "profile-img" %>
         <h2 class="text-white artist-text-card">- Ahmed -</h2>
         <div class="text-center d-flex justify-content-between align-items-center fw-light" style="margin-left: 10px;">
           <div>
