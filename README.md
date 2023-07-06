@@ -28,7 +28,7 @@ Link : <a href="https://concertmatch.online" target="_blank">https://concertmatc
 
 ## Description
 
-<p align="center">Are you a frequent concertgoer who also travels a lot? Have you wished there was a way to connect with fellow enthusiasts going to the same concert before and after the event? Then ConcertMatch is the platform for you.</p>
+<p align="center">Are you a frequent concert goer who also travels a lot? Have you wished there was a way to connect with fellow enthusiasts going to the same concert before and after the event? Then ConcertMatch is the platform for you.</p>
 <p align="center"><strong>Target Audience:</strong> ConcertMatch is aimed at concertgoers, travelers, and music enthusiasts of all ages.</p>
 <p align="center"><strong>The Pain to Solve:</strong> Often, finding people with similar tastes who also like the same artists, especially if you aren't a local in the event's city, isn't easy.</p>
 <p align="center"><strong>Solution:</strong> ConcertMatch connects people in a social media-like platform using similar music tastes as well as similar top artists. Additionally, ConcertMatch has the added feature of connecting with people who are looking for an accommodation roommate or a travel buddy for the same concert. Also, the platform has a private chat feature for those who would like more privacy.</p>
